@@ -5,9 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowRight, RotateCcw, Download } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
+import jsPDF from "jspdf";
 
 const questions = [
   "Você frequentemente se sente sobrecarregado(a) em ambientes com muitos estímulos (sons altos, luzes brilhantes, multidões)?",
@@ -77,7 +79,9 @@ const Assessment = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState<any>(null);
+  const [formData, setFormData] = useState<FormData | null>(null);
   const navigate = useNavigate();
+  const { toast } = useToast();
   
   const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
   
@@ -206,6 +210,7 @@ const Assessment = () => {
   const onSubmit = (data: FormData) => {
     const analysisResult = analyzeResults(data);
     setResult(analysisResult);
+    setFormData(data);
     setShowResult(true);
   };
   
@@ -214,10 +219,135 @@ const Assessment = () => {
     setCurrentQuestion(0);
     setShowResult(false);
     setResult(null);
+    setFormData(null);
   };
   
   const handleQuestionAnswer = (value: string) => {
     setValue(`question_${currentQuestion}`, value);
+  };
+  
+  const generatePDF = () => {
+    if (!result || !formData) return;
+    
+    try {
+      const doc = new jsPDF();
+      let yPosition = 20;
+      const pageWidth = doc.internal.pageSize.width;
+      const margin = 20;
+      const contentWidth = pageWidth - (margin * 2);
+      
+      // Título
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      doc.text("Resultado da Avaliação - Características do Espectro Autista", margin, yPosition);
+      yPosition += 15;
+      
+      // Data
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Data: ${new Date().toLocaleDateString("pt-BR")}`, margin, yPosition);
+      yPosition += 15;
+      
+      // Pontuação
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.text(`Pontuação: ${result.score}/${result.maxScore} (${result.percentage}%)`, margin, yPosition);
+      yPosition += 10;
+      
+      doc.setFontSize(12);
+      doc.text(`Nível: ${result.level}`, margin, yPosition);
+      yPosition += 15;
+      
+      // Interpretação
+      doc.setFont("helvetica", "normal");
+      const interpretationLines = doc.splitTextToSize(result.interpretation, contentWidth);
+      doc.text(interpretationLines, margin, yPosition);
+      yPosition += interpretationLines.length * 5 + 10;
+      
+      // Características
+      doc.setFont("helvetica", "bold");
+      doc.text("Características identificadas:", margin, yPosition);
+      yPosition += 8;
+      
+      doc.setFont("helvetica", "normal");
+      result.characteristics.forEach((char: string) => {
+        const charLines = doc.splitTextToSize(`• ${char}`, contentWidth - 10);
+        doc.text(charLines, margin + 5, yPosition);
+        yPosition += charLines.length * 5 + 2;
+      });
+      
+      yPosition += 10;
+      
+      // Recomendação
+      doc.setFont("helvetica", "bold");
+      doc.text("Recomendação:", margin, yPosition);
+      yPosition += 8;
+      
+      doc.setFont("helvetica", "normal");
+      const recommendationLines = doc.splitTextToSize(result.recommendation, contentWidth);
+      doc.text(recommendationLines, margin, yPosition);
+      yPosition += recommendationLines.length * 5 + 15;
+      
+      // Nova página para as respostas
+      doc.addPage();
+      yPosition = 20;
+      
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "bold");
+      doc.text("Respostas do Questionário", margin, yPosition);
+      yPosition += 15;
+      
+      // Respostas
+      doc.setFontSize(10);
+      questions.forEach((question, index) => {
+        // Verifica se precisa de nova página
+        if (yPosition > 250) {
+          doc.addPage();
+          yPosition = 20;
+        }
+        
+        doc.setFont("helvetica", "bold");
+        const questionText = `${index + 1}. ${question}`;
+        const questionLines = doc.splitTextToSize(questionText, contentWidth);
+        doc.text(questionLines, margin, yPosition);
+        yPosition += questionLines.length * 4 + 3;
+        
+        doc.setFont("helvetica", "normal");
+        const answerValue = formData[`question_${index}`];
+        const answerLabel = responseOptions.find(opt => opt.value === answerValue)?.label || "Não respondida";
+        doc.text(`Resposta: ${answerLabel}`, margin + 5, yPosition);
+        yPosition += 8;
+      });
+      
+      // Disclaimer
+      doc.addPage();
+      yPosition = 20;
+      
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "bold");
+      doc.text("Importante", margin, yPosition);
+      yPosition += 10;
+      
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      const disclaimerText = "Este teste é apenas para entretenimento e autoconhecimento. Não substitui uma avaliação profissional. Para um diagnóstico adequado, procure um profissional especializado em autismo.";
+      const disclaimerLines = doc.splitTextToSize(disclaimerText, contentWidth);
+      doc.text(disclaimerLines, margin, yPosition);
+      
+      // Salvar PDF
+      doc.save("resultado-avaliacao-autismo.pdf");
+      
+      toast({
+        title: "PDF gerado com sucesso!",
+        description: "O arquivo foi baixado para seu dispositivo.",
+      });
+    } catch (error) {
+      toast({
+        title: "Erro ao gerar PDF",
+        description: "Ocorreu um erro ao gerar o arquivo. Tente novamente.",
+        variant: "destructive",
+      });
+    }
   };
   
   if (showResult && result) {
@@ -298,6 +428,15 @@ const Assessment = () => {
               
               <div className="flex gap-4 justify-center pt-6">
                 <Button 
+                  onClick={generatePDF}
+                  variant="default"
+                  className="flex items-center gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  Baixar PDF
+                </Button>
+                
+                <Button 
                   onClick={restartTest}
                   variant="outline"
                   className="flex items-center gap-2"
@@ -308,6 +447,7 @@ const Assessment = () => {
                 
                 <Button 
                   onClick={() => navigate("/")}
+                  variant="outline"
                   className="flex items-center gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
