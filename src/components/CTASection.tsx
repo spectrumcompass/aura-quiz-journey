@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, FileText } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="py-20 bg-gradient-hero relative overflow-hidden">
       {/* Background Elements */}
@@ -26,6 +29,7 @@ const CTASection = () => {
             <Button 
               variant="secondary" 
               size="lg" 
+              onClick={() => navigate("/assessment")}
               className="text-lg px-8 py-4 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-strong"
             >
               <Play className="mr-2 w-5 h-5" />
