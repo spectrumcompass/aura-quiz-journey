@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, FileText } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
-  const navigate = useNavigate();
-  
   return (
     <section className="py-20 bg-gradient-hero relative overflow-hidden">
       {/* Background Elements */}
@@ -25,16 +23,18 @@ const CTASection = () => {
             ferramenta de entretenimento e autoconhecimento, sem qualquer validade científica ou diagnóstica.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button 
-              variant="secondary" 
-              size="lg" 
-              onClick={() => navigate("/assessment")}
-              className="text-lg px-8 py-4 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-strong"
-            >
-              <Play className="mr-2 w-5 h-5" />
-              Iniciar Avaliação Agora
-            </Button>
+           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+             <Button 
+               variant="secondary" 
+               size="lg" 
+               asChild
+               className="text-lg px-8 py-4 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-strong"
+             >
+               <Link to="/assessment">
+                 <Play className="mr-2 w-5 h-5" />
+                 Iniciar Avaliação Agora
+               </Link>
+             </Button>
             
             <Button 
               variant="outline" 
