@@ -7,12 +7,12 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            O que é a Avaliação do Espectro Autista?
+            O que é esta Autoavaliação?
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Nossa avaliação é baseada em critérios científicos reconhecidos internacionalmente. 
-            Ela não substitui um diagnóstico profissional, mas pode ajudar você a entender melhor 
-            suas características e decidir se deve buscar uma avaliação clínica.
+            Esta é uma ferramenta de autoavaliação criada apenas para fins de entretenimento e consciência pessoal. 
+            Não possui validade científica ou diagnóstica. É um questionário reflexivo que pode ajudar você a 
+            pensar sobre certas características, mas jamais substitui uma avaliação clínica profissional.
           </p>
         </div>
 

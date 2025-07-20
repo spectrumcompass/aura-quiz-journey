@@ -18,8 +18,8 @@ const CTASection = () => {
           </h2>
           
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-12 leading-relaxed">
-            Dê o primeiro passo para entender melhor suas características únicas. 
-            A avaliação é gratuita, confidencial e leva apenas alguns minutos.
+            Explore suas características através de perguntas reflexivas. Lembre-se: esta é apenas uma 
+            ferramenta de entretenimento e autoconhecimento, sem qualquer validade científica ou diagnóstica.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -46,10 +46,10 @@ const CTASection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-primary-foreground mb-2">
-                10K+
+                ∞
               </div>
               <div className="text-primary-foreground/80">
-                Avaliações Realizadas
+                Reflexões Possíveis
               </div>
             </div>
 
@@ -67,7 +67,7 @@ const CTASection = () => {
                 100%
               </div>
               <div className="text-primary-foreground/80">
-                Gratuito e Confidencial
+                Apenas Entretenimento
               </div>
             </div>
           </div>

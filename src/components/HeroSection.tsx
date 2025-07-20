@@ -21,15 +21,15 @@ const HeroSection = () => {
           {/* Trust Indicators */}
           <div className="flex justify-center items-center gap-6 mb-8 animate-fade-in">
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Shield className="w-5 h-5 text-success" />
-              <span className="text-sm">Científicamente validado</span>
+              <Shield className="w-5 h-5 text-accent" />
+              <span className="text-sm">Apenas entretenimento</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Users className="w-5 h-5 text-success" />
-              <span className="text-sm">+10.000 avaliações</span>
+              <Users className="w-5 h-5 text-accent" />
+              <span className="text-sm">Autoconhecimento</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Clock className="w-5 h-5 text-success" />
+              <Clock className="w-5 h-5 text-accent" />
               <span className="text-sm">15-20 minutos</span>
             </div>
           </div>
@@ -41,7 +41,8 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Uma ferramenta científica e confidencial para ajudar você a entender melhor suas características e padrões comportamentais relacionados ao espectro autista.
+              Esta é uma ferramenta de autoavaliação apenas para fins de entretenimento e consciência pessoal. 
+              Não possui validade científica e não substitui avaliação profissional.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -61,24 +62,24 @@ const HeroSection = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2">100% Confidencial</h3>
-                <p className="text-sm text-muted-foreground">Seus dados são protegidos e nunca compartilhados</p>
+                <h3 className="font-semibold mb-2">Apenas Entretenimento</h3>
+                <p className="text-sm text-muted-foreground">Ferramenta para reflexão pessoal, sem valor diagnóstico</p>
               </div>
 
               <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 shadow-soft border border-border/50">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Users className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="font-semibold mb-2">Base Científica</h3>
-                <p className="text-sm text-muted-foreground">Baseado em critérios reconhecidos internacionalmente</p>
+                <h3 className="font-semibold mb-2">Autoconhecimento</h3>
+                <p className="text-sm text-muted-foreground">Para reflexão e curiosidade pessoal</p>
               </div>
 
               <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 shadow-soft border border-border/50">
                 <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Clock className="w-6 h-6 text-success" />
                 </div>
-                <h3 className="font-semibold mb-2">Rápido e Preciso</h3>
-                <p className="text-sm text-muted-foreground">Resultado imediato em poucos minutos</p>
+                <h3 className="font-semibold mb-2">Rápido e Simples</h3>
+                <p className="text-sm text-muted-foreground">Questionário rápido para reflexão pessoal</p>
               </div>
             </div>
           </div>
