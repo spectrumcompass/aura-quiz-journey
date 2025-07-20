@@ -59,7 +59,7 @@ const Assessment = () => {
   const [result, setResult] = useState<any>(null);
   const navigate = useNavigate();
   
-  const { register, handleSubmit, watch, reset } = useForm<FormData>();
+  const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
   
   const answers = watch();
   const progress = (Object.keys(answers).length / questions.length) * 100;
@@ -307,7 +307,8 @@ const Assessment = () => {
                   </h3>
                   
                   <RadioGroup 
-                    {...register(`question_${index}`, { required: true })}
+                    value={watch(`question_${index}`) || ""}
+                    onValueChange={(value) => setValue(`question_${index}`, value)}
                     className="space-y-3"
                   >
                     {responseOptions.map((option) => (
@@ -315,7 +316,6 @@ const Assessment = () => {
                         <RadioGroupItem 
                           value={option.value} 
                           id={`q${index}_${option.value}`}
-                          {...register(`question_${index}`, { required: true })}
                         />
                         <Label htmlFor={`q${index}_${option.value}`} className="cursor-pointer">
                           {option.label}
