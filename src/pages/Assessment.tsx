@@ -82,7 +82,37 @@ const Assessment = () => {
   const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
   
   const answers = watch();
-  const progress = (Object.keys(answers).length / questions.length) * 100;
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
+  
+  // Verifica se a pergunta atual foi respondida
+  const currentAnswered = !!answers[`question_${currentQuestion}`];
+  
+  // Função para navegar entre perguntas
+  const goToQuestion = (questionIndex: number) => {
+    // Só permite navegar para perguntas já respondidas ou a próxima
+    const maxAllowedQuestion = Math.min(
+      Object.keys(answers).length,
+      questions.length - 1
+    );
+    
+    if (questionIndex <= maxAllowedQuestion && questionIndex >= 0) {
+      setCurrentQuestion(questionIndex);
+    }
+  };
+  
+  const nextQuestion = () => {
+    if (currentAnswered && currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
+  
+  const previousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
+  
+  const canShowResults = Object.keys(answers).length === questions.length;
   
   const analyzeResults = (data: FormData) => {
     const scores = Object.values(data).map(Number);
@@ -184,6 +214,10 @@ const Assessment = () => {
     setCurrentQuestion(0);
     setShowResult(false);
     setResult(null);
+  };
+  
+  const handleQuestionAnswer = (value: string) => {
+    setValue(`question_${currentQuestion}`, value);
   };
   
   if (showResult && result) {
@@ -303,7 +337,7 @@ const Assessment = () => {
               </Button>
               
               <span className="text-sm text-muted-foreground">
-                Questão {Math.min(Object.keys(answers).length, questions.length)} de {questions.length}
+                Questão {currentQuestion + 1} de {questions.length}
               </span>
             </div>
             
@@ -319,45 +353,70 @@ const Assessment = () => {
           </CardHeader>
           
           <CardContent>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-              {questions.map((question, index) => (
-                <div key={index} className="space-y-4">
-                  <h3 className="text-lg font-medium">
-                    {index + 1}. {question}
-                  </h3>
-                  
-                  <RadioGroup 
-                    value={watch(`question_${index}`) || ""}
-                    onValueChange={(value) => setValue(`question_${index}`, value)}
-                    className="space-y-3"
-                  >
-                    {responseOptions.map((option) => (
-                      <div key={option.value} className="flex items-center space-x-2">
-                        <RadioGroupItem 
-                          value={option.value} 
-                          id={`q${index}_${option.value}`}
-                        />
-                        <Label htmlFor={`q${index}_${option.value}`} className="cursor-pointer">
-                          {option.label}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                </div>
-              ))}
+            <div className="space-y-8">
+              {/* Pergunta atual */}
+              <div className="space-y-6">
+                <h3 className="text-xl font-medium">
+                  {currentQuestion + 1}. {questions[currentQuestion]}
+                </h3>
+                
+                <RadioGroup 
+                  value={watch(`question_${currentQuestion}`) || ""}
+                  onValueChange={handleQuestionAnswer}
+                  className="space-y-4"
+                >
+                  {responseOptions.map((option) => (
+                    <div key={option.value} className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors">
+                      <RadioGroupItem 
+                        value={option.value} 
+                        id={`q${currentQuestion}_${option.value}`}
+                      />
+                      <Label htmlFor={`q${currentQuestion}_${option.value}`} className="cursor-pointer text-base flex-1">
+                        {option.label}
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </div>
               
-              <div className="flex justify-center pt-8">
+              {/* Navegação */}
+              <div className="flex justify-between items-center pt-6 border-t">
                 <Button 
-                  type="submit" 
-                  size="lg"
-                  disabled={Object.keys(answers).length < questions.length}
+                  variant="outline"
+                  onClick={previousQuestion}
+                  disabled={currentQuestion === 0}
                   className="flex items-center gap-2"
                 >
-                  Ver Resultado
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowLeft className="w-4 h-4" />
+                  Anterior
                 </Button>
+                
+                <span className="text-sm text-muted-foreground">
+                  {Object.keys(answers).length} de {questions.length} respondidas
+                </span>
+                
+                {currentQuestion === questions.length - 1 ? (
+                  <Button 
+                    onClick={handleSubmit(onSubmit)}
+                    disabled={!canShowResults}
+                    className="flex items-center gap-2"
+                    size="lg"
+                  >
+                    Ver Resultado
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                ) : (
+                  <Button 
+                    onClick={nextQuestion}
+                    disabled={!currentAnswered}
+                    className="flex items-center gap-2"
+                  >
+                    Próxima
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                )}
               </div>
-            </form>
+            </div>
           </CardContent>
         </Card>
       </div>
