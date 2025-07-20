@@ -67,54 +67,89 @@ const Assessment = () => {
   const analyzeResults = (data: FormData) => {
     const scores = Object.values(data).map(Number);
     const total = scores.reduce((sum, score) => sum + score, 0);
-    const average = total / scores.length;
+    const maxScore = questions.length * 4; // 30 perguntas x 4 pontos máximos
+    const percentage = (total / maxScore) * 100;
     
+    // Contagem de respostas por categoria
+    const responses = {
+      naoIdentifica: scores.filter(score => score === 1).length,
+      identificaPouco: scores.filter(score => score === 2).length,
+      identifica: scores.filter(score => score === 3).length,
+      identificaMuito: scores.filter(score => score === 4).length
+    };
+    
+    // Análise mais detalhada baseada na pontuação e distribuição
     let level = "";
     let characteristics = [];
     let recommendation = "";
+    let interpretation = "";
     
-    if (average >= 3.5) {
-      level = "Forte identificação com características do espectro autista";
+    if (percentage >= 80) {
+      level = "Muito alta identificação com características do espectro autista";
+      interpretation = "Suas respostas indicam uma forte presença de características compatíveis com o espectro autista";
       characteristics = [
-        "Muitas características comuns ao espectro autista",
-        "Dificuldades significativas em interação social",
-        "Comportamentos repetitivos e interesses restritos",
-        "Alta sensibilidade sensorial"
+        "Presença significativa de características autistas",
+        "Dificuldades importantes na comunicação e interação social",
+        "Padrões repetitivos de comportamento e interesses restritos",
+        "Alta sensibilidade sensorial em múltiplas áreas",
+        "Necessidade forte de previsibilidade e rotinas"
+      ];
+      recommendation = "É altamente recomendável buscar uma avaliação com um especialista em autismo para uma análise profissional";
+    } else if (percentage >= 65) {
+      level = "Alta identificação com características do espectro autista";
+      interpretation = "Suas respostas sugerem uma considerável presença de características do espectro autista";
+      characteristics = [
+        "Várias características comuns ao espectro autista",
+        "Dificuldades notáveis em situações sociais",
+        "Preferências específicas e comportamentos repetitivos",
+        "Sensibilidade sensorial em várias áreas",
+        "Necessidade de estrutura e previsibilidade"
       ];
       recommendation = "Considere buscar uma avaliação profissional com um especialista em autismo";
-    } else if (average >= 2.5) {
-      level = "Identificação moderada com características do espectro autista";
+    } else if (percentage >= 50) {
+      level = "Moderada identificação com características do espectro autista";
+      interpretation = "Suas respostas indicam algumas características que podem estar relacionadas ao espectro autista";
       characteristics = [
-        "Algumas características do espectro autista",
-        "Certas dificuldades sociais",
-        "Preferência por rotinas",
-        "Alguma sensibilidade sensorial"
+        "Algumas características do espectro autista presentes",
+        "Certas dificuldades em interação social",
+        "Preferência por rotinas e previsibilidade",
+        "Alguma sensibilidade sensorial",
+        "Interesses específicos ou intensos"
       ];
-      recommendation = "Pode ser útil conversar com um profissional para melhor compreensão";
-    } else if (average >= 1.5) {
-      level = "Baixa identificação com características do espectro autista";
+      recommendation = "Pode ser útil conversar com um profissional para melhor compreensão de suas características";
+    } else if (percentage >= 35) {
+      level = "Baixa a moderada identificação com características do espectro autista";
+      interpretation = "Suas respostas mostram algumas características, mas em menor intensidade";
       characteristics = [
-        "Poucas características do espectro autista",
-        "Algumas preferências individuais",
-        "Funcionamento social típico"
+        "Poucas características do espectro autista identificadas",
+        "Algumas preferências individuais específicas",
+        "Funcionamento social geralmente típico",
+        "Sensibilidade ocasional a estímulos",
+        "Boa adaptação a mudanças na maioria das situações"
       ];
-      recommendation = "Suas respostas sugerem funcionamento neurotípico";
+      recommendation = "Suas características parecem estar dentro da variação neurotípica, mas pode conversar com um profissional se tiver dúvidas";
     } else {
-      level = "Muito baixa identificação com características do espectro autista";
+      level = "Baixa identificação com características do espectro autista";
+      interpretation = "Suas respostas sugerem funcionamento predominantemente neurotípico";
       characteristics = [
-        "Funcionamento neurotípico",
-        "Boa adaptação social",
-        "Flexibilidade a mudanças"
+        "Funcionamento neurotípico predominante",
+        "Boa adaptação social e comunicação",
+        "Flexibilidade para mudanças e novas situações",
+        "Sensibilidade sensorial dentro dos padrões típicos",
+        "Facilidade em interações sociais variadas"
       ];
       recommendation = "Suas respostas sugerem funcionamento neurotípico";
     }
     
     return {
       score: total,
-      average: average.toFixed(2),
+      maxScore: maxScore,
+      percentage: percentage.toFixed(1),
       level,
+      interpretation,
       characteristics,
-      recommendation
+      recommendation,
+      responses
     };
   };
   
@@ -146,16 +181,39 @@ const Assessment = () => {
             </CardHeader>
             
             <CardContent className="space-y-6">
-              <div className="text-center">
-                <Badge variant="secondary" className="text-lg p-3 mb-4">
-                  Pontuação: {result.score}/120 (Média: {result.average})
+              <div className="text-center space-y-3">
+                <Badge variant="secondary" className="text-lg p-3">
+                  Pontuação: {result.score}/{result.maxScore} ({result.percentage}%)
                 </Badge>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-md mx-auto">
+                  <div className="text-center p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
+                    <div className="text-2xl font-bold text-red-600">{result.responses.naoIdentifica}</div>
+                    <div className="text-xs text-red-600">Não me identifico</div>
+                  </div>
+                  <div className="text-center p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
+                    <div className="text-2xl font-bold text-orange-600">{result.responses.identificaPouco}</div>
+                    <div className="text-xs text-orange-600">Me identifico pouco</div>
+                  </div>
+                  <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
+                    <div className="text-2xl font-bold text-yellow-600">{result.responses.identifica}</div>
+                    <div className="text-xs text-yellow-600">Me identifico</div>
+                  </div>
+                  <div className="text-center p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
+                    <div className="text-2xl font-bold text-green-600">{result.responses.identificaMuito}</div>
+                    <div className="text-xs text-green-600">Me identifico muito</div>
+                  </div>
+                </div>
               </div>
               
               <div className="bg-muted/30 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-3 text-primary">
                   {result.level}
                 </h3>
+                
+                <p className="text-muted-foreground mb-4 italic">
+                  {result.interpretation}
+                </p>
                 
                 <div className="space-y-3">
                   <h4 className="font-medium">Características identificadas:</h4>
@@ -171,7 +229,7 @@ const Assessment = () => {
                 
                 <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-950/30 rounded-lg border border-amber-200 dark:border-amber-800">
                   <p className="font-medium text-amber-800 dark:text-amber-200">
-                    {result.recommendation}
+                    <strong>Recomendação:</strong> {result.recommendation}
                   </p>
                 </div>
               </div>
