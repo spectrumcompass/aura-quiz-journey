@@ -369,19 +369,19 @@ const Assessment = () => {
           <div className="flex gap-6 items-start">
             {/* AdSense Left */}
             <div className="hidden lg:block w-64 flex-shrink-0">
-              <div className="sticky top-6">
-                <AdSenseSlot 
-                  slot="1234567890"
-                  style={{ 
-                    display: "block", 
-                    width: "250px", 
-                    height: "600px" 
-                  }}
-                  format="rectangle"
-                  responsive={false}
-                  className="border border-border rounded-lg p-2 bg-background/50"
-                />
-              </div>
+            <div className="sticky top-6">
+              <AdSenseSlot 
+                slot="1234567890"
+                style={{ 
+                  display: "block", 
+                  width: "250px", 
+                  height: "100vh" 
+                }}
+                format="rectangle"
+                responsive={false}
+                className="border border-border rounded-lg p-2 bg-background/50"
+              />
+            </div>
             </div>
 
             {/* Main Content */}
@@ -492,19 +492,19 @@ const Assessment = () => {
 
             {/* AdSense Right */}
             <div className="hidden lg:block w-64 flex-shrink-0">
-              <div className="sticky top-6">
-                <AdSenseSlot 
-                  slot="0987654321"
-                  style={{ 
-                    display: "block", 
-                    width: "250px", 
-                    height: "600px" 
-                  }}
-                  format="rectangle"
-                  responsive={false}
-                  className="border border-border rounded-lg p-2 bg-background/50"
-                />
-              </div>
+            <div className="sticky top-6">
+              <AdSenseSlot 
+                slot="0987654321"
+                style={{ 
+                  display: "block", 
+                  width: "250px", 
+                  height: "100vh" 
+                }}
+                format="rectangle"
+                responsive={false}
+                className="border border-border rounded-lg p-2 bg-background/50"
+              />
+            </div>
             </div>
           </div>
         </div>
@@ -534,7 +534,7 @@ const Assessment = () => {
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "600px" 
+                  height: "100vh" 
                 }}
                 format="rectangle"
                 responsive={false}
@@ -650,7 +650,7 @@ const Assessment = () => {
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "600px" 
+                  height: "100vh" 
                 }}
                 format="rectangle"
                 responsive={false}
