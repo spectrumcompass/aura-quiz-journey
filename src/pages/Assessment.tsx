@@ -354,7 +354,7 @@ const Assessment = () => {
   
   if (showResult && result) {
     return (
-      <div className="relative min-h-screen bg-gradient-secondary py-12 overflow-hidden">
+      <div className="relative h-[100svh] bg-gradient-secondary overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -365,17 +365,17 @@ const Assessment = () => {
         <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
         <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center">
           <div className="flex gap-6 items-start">
             {/* AdSense Left */}
             <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-6">
+            <div className="h-full flex">
               <AdSenseSlot 
                 slot="1234567890"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "100vh" 
+                  height: "calc(100svh - 3rem)" 
                 }}
                 format="rectangle"
                 responsive={false}
@@ -385,8 +385,8 @@ const Assessment = () => {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 max-w-4xl">
-              <Card className="shadow-strong">
+          <div className="flex-1 max-w-4xl h-full flex flex-col">
+            <Card className="shadow-strong h-full flex flex-col overflow-hidden">
                 <CardHeader className="text-center">
                   <CardTitle className="text-3xl text-primary mb-4">
                     Resultado da Avaliação
@@ -396,7 +396,7 @@ const Assessment = () => {
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 flex-1 overflow-y-auto">
                   <div className="text-center space-y-3">
                     <Badge variant="secondary" className="text-lg p-3">
                       Pontuação: {result.score}/{result.maxScore} ({result.percentage}%)
@@ -492,13 +492,13 @@ const Assessment = () => {
 
             {/* AdSense Right */}
             <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-6">
+            <div className="h-full flex">
               <AdSenseSlot 
                 slot="0987654321"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "100vh" 
+                  height: "calc(100svh - 3rem)" 
                 }}
                 format="rectangle"
                 responsive={false}
@@ -513,7 +513,7 @@ const Assessment = () => {
   }
   
   return (
-    <div className="relative min-h-screen bg-gradient-secondary py-12 overflow-hidden">
+    <div className="relative h-[100svh] bg-gradient-secondary overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -524,7 +524,7 @@ const Assessment = () => {
       <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
       <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center">
         <div className="flex gap-6 items-start">
           {/* AdSense Left */}
           <div className="hidden lg:block w-64 flex-shrink-0">
@@ -544,8 +544,8 @@ const Assessment = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 max-w-4xl">
-            <Card className="shadow-strong">
+          <div className="flex-1 max-w-4xl h-full flex flex-col">
+            <Card className="shadow-strong h-full flex flex-col overflow-hidden">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <Button 
@@ -573,7 +573,7 @@ const Assessment = () => {
                 </CardDescription>
               </CardHeader>
               
-              <CardContent>
+              <CardContent className="flex-1 overflow-y-auto">
                 <div className="space-y-8">
                   {/* Pergunta atual */}
                   <div className="space-y-6">
@@ -644,13 +644,13 @@ const Assessment = () => {
 
           {/* AdSense Right */}
           <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-6">
+            <div className="h-full flex">
               <AdSenseSlot 
                 slot="0987654321"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "100vh" 
+                  height: "calc(100svh - 3rem)" 
                 }}
                 format="rectangle"
                 responsive={false}
