@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import jsPDF from "jspdf";
 import AdSenseSlot from "@/components/AdSenseSlot";
+import heroImage from "@/assets/hero-autism-assessment.jpg";
 
 const questions = [
   "Você frequentemente se sente sobrecarregado(a) em ambientes com muitos estímulos (sons altos, luzes brilhantes, multidões)?",
@@ -353,8 +354,18 @@ const Assessment = () => {
   
   if (showResult && result) {
     return (
-      <div className="min-h-screen bg-gradient-hero py-12">
-        <div className="container mx-auto px-6 max-w-7xl">
+      <div className="relative min-h-screen bg-gradient-secondary py-12 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
+        <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="flex gap-6 items-start">
             {/* AdSense Left */}
             <div className="hidden lg:block w-64 flex-shrink-0">
@@ -502,8 +513,18 @@ const Assessment = () => {
   }
   
   return (
-    <div className="min-h-screen bg-gradient-hero py-12">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <div className="relative min-h-screen bg-gradient-secondary py-12 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
+      
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
+      <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="flex gap-6 items-start">
           {/* AdSense Left */}
           <div className="hidden lg:block w-64 flex-shrink-0">
