@@ -31,7 +31,7 @@ const AdSenseSlot = ({
       <ins
         className="adsbygoogle"
         style={style}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX" // Substitua pelo seu Publisher ID
+        data-ad-client="ca-pub-1622485543729555"
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive={responsive.toString()}
