@@ -24,7 +24,7 @@ const AdSenseSlot = ({
     } catch (error) {
       console.log("AdSense error:", error);
     }
-  }, []);
+  }, [slot]);
 
   return (
     <div className={`adsense-container ${className}`}>
@@ -35,6 +35,11 @@ const AdSenseSlot = ({
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive={responsive.toString()}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`
+        }}
       />
     </div>
   );

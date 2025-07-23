@@ -12,17 +12,17 @@ const Index = () => {
       <HeroSection />
       <div className="my-8">
         <AdSenseSlot 
-          slot="1234567890" 
+          slot="9204133609" 
           className="max-w-4xl mx-auto"
-          style={{ minHeight: "250px" }}
+          style={{ display: "block" }}
         />
       </div>
       <AboutSection />
       <div className="my-8">
         <AdSenseSlot 
-          slot="0987654321" 
+          slot="9204133609" 
           className="max-w-4xl mx-auto"
-          style={{ minHeight: "250px" }}
+          style={{ display: "block" }}
         />
       </div>
       <HowItWorksSection />
