@@ -513,7 +513,7 @@ const Assessment = () => {
   }
   
   return (
-    <div className="relative min-h-[100svh] h-[100svh] bg-gradient-secondary overflow-auto">`
+    <div className="relative min-h-[100svh] h-[100svh] bg-gradient-secondary overflow-auto">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -524,28 +524,58 @@ const Assessment = () => {
       <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
       <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center">
-        <div className="flex gap-6 items-start">
+      {/* AdSense Top */}
+      <div className="absolute top-0 left-0 right-0 z-5">
+        <AdSenseSlot 
+          slot="9204133609"
+          style={{ 
+            display: "block", 
+            width: "100%", 
+            height: "90px" 
+          }}
+          format="horizontal"
+          responsive={true}
+          className="bg-background/80 backdrop-blur-sm border-b border-border/30"
+        />
+      </div>
+      
+      {/* AdSense Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-5">
+        <AdSenseSlot 
+          slot="9204133609"
+          style={{ 
+            display: "block", 
+            width: "100%", 
+            height: "90px" 
+          }}
+          format="horizontal"
+          responsive={true}
+          className="bg-background/80 backdrop-blur-sm border-t border-border/30"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center pt-24 pb-24">
+        <div className="flex gap-6 items-start w-full">
           {/* AdSense Left */}
-          <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-6">
+          <div className="hidden xl:block w-64 flex-shrink-0">
+            <div className="sticky top-28">
               <AdSenseSlot 
-                slot="1234567890"
+                slot="9204133609"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "100vh" 
+                  height: "calc(100svh - 200px)" 
                 }}
                 format="rectangle"
                 responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50"
+                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
               />
             </div>
           </div>
 
           {/* Main Content */}
           <div className="flex-1 max-w-4xl h-full flex flex-col">
-            <Card className="shadow-strong h-full flex flex-col overflow-hidden">
+            <Card className="shadow-strong h-full flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <Button 
@@ -578,21 +608,18 @@ const Assessment = () => {
                   {/* Pergunta atual */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-medium">
-                      {currentQuestion + 1}. {questions[currentQuestion]}
+                      {questions[currentQuestion]}
                     </h3>
                     
-                    <RadioGroup 
-                      value={watch(`question_${currentQuestion}`) || ""}
-                      onValueChange={handleQuestionAnswer}
+                    <RadioGroup
+                      value={answers[`question_${currentQuestion}`] || ""}
+                      onValueChange={(value) => setValue(`question_${currentQuestion}` as any, value)}
                       className="space-y-4"
                     >
-                      {responseOptions.map((option) => (
-                        <div key={option.value} className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-muted/50 transition-colors">
-                          <RadioGroupItem 
-                            value={option.value} 
-                            id={`q${currentQuestion}_${option.value}`}
-                          />
-                          <Label htmlFor={`q${currentQuestion}_${option.value}`} className="cursor-pointer text-base flex-1">
+                      {responseOptions.map((option, index) => (
+                        <div key={option.value} className="flex items-center space-x-3">
+                          <RadioGroupItem value={option.value} id={`option-${index}`} />
+                          <Label htmlFor={`option-${index}`} className="text-base">
                             {option.label}
                           </Label>
                         </div>
@@ -601,9 +628,9 @@ const Assessment = () => {
                   </div>
                   
                   {/* Navegação */}
-                  <div className="flex justify-between items-center pt-6 border-t">
+                  <div className="flex justify-between items-center pt-8">
                     <Button 
-                      variant="outline"
+                      variant="outline" 
                       onClick={previousQuestion}
                       disabled={currentQuestion === 0}
                       className="flex items-center gap-2"
@@ -612,24 +639,19 @@ const Assessment = () => {
                       Anterior
                     </Button>
                     
-                    <span className="text-sm text-muted-foreground">
-                      {Object.keys(answers).length} de {questions.length} respondidas
-                    </span>
-                    
                     {currentQuestion === questions.length - 1 ? (
                       <Button 
                         onClick={handleSubmit(onSubmit)}
-                        disabled={!canShowResults}
                         className="flex items-center gap-2"
-                        size="lg"
+                        disabled={!answers[`question_${currentQuestion}`]}
                       >
-                        Ver Resultado
+                        Finalizar Avaliação
                         <ArrowRight className="w-4 h-4" />
                       </Button>
                     ) : (
                       <Button 
                         onClick={nextQuestion}
-                        disabled={!currentAnswered}
+                        disabled={!answers[`question_${currentQuestion}`]}
                         className="flex items-center gap-2"
                       >
                         Próxima
@@ -641,20 +663,20 @@ const Assessment = () => {
               </CardContent>
             </Card>
           </div>
-
+          
           {/* AdSense Right */}
-          <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="h-full flex">
+          <div className="hidden xl:block w-64 flex-shrink-0">
+            <div className="sticky top-28">
               <AdSenseSlot 
-                slot="0987654321"
+                slot="9204133609"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "calc(100svh - 3rem)" 
+                  height: "calc(100svh - 200px)" 
                 }}
                 format="rectangle"
                 responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50"
+                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
               />
             </div>
           </div>
