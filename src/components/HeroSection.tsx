@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Users, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-autism-assessment.jpg";
 
 const HeroSection = () => {
@@ -46,9 +47,11 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-                Iniciar Avaliação
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button variant="hero" size="lg" className="text-lg px-8 py-4" asChild>
+                <Link to="/assessment">
+                  Iniciar Avaliação
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
               
               <Button variant="soft" size="lg" className="text-lg px-8 py-4">
