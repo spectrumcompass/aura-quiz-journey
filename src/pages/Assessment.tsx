@@ -513,7 +513,7 @@ const Assessment = () => {
   }
   
   return (
-    <div className="relative h-[100svh] bg-gradient-secondary overflow-hidden">
+    <div className="relative min-h-[100svh] h-[100svh] bg-gradient-secondary overflow-auto">`
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
