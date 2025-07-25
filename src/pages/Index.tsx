@@ -2,7 +2,6 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import CTASection from "@/components/CTASection";
-import DisclaimerAlert from "@/components/DisclaimerAlert";
 import AdSenseSlot from "@/components/AdSenseSlot";
 import LanguageSelector from "@/components/LanguageSelector";
 
@@ -13,7 +12,6 @@ const Index = () => {
       <div className="absolute top-4 right-4 z-50">
         <LanguageSelector />
       </div>
-      <DisclaimerAlert />
       <HeroSection />
       <div className="my-8">
         <AdSenseSlot 
