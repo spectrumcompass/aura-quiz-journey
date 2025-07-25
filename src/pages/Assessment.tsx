@@ -12,96 +12,11 @@ import { useToast } from "@/hooks/use-toast";
 import jsPDF from "jspdf";
 import AdSenseSlot from "@/components/AdSenseSlot";
 import heroImage from "@/assets/hero-autism-assessment.jpg";
+import LanguageSelector from "@/components/LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const questions = [
-  "At a work meeting, your colleague makes a joke that everyone laughs at, but you don't understand why it's funny.",
-  "Someone says 'Can you give me a hand?' while carrying heavy boxes.",
-  "A coworker mentions they had a 'rough morning' with a slight smile.",
-  "During small talk, someone asks 'How was your weekend?'",
-  "Your friend says 'I'm dying of embarrassment' after a mistake.",
-  "You're feeling stressed after a long day at work/school.",
-  "While concentrating on a task, you notice yourself tapping your fingers rhythmically.",
-  "You need to organize your workspace.",
-  "When walking through a tiled floor, you notice the pattern.",
-  "You're waiting in a long line.",
-  "You enter a busy restaurant with bright lights, loud music, and strong food smells.",
-  "You need to buy new clothes, but the store only has items made from a fabric that feels rough.",
-  "Someone wearing strong perfume sits next to you on public transport.",
-  "The fire alarm goes off unexpectedly during a drill.",
-  "You're offered food with multiple mixed textures.",
-  "A friend excitedly tells you about their vacation plans.",
-  "During a conversation, you notice the other person looking at their watch.",
-  "Someone shares that they're feeling sad about their pet being sick.",
-  "In a group conversation, others are discussing weekend plans.",
-  "A colleague mentions they're struggling with a project.",
-  "Your usual route to work is blocked due to construction.",
-  "Plans for a weekend trip are suddenly cancelled.",
-  "Your favorite coffee shop runs out of your usual order.",
-  "A meeting is rescheduled at the last minute.",
-  "Your usual seat at work/school is taken by someone else.",
-  "You have free time on the weekend.",
-  "Someone asks about your interests.",
-  "You're choosing a book to read.",
-  "Planning a vacation destination.",
-  "Decorating your living space.",
-  "During conversations, making eye contact feels:",
-  "Someone waves at you from across the room.",
-  "Reading facial expressions in others is:",
-  "Using gestures while speaking:",
-  "Someone's tone sounds different than their words.",
-  "Starting a multi-step project:",
-  "Managing multiple deadlines:",
-  "Packing for a trip:",
-  "Following multi-part instructions:",
-  "Switching between different tasks:",
-  "Someone says 'Break a leg!' before your presentation.",
-  "Reading 'between the lines' in emails:",
-  "Someone says 'That's just great' in a flat tone after bad news.",
-  "Understanding metaphors in conversation:",
-  "Someone says they're 'on cloud nine.'",
-  "A friend cancels plans at the last minute.",
-  "Someone disagrees with your opinion.",
-  "Predicting how others will react:",
-  "Someone doesn't share your enthusiasm for a topic.",
-  "Understanding why someone might lie to spare feelings:",
-  "At a party, someone you don't know well starts telling you about their problems.",
-  "Your coworker seems upset but hasn't said anything directly.",
-  "In a group, someone makes a joke about shared experiences you weren't part of.",
-  "A friend hints they'd like to be invited to your event.",
-  "Someone's body language suggests they're uncomfortable with a topic.",
-  "Your special interest hobby time is interrupted by an unexpected visitor.",
-  "You can't find your usual brand at the store, only alternatives.",
-  "Your planned weekend of focusing on your interest is disrupted by a family obligation.",
-  "A store reorganizes, moving your special interest items to a different section.",
-  "Your usual routine for enjoying your interest is impossible due to circumstances.",
-  "In a noisy, crowded space, you feel overwhelmed.",
-  "Fluorescent lights in your workspace are bothering you.",
-  "Uncomfortable clothing texture throughout the day.",
-  "Multiple overlapping sounds in your environment.",
-  "Strong smells trigger discomfort in a social setting.",
-  "Asked to explain a complex project you're struggling to organize.",
-  "Need to communicate multiple task delays to your team.",
-  "Following a conversation while managing other thoughts.",
-  "Planning and explaining a group activity.",
-  "Responding to unexpected questions in a meeting.",
-  "Your friend says 'I'm so hungry I could eat a horse' while looking tired.",
-  "In a group discussion, someone makes a sarcastic comment about the weather.",
-  "A colleague says 'Sure, pile more work on me' with a strained smile.",
-  "Someone tells a white lie to avoid hurting another's feelings in front of you.",
-  "A friend exaggerates a story for entertainment at a party.",
-  "A museum about your special interest has bright lights and crowds.",
-  "Your interest-related items have textures that bother you.",
-  "A convention for your interest is in a sensory-challenging venue.",
-  "Online content about your interest has autoplay sounds.",
-  "Your interest requires visiting busy, noisy stores."
-];
+const questions = Array.from({ length: 80 }, (_, i) => `question.${i + 1}`);
 
-const responseOptions = [
-  { value: "4", label: "Me identifico muito" },
-  { value: "3", label: "Me identifico" },
-  { value: "2", label: "Me identifico pouco" },
-  { value: "1", label: "Não me identifico" }
-];
 
 type FormData = {
   [key: string]: string;
@@ -114,6 +29,14 @@ const Assessment = () => {
   const [formData, setFormData] = useState<FormData | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLanguage();
+  
+  const responseOptions = [
+    { value: "4", label: t('response.stronglyIdentify') },
+    { value: "3", label: t('response.identify') },
+    { value: "2", label: t('response.slightlyIdentify') },
+    { value: "1", label: t('response.dontIdentify') }
+  ];
   
   const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
   
@@ -430,35 +353,35 @@ const Assessment = () => {
             <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden w-full max-w-3xl">
                 <CardHeader className="text-center">
                   <CardTitle className="text-3xl text-primary mb-4">
-                    Resultado da Avaliação
+                    {t('results.title')}
                   </CardTitle>
                   <CardDescription className="text-lg">
-                    Análise baseada em suas respostas
+                    {t('results.subtitle')}
                   </CardDescription>
                 </CardHeader>
                 
                 <CardContent className="space-y-6 flex-1 overflow-y-auto">
                   <div className="text-center space-y-3">
                     <Badge variant="secondary" className="text-lg p-3">
-                      Pontuação: {result.score}/{result.maxScore} ({result.percentage}%)
+                      {t('results.score')}: {result.score}/{result.maxScore} ({result.percentage}%)
                     </Badge>
                     
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-md mx-auto">
                       <div className="text-center p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
                         <div className="text-2xl font-bold text-red-600">{result.responses.naoIdentifica}</div>
-                        <div className="text-xs text-red-600">Não me identifico</div>
+                        <div className="text-xs text-red-600">{t('response.dontIdentify')}</div>
                       </div>
                       <div className="text-center p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
                         <div className="text-2xl font-bold text-orange-600">{result.responses.identificaPouco}</div>
-                        <div className="text-xs text-orange-600">Me identifico pouco</div>
+                        <div className="text-xs text-orange-600">{t('response.slightlyIdentify')}</div>
                       </div>
                       <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
                         <div className="text-2xl font-bold text-yellow-600">{result.responses.identifica}</div>
-                        <div className="text-xs text-yellow-600">Me identifico</div>
+                        <div className="text-xs text-yellow-600">{t('response.identify')}</div>
                       </div>
                       <div className="text-center p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
                         <div className="text-2xl font-bold text-green-600">{result.responses.identificaMuito}</div>
-                        <div className="text-xs text-green-600">Me identifico muito</div>
+                        <div className="text-xs text-green-600">{t('response.stronglyIdentify')}</div>
                       </div>
                     </div>
                   </div>
@@ -473,7 +396,7 @@ const Assessment = () => {
                     </p>
                     
                     <div className="space-y-3">
-                      <h4 className="font-medium">Características identificadas:</h4>
+                      <h4 className="font-medium">{t('results.characteristics')}</h4>
                       <ul className="space-y-2">
                         {result.characteristics.map((char: string, index: number) => (
                           <li key={index} className="flex items-start gap-2">
@@ -486,46 +409,44 @@ const Assessment = () => {
                     
                     <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-950/30 rounded-lg border border-amber-200 dark:border-amber-800">
                       <p className="font-medium text-amber-800 dark:text-amber-200">
-                        <strong>Recomendação:</strong> {result.recommendation}
+                        <strong>{t('results.recommendation')}</strong> {result.recommendation}
                       </p>
                     </div>
                   </div>
                   
                   <div className="bg-red-50 dark:bg-red-950/30 p-4 rounded-lg border border-red-200 dark:border-red-800">
                     <p className="text-sm text-red-800 dark:text-red-200">
-                      <strong>Importante:</strong> Este teste é apenas para entretenimento e autoconhecimento. 
-                      Não substitui uma avaliação profissional. Para um diagnóstico adequado, procure um 
-                      profissional especializado em autismo.
+                      <strong>{t('results.important')}</strong> {t('results.disclaimer')}
                     </p>
                   </div>
                   
                   <div className="flex gap-4 justify-center pt-6">
-                    <Button 
-                      onClick={generatePDF}
-                      variant="default"
-                      className="flex items-center gap-2"
-                    >
-                      <Download className="w-4 h-4" />
-                      Baixar PDF
-                    </Button>
+                      <Button 
+                        onClick={generatePDF}
+                        variant="default"
+                        className="flex items-center gap-2"
+                      >
+                        <Download className="w-4 h-4" />
+                        {t('results.downloadPdf')}
+                      </Button>
                     
-                    <Button 
-                      onClick={restartTest}
-                      variant="outline"
-                      className="flex items-center gap-2"
-                    >
-                      <RotateCcw className="w-4 h-4" />
-                      Refazer Teste
-                    </Button>
+                      <Button 
+                        onClick={restartTest}
+                        variant="outline"
+                        className="flex items-center gap-2"
+                      >
+                        <RotateCcw className="w-4 h-4" />
+                        {t('results.retakeTest')}
+                      </Button>
                     
-                    <Button 
-                      onClick={() => navigate("/")}
-                      variant="outline"
-                      className="flex items-center gap-2"
-                    >
-                      <ArrowLeft className="w-4 h-4" />
-                      Voltar ao Início
-                    </Button>
+                      <Button 
+                        onClick={() => navigate("/")}
+                        variant="outline"
+                        className="flex items-center gap-2"
+                      >
+                        <ArrowLeft className="w-4 h-4" />
+                        {t('assessment.backToHome')}
+                      </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -566,6 +487,11 @@ const Assessment = () => {
   
   return (
     <div className="relative min-h-[100svh] h-[100svh] bg-gradient-secondary overflow-auto">
+      {/* Language Selector */}
+      <div className="absolute top-4 right-4 z-50">
+        <LanguageSelector />
+      </div>
+      
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -617,22 +543,21 @@ const Assessment = () => {
                     className="flex items-center gap-2"
                   >
                     <ArrowLeft className="w-4 h-4" />
-                    Voltar
+                    {t('assessment.back')}
                   </Button>
                   
                   <span className="text-sm text-muted-foreground">
-                    Questão {currentQuestion + 1} de {questions.length}
+                    {t('assessment.question')} {currentQuestion + 1} {t('assessment.of')} {questions.length}
                   </span>
                 </div>
                 
                 <Progress value={progress} className="mb-4" />
                 
                 <CardTitle className="text-2xl text-primary">
-                  Avaliação de Características do Espectro Autista
+                  {t('assessment.title')}
                 </CardTitle>
                 <CardDescription>
-                  Responda as questões de acordo com como você se identifica com cada afirmação.
-                  Lembre-se: este teste é apenas para autoconhecimento e entretenimento.
+                  {t('assessment.subtitle')}
                 </CardDescription>
               </CardHeader>
               
@@ -641,7 +566,7 @@ const Assessment = () => {
                   {/* Pergunta atual */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-medium">
-                      {questions[currentQuestion]}
+                      {t(questions[currentQuestion])}
                     </h3>
                     
                     <RadioGroup
@@ -662,34 +587,34 @@ const Assessment = () => {
                   
                   {/* Navegação */}
                   <div className="flex justify-between items-center pt-8">
-                    <Button 
-                      variant="outline" 
-                      onClick={previousQuestion}
-                      disabled={currentQuestion === 0}
-                      className="flex items-center gap-2"
-                    >
-                      <ArrowLeft className="w-4 h-4" />
-                      Anterior
-                    </Button>
+                      <Button 
+                        variant="outline" 
+                        onClick={previousQuestion}
+                        disabled={currentQuestion === 0}
+                        className="flex items-center gap-2"
+                      >
+                        <ArrowLeft className="w-4 h-4" />
+                        {t('assessment.previous')}
+                      </Button>
                     
                     {currentQuestion === questions.length - 1 ? (
-                      <Button 
-                        onClick={handleSubmit(onSubmit)}
-                        className="flex items-center gap-2"
-                        disabled={!answers[`question_${currentQuestion}`]}
-                      >
-                        Finalizar Avaliação
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
+                        <Button 
+                          onClick={handleSubmit(onSubmit)}
+                          className="flex items-center gap-2"
+                          disabled={!answers[`question_${currentQuestion}`]}
+                        >
+                          {t('assessment.finish')}
+                          <ArrowRight className="w-4 h-4" />
+                        </Button>
                     ) : (
-                      <Button 
-                        onClick={nextQuestion}
-                        disabled={!answers[`question_${currentQuestion}`]}
-                        className="flex items-center gap-2"
-                      >
-                        Próxima
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
+                        <Button 
+                          onClick={nextQuestion}
+                          disabled={!answers[`question_${currentQuestion}`]}
+                          className="flex items-center gap-2"
+                        >
+                          {t('assessment.next')}
+                          <ArrowRight className="w-4 h-4" />
+                        </Button>
                     )}
                   </div>
                 </div>
