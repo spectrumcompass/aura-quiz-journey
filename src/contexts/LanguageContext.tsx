@@ -773,7 +773,11 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   };
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key;
+    console.log('Language:', language, 'Key:', key);
+    console.log('Available translations for language:', translations[language] ? Object.keys(translations[language]).slice(0, 5) : 'none');
+    const translation = translations[language] && translations[language][key];
+    console.log('Translation result:', translation);
+    return translation || key;
   };
 
   return (
