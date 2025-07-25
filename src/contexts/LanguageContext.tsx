@@ -778,7 +778,8 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       return key;
     }
     
-    const translation = languageTranslations[key as keyof typeof languageTranslations];
+    // Directly access the translation using bracket notation
+    const translation = languageTranslations[key];
     return translation || key;
   };
 
