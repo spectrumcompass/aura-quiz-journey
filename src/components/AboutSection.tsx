@@ -1,18 +1,19 @@
 import { Card } from "@/components/ui/card";
 import { Brain, Heart, Lightbulb, Target } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            O que é esta Autoavaliação?
+            {t('about.title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Esta é uma ferramenta de autoavaliação criada apenas para fins de entretenimento e consciência pessoal. 
-            Não possui validade científica ou diagnóstica. É um questionário reflexivo que pode ajudar você a 
-            pensar sobre certas características, mas jamais substitui uma avaliação clínica profissional.
+            {t('about.description')}
           </p>
         </div>
 
@@ -21,9 +22,9 @@ const AboutSection = () => {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
               <Brain className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="font-semibold mb-3 text-foreground">Comunicação Social</h3>
+            <h3 className="font-semibold mb-3 text-foreground">{t('about.socialCommunication')}</h3>
             <p className="text-sm text-muted-foreground">
-              Avalia padrões de interação social e comunicação
+              {t('about.socialCommunicationDesc')}
             </p>
           </Card>
 
@@ -31,9 +32,9 @@ const AboutSection = () => {
             <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto">
               <Target className="w-8 h-8 text-accent" />
             </div>
-            <h3 className="font-semibold mb-3 text-foreground">Comportamentos</h3>
+            <h3 className="font-semibold mb-3 text-foreground">{t('about.behaviors')}</h3>
             <p className="text-sm text-muted-foreground">
-              Identifica padrões repetitivos e interesses específicos
+              {t('about.behaviorsDesc')}
             </p>
           </Card>
 
@@ -41,9 +42,9 @@ const AboutSection = () => {
             <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mb-4 mx-auto">
               <Heart className="w-8 h-8 text-success" />
             </div>
-            <h3 className="font-semibold mb-3 text-foreground">Sensibilidades</h3>
+            <h3 className="font-semibold mb-3 text-foreground">{t('about.sensitivities')}</h3>
             <p className="text-sm text-muted-foreground">
-              Avalia sensibilidades sensoriais e ambientais
+              {t('about.sensitivitiesDesc')}
             </p>
           </Card>
 
@@ -51,9 +52,9 @@ const AboutSection = () => {
             <div className="w-16 h-16 bg-secondary/30 rounded-full flex items-center justify-center mb-4 mx-auto">
               <Lightbulb className="w-8 h-8 text-secondary-foreground" />
             </div>
-            <h3 className="font-semibold mb-3 text-foreground">Autoconhecimento</h3>
+            <h3 className="font-semibold mb-3 text-foreground">{t('about.selfAwarenessTitle')}</h3>
             <p className="text-sm text-muted-foreground">
-              Promove maior compreensão sobre si mesmo
+              {t('about.selfAwarenessDesc')}
             </p>
           </Card>
         </div>
@@ -61,30 +62,30 @@ const AboutSection = () => {
         <div className="bg-gradient-secondary rounded-2xl p-8 md:p-12 shadow-soft">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
-              Por que fazer esta avaliação?
+              {t('about.whyTakeTitle')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
               <div>
-                <h4 className="font-semibold mb-3 text-foreground">✓ Autoconhecimento</h4>
+                <h4 className="font-semibold mb-3 text-foreground">{t('about.selfUnderstanding')}</h4>
                 <p className="text-muted-foreground mb-4">
-                  Entenda melhor suas características únicas e padrões comportamentais.
+                  {t('about.selfUnderstandingDesc')}
                 </p>
                 
-                <h4 className="font-semibold mb-3 text-foreground">✓ Orientação Profissional</h4>
+                <h4 className="font-semibold mb-3 text-foreground">{t('about.professionalGuidance')}</h4>
                 <p className="text-muted-foreground">
-                  Receba orientações sobre quando buscar avaliação clínica especializada.
+                  {t('about.professionalGuidanceDesc')}
                 </p>
               </div>
               
               <div>
-                <h4 className="font-semibold mb-3 text-foreground">✓ Recursos e Apoio</h4>
+                <h4 className="font-semibold mb-3 text-foreground">{t('about.resourcesSupport')}</h4>
                 <p className="text-muted-foreground mb-4">
-                  Acesse informações e recursos relevantes para seu perfil.
+                  {t('about.resourcesSupportDesc')}
                 </p>
                 
-                <h4 className="font-semibold mb-3 text-foreground">✓ Comunidade</h4>
+                <h4 className="font-semibold mb-3 text-foreground">{t('about.community')}</h4>
                 <p className="text-muted-foreground">
-                  Conecte-se com outros que compartilham experiências similares.
+                  {t('about.communityDesc')}
                 </p>
               </div>
             </div>

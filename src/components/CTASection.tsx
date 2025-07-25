@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CTASection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-20 bg-gradient-hero relative overflow-hidden">
       {/* Background Elements */}
@@ -15,12 +18,11 @@ const CTASection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary-foreground">
-            Pronto para começar sua jornada de autoconhecimento?
+            {t('cta.title')}
           </h2>
           
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-12 leading-relaxed">
-            Explore suas características através de perguntas reflexivas. Lembre-se: esta é apenas uma 
-            ferramenta de entretenimento e autoconhecimento, sem qualquer validade científica ou diagnóstica.
+            {t('cta.subtitle')}
           </p>
 
            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -31,8 +33,8 @@ const CTASection = () => {
                className="text-lg px-8 py-4 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-strong"
              >
                <Link to="/assessment">
-                 <Play className="mr-2 w-5 h-5" />
-                 Iniciar Avaliação Agora
+                  <Play className="mr-2 w-5 h-5" />
+                  {t('cta.startButton')}
                </Link>
              </Button>
             
@@ -42,7 +44,7 @@ const CTASection = () => {
               className="text-lg px-8 py-4 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
               <FileText className="mr-2 w-5 h-5" />
-              Ver Exemplo de Relatório
+              {t('cta.sampleReport')}
             </Button>
           </div>
 
@@ -53,7 +55,7 @@ const CTASection = () => {
                 ∞
               </div>
               <div className="text-primary-foreground/80">
-                Reflexões Possíveis
+                {t('cta.infiniteReflections')}
               </div>
             </div>
 
@@ -62,7 +64,7 @@ const CTASection = () => {
                 15min
               </div>
               <div className="text-primary-foreground/80">
-                Tempo Médio
+                {t('cta.averageTime')}
               </div>
             </div>
 
@@ -71,7 +73,7 @@ const CTASection = () => {
                 100%
               </div>
               <div className="text-primary-foreground/80">
-                Apenas Entretenimento
+                {t('cta.entertainmentOnly')}
               </div>
             </div>
           </div>

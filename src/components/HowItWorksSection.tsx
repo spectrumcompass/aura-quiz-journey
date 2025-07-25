@@ -1,28 +1,31 @@
 import { Card } from "@/components/ui/card";
 import { CheckCircle, MessageSquare, BarChart3 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorksSection = () => {
+  const { t } = useLanguage();
+  
   const steps = [
     {
       number: "01",
       icon: MessageSquare,
-      title: "Responda as Perguntas",
-      description: "Complete um questionário cuidadosamente elaborado com perguntas sobre comportamentos, comunicação e sensibilidades.",
-      time: "15-20 min"
+      title: t('howItWorks.step1Title'),
+      description: t('howItWorks.step1Desc'),
+      time: t('howItWorks.step1Time')
     },
     {
       number: "02",
       icon: BarChart3,
-      title: "Análise dos Resultados",
-      description: "Nosso sistema analisa suas respostas baseado em critérios científicos reconhecidos internacionalmente.",
-      time: "Instantâneo"
+      title: t('howItWorks.step2Title'),
+      description: t('howItWorks.step2Desc'),
+      time: t('howItWorks.step2Time')
     },
     {
       number: "03",
       icon: CheckCircle,
-      title: "Receba seu Relatório",
-      description: "Obtenha um relatório detalhado com insights, orientações e recursos personalizados para seu perfil.",
-      time: "Imediato"
+      title: t('howItWorks.step3Title'),
+      description: t('howItWorks.step3Desc'),
+      time: t('howItWorks.step3Time')
     }
   ];
 
@@ -31,10 +34,10 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Como Funciona
+            {t('howItWorks.title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Um processo simples e científico em 3 etapas para sua autoavaliação
+            {t('howItWorks.subtitle')}
           </p>
         </div>
 
@@ -75,13 +78,10 @@ const HowItWorksSection = () => {
         <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4 text-foreground">
-              Importante: Esta não é uma ferramenta de diagnóstico
+              {t('howItWorks.important')}
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Esta avaliação é uma ferramenta de autoconhecimento baseada em critérios científicos. 
-              Ela não substitui uma avaliação clínica profissional. Se os resultados sugerirem 
-              características significativas do espectro autista, recomendamos buscar orientação 
-              de um profissional especializado em diagnóstico de autismo.
+              {t('howItWorks.disclaimer')}
             </p>
           </div>
         </div>
