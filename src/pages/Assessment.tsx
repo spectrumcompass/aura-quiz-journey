@@ -367,21 +367,32 @@ const Assessment = () => {
         <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
         <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center">
           <div className="flex gap-6 items-start">
-            {/* AdSense Left */}
+            {/* AdSense Left - 2 slots */}
             <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="h-full flex">
-              <AdSenseSlot 
-                slot="1234567890"
-                style={{ 
-                  display: "block", 
-                  width: "250px", 
-                  height: "calc(100svh - 3rem)" 
-                }}
-                format="rectangle"
-                responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50"
-              />
-            </div>
+              <div className="h-full flex flex-col gap-4">
+                <AdSenseSlot 
+                  slot="1234567890"
+                  style={{ 
+                    display: "block", 
+                    width: "250px", 
+                    height: "calc(50vh - 2rem)" 
+                  }}
+                  format="rectangle"
+                  responsive={false}
+                  className="border border-border rounded-lg p-2 bg-background/50"
+                />
+                <AdSenseSlot 
+                  slot="1234567891"
+                  style={{ 
+                    display: "block", 
+                    width: "250px", 
+                    height: "calc(50vh - 2rem)" 
+                  }}
+                  format="rectangle"
+                  responsive={false}
+                  className="border border-border rounded-lg p-2 bg-background/50"
+                />
+              </div>
             </div>
 
             {/* Main Content */}
@@ -490,21 +501,32 @@ const Assessment = () => {
               </Card>
             </div>
 
-            {/* AdSense Right */}
+            {/* AdSense Right - 2 slots */}
             <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="h-full flex">
-              <AdSenseSlot 
-                slot="0987654321"
-                style={{ 
-                  display: "block", 
-                  width: "250px", 
-                  height: "calc(100svh - 3rem)" 
-                }}
-                format="rectangle"
-                responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50"
-              />
-            </div>
+              <div className="h-full flex flex-col gap-4">
+                <AdSenseSlot 
+                  slot="0987654321"
+                  style={{ 
+                    display: "block", 
+                    width: "250px", 
+                    height: "calc(50vh - 2rem)" 
+                  }}
+                  format="rectangle"
+                  responsive={false}
+                  className="border border-border rounded-lg p-2 bg-background/50"
+                />
+                <AdSenseSlot 
+                  slot="0987654322"
+                  style={{ 
+                    display: "block", 
+                    width: "250px", 
+                    height: "calc(50vh - 2rem)" 
+                  }}
+                  format="rectangle"
+                  responsive={false}
+                  className="border border-border rounded-lg p-2 bg-background/50"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -524,47 +546,28 @@ const Assessment = () => {
       <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
       <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-      {/* AdSense Top */}
-      <div className="absolute top-0 left-0 right-0 z-5">
-        <AdSenseSlot 
-          slot="9204133609"
-          style={{ 
-            display: "block", 
-            width: "100%", 
-            height: "90px" 
-          }}
-          format="horizontal"
-          responsive={true}
-          className="bg-background/80 backdrop-blur-sm border-b border-border/30"
-        />
-      </div>
-      
-      {/* AdSense Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-5">
-        <AdSenseSlot 
-          slot="9204133609"
-          style={{ 
-            display: "block", 
-            width: "100%", 
-            height: "90px" 
-          }}
-          format="horizontal"
-          responsive={true}
-          className="bg-background/80 backdrop-blur-sm border-t border-border/30"
-        />
-      </div>
-
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center pt-24 pb-24">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center py-8">
         <div className="flex gap-6 items-start w-full">
-          {/* AdSense Left */}
+          {/* AdSense Left - 2 slots */}
           <div className="hidden xl:block w-64 flex-shrink-0">
-            <div className="sticky top-28">
+            <div className="sticky top-28 flex flex-col gap-4">
               <AdSenseSlot 
-                slot="9204133609"
+                slot="9204133607"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "calc(100svh - 200px)" 
+                  height: "calc(50vh - 100px)" 
+                }}
+                format="rectangle"
+                responsive={false}
+                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
+              />
+              <AdSenseSlot 
+                slot="9204133608"
+                style={{ 
+                  display: "block", 
+                  width: "250px", 
+                  height: "calc(50vh - 100px)" 
                 }}
                 format="rectangle"
                 responsive={false}
@@ -664,15 +667,26 @@ const Assessment = () => {
             </Card>
           </div>
           
-          {/* AdSense Right */}
+          {/* AdSense Right - 2 slots */}
           <div className="hidden xl:block w-64 flex-shrink-0">
-            <div className="sticky top-28">
+            <div className="sticky top-28 flex flex-col gap-4">
               <AdSenseSlot 
                 slot="9204133609"
                 style={{ 
                   display: "block", 
                   width: "250px", 
-                  height: "calc(100svh - 200px)" 
+                  height: "calc(50vh - 100px)" 
+                }}
+                format="rectangle"
+                responsive={false}
+                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
+              />
+              <AdSenseSlot 
+                slot="9204133610"
+                style={{ 
+                  display: "block", 
+                  width: "250px", 
+                  height: "calc(50vh - 100px)" 
                 }}
                 format="rectangle"
                 responsive={false}
