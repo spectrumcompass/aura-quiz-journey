@@ -365,8 +365,8 @@ const Assessment = () => {
         <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
         <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-        <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center">
-          <div className="flex gap-6 items-start">
+        <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center justify-center">
+          <div className="flex gap-6 items-center justify-center w-full max-w-6xl">
             {/* AdSense Left - 2 slots */}
             <div className="hidden lg:block w-64 flex-shrink-0">
               <div className="h-full flex flex-col gap-4">
@@ -396,8 +396,8 @@ const Assessment = () => {
             </div>
 
             {/* Main Content */}
-          <div className="flex-1 max-w-4xl h-full flex flex-col">
-            <Card className="shadow-strong h-full flex flex-col overflow-hidden">
+          <div className="flex-1 max-w-3xl h-full flex flex-col justify-center">
+            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden mx-auto">
                 <CardHeader className="text-center">
                   <CardTitle className="text-3xl text-primary mb-4">
                     Resultado da Avaliação
@@ -546,8 +546,8 @@ const Assessment = () => {
       <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
       <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center py-8">
-        <div className="flex gap-6 items-start w-full">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center justify-center py-8">
+        <div className="flex gap-6 items-center justify-center w-full max-w-6xl">
           {/* AdSense Left - 2 slots */}
           <div className="hidden xl:block w-64 flex-shrink-0">
             <div className="sticky top-28 flex flex-col gap-4">
@@ -577,8 +577,8 @@ const Assessment = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 max-w-4xl h-full flex flex-col">
-            <Card className="shadow-strong h-full flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm">
+          <div className="flex-1 max-w-3xl h-full flex flex-col justify-center">
+            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm mx-auto">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <Button 
