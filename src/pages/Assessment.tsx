@@ -396,8 +396,8 @@ const Assessment = () => {
             </div>
 
             {/* Main Content */}
-          <div className="flex-1 max-w-3xl h-full flex flex-col justify-center">
-            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden mx-auto">
+          <div className="flex-1 max-w-3xl h-full flex flex-col justify-center items-center">
+            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden w-full max-w-3xl">
                 <CardHeader className="text-center">
                   <CardTitle className="text-3xl text-primary mb-4">
                     Resultado da Avaliação
@@ -577,8 +577,8 @@ const Assessment = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 max-w-3xl h-full flex flex-col justify-center">
-            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm mx-auto">
+          <div className="flex-1 max-w-3xl h-full flex flex-col justify-center items-center">
+            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm w-full max-w-3xl">
               <CardHeader>
                 <div className="flex items-center justify-between mb-4">
                   <Button 
