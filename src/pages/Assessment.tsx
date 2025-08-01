@@ -32,10 +32,8 @@ const Assessment = () => {
   const { t } = useLanguage();
   
   const responseOptions = [
-    { value: "4", label: t('response.stronglyIdentify') },
-    { value: "3", label: t('response.identify') },
-    { value: "2", label: t('response.slightlyIdentify') },
-    { value: "1", label: t('response.dontIdentify') }
+    { value: "1", label: t('response.traitAligned') },
+    { value: "0", label: t('response.neurotypicalAligned') }
   ];
   
   const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
@@ -76,15 +74,13 @@ const Assessment = () => {
   const analyzeResults = (data: FormData) => {
     const scores = Object.values(data).map(Number);
     const total = scores.reduce((sum, score) => sum + score, 0);
-    const maxScore = questions.length * 4; // 80 perguntas x 4 pontos máximos
+    const maxScore = questions.length; // 80 questions x 1 point maximum
     const percentage = (total / maxScore) * 100;
     
-    // Contagem de respostas por categoria
+    // Count of responses by category
     const responses = {
-      naoIdentifica: scores.filter(score => score === 1).length,
-      identificaPouco: scores.filter(score => score === 2).length,
-      identifica: scores.filter(score => score === 3).length,
-      identificaMuito: scores.filter(score => score === 4).length
+      traitAligned: scores.filter(score => score === 1).length,
+      neurotypicalAligned: scores.filter(score => score === 0).length
     };
     
     // Análise mais detalhada baseada na pontuação e distribuição
@@ -366,22 +362,14 @@ const Assessment = () => {
                       {t('results.score')}: {result.score}/{result.maxScore} ({result.percentage}%)
                     </Badge>
                     
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-md mx-auto">
-                      <div className="text-center p-3 bg-red-50 dark:bg-red-950/30 rounded-lg">
-                        <div className="text-2xl font-bold text-red-600">{result.responses.naoIdentifica}</div>
-                        <div className="text-xs text-red-600">{t('response.dontIdentify')}</div>
+                    <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
+                      <div className="text-center p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
+                        <div className="text-2xl font-bold text-blue-600">{result.responses.traitAligned}</div>
+                        <div className="text-xs text-blue-600">{t('response.traitAligned')}</div>
                       </div>
-                      <div className="text-center p-3 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
-                        <div className="text-2xl font-bold text-orange-600">{result.responses.identificaPouco}</div>
-                        <div className="text-xs text-orange-600">{t('response.slightlyIdentify')}</div>
-                      </div>
-                      <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
-                        <div className="text-2xl font-bold text-yellow-600">{result.responses.identifica}</div>
-                        <div className="text-xs text-yellow-600">{t('response.identify')}</div>
-                      </div>
-                      <div className="text-center p-3 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                        <div className="text-2xl font-bold text-green-600">{result.responses.identificaMuito}</div>
-                        <div className="text-xs text-green-600">{t('response.stronglyIdentify')}</div>
+                      <div className="text-center p-3 bg-gray-50 dark:bg-gray-950/30 rounded-lg">
+                        <div className="text-2xl font-bold text-gray-600">{result.responses.neurotypicalAligned}</div>
+                        <div className="text-xs text-gray-600">{t('response.neurotypicalAligned')}</div>
                       </div>
                     </div>
                   </div>
@@ -574,14 +562,18 @@ const Assessment = () => {
                       onValueChange={(value) => setValue(`question_${currentQuestion}` as any, value)}
                       className="space-y-4"
                     >
-                      {responseOptions.map((option, index) => (
-                        <div key={option.value} className="flex items-center space-x-3">
-                          <RadioGroupItem value={option.value} id={`option-${index}`} />
-                          <Label htmlFor={`option-${index}`} className="text-base">
-                            {option.label}
-                          </Label>
-                        </div>
-                      ))}
+                      <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                        <RadioGroupItem value="1" id="trait-option" className="mt-1" />
+                        <Label htmlFor="trait-option" className="text-base cursor-pointer flex-1">
+                          {t(`${questions[currentQuestion]}.traitAnswer`)}
+                        </Label>
+                      </div>
+                      <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                        <RadioGroupItem value="0" id="neurotypical-option" className="mt-1" />
+                        <Label htmlFor="neurotypical-option" className="text-base cursor-pointer flex-1">
+                          {t(`${questions[currentQuestion]}.neurotypicalAnswer`)}
+                        </Label>
+                      </div>
                     </RadioGroup>
                   </div>
                   
