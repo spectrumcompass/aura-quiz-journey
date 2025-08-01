@@ -5,13 +5,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import AdSenseSlot from "@/components/AdSenseSlot";
 import heroImage from "@/assets/hero-autism-assessment.jpg";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { calculateCDMProfile, CDMResult } from "@/lib/cdm-model";
+import { CDMResultsView } from "@/components/CDMResultsView";
 
 const questions = Array.from({ length: 80 }, (_, i) => `question.${i + 1}`);
 
@@ -21,6 +23,8 @@ type FormData = {
 
 const Assessment = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [cdmResult, setCdmResult] = useState<CDMResult | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useLanguage();
@@ -46,14 +50,103 @@ const Assessment = () => {
   };
   
   const onSubmit = (data: FormData) => {
-    // Aqui você pode implementar sua própria lógica de avaliação
-    console.log('Respostas coletadas:', data);
+    // Calcular resultado CDM
+    const result = calculateCDMProfile(data);
+    setCdmResult(result);
+    setShowResult(true);
     
     toast({
-      title: "Respostas coletadas!",
-      description: "Todas as perguntas foram respondidas.",
+      title: t('assessment.finish'),
+      description: t('cdm.profileDescription'),
     });
   };
+
+  const restartTest = () => {
+    reset();
+    setCurrentQuestion(0);
+    setShowResult(false);
+    setCdmResult(null);
+  };
+
+  if (showResult && cdmResult) {
+    return (
+      <div className="relative min-h-[100svh] bg-gradient-secondary overflow-auto">
+        {/* Language Selector */}
+        <div className="absolute top-4 right-4 z-50">
+          <LanguageSelector />
+        </div>
+        
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        
+        <div className="container mx-auto px-6 max-w-7xl relative z-10 py-8">
+          <div className="flex gap-6 items-start justify-center w-full">
+            {/* AdSense Left */}
+            <div className="hidden xl:block w-64 flex-shrink-0">
+              <div className="sticky top-8 flex flex-col gap-4">
+                <AdSenseSlot 
+                  slot="9204133607"
+                  style={{ 
+                    display: "block", 
+                    width: "250px", 
+                    height: "600px" 
+                  }}
+                  format="rectangle"
+                  responsive={false}
+                  className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
+                />
+              </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="flex-1 max-w-4xl">
+              <div className="mb-6 flex items-center justify-between">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => navigate("/")}
+                  className="flex items-center gap-2"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  {t('assessment.back')}
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  onClick={restartTest}
+                  className="flex items-center gap-2"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  {t('results.retakeTest')}
+                </Button>
+              </div>
+
+              <CDMResultsView result={cdmResult} />
+            </div>
+            
+            {/* AdSense Right */}
+            <div className="hidden xl:block w-64 flex-shrink-0">
+              <div className="sticky top-8 flex flex-col gap-4">
+                <AdSenseSlot 
+                  slot="9204133609"
+                  style={{ 
+                    display: "block", 
+                    width: "250px", 
+                    height: "600px" 
+                  }}
+                  format="rectangle"
+                  responsive={false}
+                  className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-[100svh] h-[100svh] bg-gradient-secondary overflow-auto">

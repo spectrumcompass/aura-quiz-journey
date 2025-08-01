@@ -64,6 +64,23 @@ interface TranslationKeys {
   'cta.averageTime': string;
   'cta.entertainmentOnly': string;
   
+  // CDM Results
+  'cdm.profileOverview': string;
+  'cdm.profileDescription': string;
+  'cdm.averageAlignment': string;
+  'cdm.consistency': string;
+  'cdm.patternsIdentified': string;
+  'cdm.cognitiveProfile': string;
+  'cdm.radarDescription': string;
+  'cdm.identifiedPatterns': string;
+  'cdm.patternsDescription': string;
+  'cdm.attributeDetails': string;
+  'cdm.attributeDetailsDescription': string;
+  'cdm.traitAlignedOf': string;
+  'cdm.questions': string;
+  'cdm.disclaimerTitle': string;
+  'cdm.disclaimerText': string;
+
   // Assessment page
   'assessment.title': string;
   'assessment.subtitle': string;
@@ -199,6 +216,23 @@ const translations: Record<Language, TranslationKeys> = {
     'response.traitAligned': 'Opção A',
     'response.neurotypicalAligned': 'Opção B',
     
+    // CDM Results
+    'cdm.profileOverview': 'Visão Geral do Perfil',
+    'cdm.profileDescription': 'Perfil cognitivo baseado no Modelo de Diagnóstico Cognitivo',
+    'cdm.averageAlignment': 'Alinhamento Médio',
+    'cdm.consistency': 'Consistência',
+    'cdm.patternsIdentified': 'Padrões Identificados',
+    'cdm.cognitiveProfile': 'Perfil Cognitivo',
+    'cdm.radarDescription': 'Gráfico radar mostrando probabilidades de alinhamento para cada atributo cognitivo',
+    'cdm.identifiedPatterns': 'Padrões Identificados',
+    'cdm.patternsDescription': 'Combinações de atributos que indicam características neurodivergentes',
+    'cdm.attributeDetails': 'Detalhes dos Atributos',
+    'cdm.attributeDetailsDescription': 'Análise detalhada de cada atributo cognitivo',
+    'cdm.traitAlignedOf': 'respostas alinhadas de',
+    'cdm.questions': 'questões',
+    'cdm.disclaimerTitle': 'Ferramenta de Autoconhecimento',
+    'cdm.disclaimerText': 'Este é um instrumento de autoavaliação para reflexão pessoal. Não constitui diagnóstico médico ou psicológico. Para avaliação profissional, consulte um especialista qualificado.',
+
     // Language selector
     'language.selector': 'Idioma',
     'language.portuguese': 'Português (BR)',
@@ -538,6 +572,23 @@ const translations: Record<Language, TranslationKeys> = {
     'response.traitAligned': 'Option A',
     'response.neurotypicalAligned': 'Option B',
     
+    // CDM Results
+    'cdm.profileOverview': 'Profile Overview',
+    'cdm.profileDescription': 'Cognitive profile based on Cognitive Diagnostic Modeling',
+    'cdm.averageAlignment': 'Average Alignment',
+    'cdm.consistency': 'Consistency',
+    'cdm.patternsIdentified': 'Patterns Identified',
+    'cdm.cognitiveProfile': 'Cognitive Profile',
+    'cdm.radarDescription': 'Radar chart showing alignment probabilities for each cognitive attribute',
+    'cdm.identifiedPatterns': 'Identified Patterns',
+    'cdm.patternsDescription': 'Attribute combinations indicating neurodivergent characteristics',
+    'cdm.attributeDetails': 'Attribute Details',
+    'cdm.attributeDetailsDescription': 'Detailed analysis of each cognitive attribute',
+    'cdm.traitAlignedOf': 'trait-aligned responses out of',
+    'cdm.questions': 'questions',
+    'cdm.disclaimerTitle': 'Self-Assessment Tool',
+    'cdm.disclaimerText': 'This is a self-assessment instrument for personal reflection. It does not constitute medical or psychological diagnosis. For professional evaluation, consult a qualified specialist.',
+
     // Language selector
     'language.selector': 'Language',
     'language.portuguese': 'Português (BR)',
@@ -885,6 +936,23 @@ const translations: Record<Language, TranslationKeys> = {
     'language.dutch': 'Nederlands',
     'language.german': 'Deutsch',
     
+    // CDM Results
+    'cdm.profileOverview': 'Resumen del Perfil',
+    'cdm.profileDescription': 'Perfil cognitivo basado en Modelado de Diagnóstico Cognitivo',
+    'cdm.averageAlignment': 'Alineación Promedio',
+    'cdm.consistency': 'Consistencia',
+    'cdm.patternsIdentified': 'Patrones Identificados',
+    'cdm.cognitiveProfile': 'Perfil Cognitivo',
+    'cdm.radarDescription': 'Gráfico radar mostrando probabilidades de alineación para cada atributo cognitivo',
+    'cdm.identifiedPatterns': 'Patrones Identificados',
+    'cdm.patternsDescription': 'Combinaciones de atributos que indican características neurodivergentes',
+    'cdm.attributeDetails': 'Detalles de Atributos',
+    'cdm.attributeDetailsDescription': 'Análisis detallado de cada atributo cognitivo',
+    'cdm.traitAlignedOf': 'respuestas alineadas de',
+    'cdm.questions': 'preguntas',
+    'cdm.disclaimerTitle': 'Herramienta de Autoconocimiento',
+    'cdm.disclaimerText': 'Este es un instrumento de autoevaluación para reflexión personal. No constituye diagnóstico médico o psicológico. Para evaluación profesional, consulte a un especialista cualificado.',
+
     // Questions with new answer structure
     'question.1': 'En una reunión de trabajo, tu colega hace una broma de la que todos se ríen, pero no entiendes por qué es gracioso.',
     'question.1.traitAnswer': 'Continuar enfocándose en el contenido de la reunión',
@@ -893,6 +961,23 @@ const translations: Record<Language, TranslationKeys> = {
   },
 
   nl: {
+    // CDM Results
+    'cdm.profileOverview': 'Profieloverzicht',
+    'cdm.profileDescription': 'Cognitief profiel gebaseerd op Cognitieve Diagnostische Modellering',
+    'cdm.averageAlignment': 'Gemiddelde Uitlijning',
+    'cdm.consistency': 'Consistentie',
+    'cdm.patternsIdentified': 'Geïdentificeerde Patronen',
+    'cdm.cognitiveProfile': 'Cognitief Profiel',
+    'cdm.radarDescription': 'Radargrafiek die uitlijningskansen toont voor elk cognitief attribuut',
+    'cdm.identifiedPatterns': 'Geïdentificeerde Patronen',
+    'cdm.patternsDescription': 'Attribuutcombinaties die neurodivergente kenmerken aangeven',
+    'cdm.attributeDetails': 'Attribuutdetails',
+    'cdm.attributeDetailsDescription': 'Gedetailleerde analyse van elk cognitief attribuut',
+    'cdm.traitAlignedOf': 'eigenschap-uitgelijnde antwoorden van',
+    'cdm.questions': 'vragen',
+    'cdm.disclaimerTitle': 'Zelfbeoordelingsinstrument',
+    'cdm.disclaimerText': 'Dit is een zelfbeoordelingsinstrument voor persoonlijke reflectie. Het vormt geen medische of psychologische diagnose. Voor professionele evaluatie, raadpleeg een gekwalificeerde specialist.',
+
     // Home page
     'home.title': 'Autisme Spectrum Kenmerken Beoordeling',
     'home.subtitle': 'Een zelfbewustzijnstool gebaseerd op veelvoorkomende autisme spectrum kenmerken',
@@ -1112,6 +1197,23 @@ const translations: Record<Language, TranslationKeys> = {
   },
 
   de: {
+    // CDM Results
+    'cdm.profileOverview': 'Profilübersicht',
+    'cdm.profileDescription': 'Kognitives Profil basierend auf Kognitiver Diagnostischer Modellierung',
+    'cdm.averageAlignment': 'Durchschnittliche Ausrichtung',
+    'cdm.consistency': 'Konsistenz',
+    'cdm.patternsIdentified': 'Identifizierte Muster',
+    'cdm.cognitiveProfile': 'Kognitives Profil',
+    'cdm.radarDescription': 'Radardiagramm zeigt Ausrichtungswahrscheinlichkeiten für jedes kognitive Attribut',
+    'cdm.identifiedPatterns': 'Identifizierte Muster',
+    'cdm.patternsDescription': 'Attributkombinationen, die neurodivergente Eigenschaften anzeigen',
+    'cdm.attributeDetails': 'Attributdetails',
+    'cdm.attributeDetailsDescription': 'Detaillierte Analyse jedes kognitiven Attributs',
+    'cdm.traitAlignedOf': 'eigenschaftsausgerichtete Antworten von',
+    'cdm.questions': 'Fragen',
+    'cdm.disclaimerTitle': 'Selbstbewertungsinstrument',
+    'cdm.disclaimerText': 'Dies ist ein Selbstbewertungsinstrument für persönliche Reflexion. Es stellt keine medizinische oder psychologische Diagnose dar. Für professionelle Bewertung konsultieren Sie einen qualifizierten Spezialisten.',
+
     // Home page
     'home.title': 'Autismus-Spektrum Charakteristiken Bewertung',
     'home.subtitle': 'Ein Selbstbewusstseinswerkzeug basierend auf häufigen Autismus-Spektrum Charakteristiken',
