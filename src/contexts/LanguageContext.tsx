@@ -119,7 +119,7 @@ const translations: Record<Language, TranslationKeys> = {
     'home.subtitle': 'Uma ferramenta de autoconhecimento baseada em características comuns do espectro autista',
     'home.description': 'Este questionário foi desenvolvido para ajudar na identificação de características que podem estar relacionadas ao espectro autista. É importante lembrar que este teste é apenas para fins educacionais e de autoconhecimento.',
     'home.startButton': 'Iniciar Avaliação',
-    'home.disclaimer': 'Importante: Este teste é apenas para entretenimento e autoconhecimento. Não substitui uma avaliação profissional.',
+    'home.disclaimer': 'Apenas Entretenimento',
     'home.howItWorks': 'Como Funciona',
     'home.about': 'Sobre o Teste',
     'home.selfAwareness': 'Autoconhecimento',
