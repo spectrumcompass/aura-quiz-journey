@@ -82,6 +82,28 @@ interface TranslationKeys {
     'cdm.disclaimerText': string;
     'cdm.generatePdf': string;
 
+    // Cognitive Attributes
+    'attr.social_communication': string;
+    'attr.social_communication.desc': string;
+    'attr.social_reciprocity': string;
+    'attr.social_reciprocity.desc': string;
+    'attr.sensory_processing': string;
+    'attr.sensory_processing.desc': string;
+    'attr.executive_function': string;
+    'attr.executive_function.desc': string;
+    'attr.cognitive_flexibility': string;
+    'attr.cognitive_flexibility.desc': string;
+    'attr.attention_focus': string;
+    'attr.attention_focus.desc': string;
+    'attr.literal_thinking': string;
+    'attr.literal_thinking.desc': string;
+    'attr.repetitive_behaviors': string;
+    'attr.repetitive_behaviors.desc': string;
+    'attr.emotional_regulation': string;
+    'attr.emotional_regulation.desc': string;
+    'attr.special_interests': string;
+    'attr.special_interests.desc': string;
+
   // Assessment page
   'assessment.title': string;
   'assessment.subtitle': string;
@@ -234,6 +256,28 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.disclaimerTitle': 'Ferramenta de Autoconhecimento',
     'cdm.disclaimerText': 'Este é um instrumento de autoavaliação para reflexão pessoal. Não constitui diagnóstico médico ou psicológico. Para avaliação profissional, consulte um especialista qualificado.',
     'cdm.generatePdf': 'Gerar PDF',
+
+    // Cognitive Attributes
+    'attr.social_communication': 'Comunicação Social',
+    'attr.social_communication.desc': 'Padrões de comunicação verbal e não-verbal em contextos sociais',
+    'attr.social_reciprocity': 'Reciprocidade Social',
+    'attr.social_reciprocity.desc': 'Interações sociais de ida e volta e padrões de relacionamento',
+    'attr.sensory_processing': 'Processamento Sensorial',
+    'attr.sensory_processing.desc': 'Resposta a estímulos sensoriais e fatores ambientais',
+    'attr.executive_function': 'Função Executiva',
+    'attr.executive_function.desc': 'Habilidades de planejamento, organização e gerenciamento de tarefas',
+    'attr.cognitive_flexibility': 'Flexibilidade Cognitiva',
+    'attr.cognitive_flexibility.desc': 'Adaptabilidade à mudança e transição entre tarefas ou conceitos',
+    'attr.attention_focus': 'Atenção e Foco',
+    'attr.attention_focus.desc': 'Padrões de concentração e regulação da atenção',
+    'attr.literal_thinking': 'Pensamento Literal',
+    'attr.literal_thinking.desc': 'Estilo de processamento e interpretação de informações',
+    'attr.repetitive_behaviors': 'Comportamentos Repetitivos',
+    'attr.repetitive_behaviors.desc': 'Padrões de ações, interesses ou rotinas repetitivas',
+    'attr.emotional_regulation': 'Regulação Emocional',
+    'attr.emotional_regulation.desc': 'Gerenciamento e expressão de emoções',
+    'attr.special_interests': 'Interesses Especiais',
+    'attr.special_interests.desc': 'Intensidade e foco de interesses pessoais',
 
     // Language selector
     'language.selector': 'Idioma',
@@ -591,6 +635,28 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.disclaimerTitle': 'Self-Assessment Tool',
     'cdm.disclaimerText': 'This is a self-assessment instrument for personal reflection. It does not constitute medical or psychological diagnosis. For professional evaluation, consult a qualified specialist.',
     'cdm.generatePdf': 'Generate PDF',
+
+    // Cognitive Attributes
+    'attr.social_communication': 'Social Communication',
+    'attr.social_communication.desc': 'Verbal and non-verbal communication patterns in social contexts',
+    'attr.social_reciprocity': 'Social Reciprocity',
+    'attr.social_reciprocity.desc': 'Back-and-forth social interactions and relationship patterns',
+    'attr.sensory_processing': 'Sensory Processing',
+    'attr.sensory_processing.desc': 'Response to sensory stimuli and environmental factors',
+    'attr.executive_function': 'Executive Function',
+    'attr.executive_function.desc': 'Planning, organization, and task management abilities',
+    'attr.cognitive_flexibility': 'Cognitive Flexibility',
+    'attr.cognitive_flexibility.desc': 'Adaptability to change and shifting between tasks or concepts',
+    'attr.attention_focus': 'Attention & Focus',
+    'attr.attention_focus.desc': 'Concentration patterns and attention regulation',
+    'attr.literal_thinking': 'Literal Thinking',
+    'attr.literal_thinking.desc': 'Information processing and interpretation style',
+    'attr.repetitive_behaviors': 'Repetitive Behaviors',
+    'attr.repetitive_behaviors.desc': 'Patterns of repetitive actions, interests, or routines',
+    'attr.emotional_regulation': 'Emotional Regulation',
+    'attr.emotional_regulation.desc': 'Management and expression of emotions',
+    'attr.special_interests': 'Special Interests',
+    'attr.special_interests.desc': 'Intensity and focus of personal interests',
 
     // Language selector
     'language.selector': 'Language',
@@ -957,6 +1023,28 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.disclaimerText': 'Este es un instrumento de autoevaluación para reflexión personal. No constituye diagnóstico médico o psicológico. Para evaluación profesional, consulte a un especialista cualificado.',
     'cdm.generatePdf': 'Generar PDF',
 
+    // Cognitive Attributes
+    'attr.social_communication': 'Comunicación Social',
+    'attr.social_communication.desc': 'Patrones de comunicación verbal y no verbal en contextos sociales',
+    'attr.social_reciprocity': 'Reciprocidad Social',
+    'attr.social_reciprocity.desc': 'Interacciones sociales de ida y vuelta y patrones de relación',
+    'attr.sensory_processing': 'Procesamiento Sensorial',
+    'attr.sensory_processing.desc': 'Respuesta a estímulos sensoriales y factores ambientales',
+    'attr.executive_function': 'Función Ejecutiva',
+    'attr.executive_function.desc': 'Habilidades de planificación, organización y gestión de tareas',
+    'attr.cognitive_flexibility': 'Flexibilidad Cognitiva',
+    'attr.cognitive_flexibility.desc': 'Adaptabilidad al cambio y transición entre tareas o conceptos',
+    'attr.attention_focus': 'Atención y Enfoque',
+    'attr.attention_focus.desc': 'Patrones de concentración y regulación de la atención',
+    'attr.literal_thinking': 'Pensamiento Literal',
+    'attr.literal_thinking.desc': 'Estilo de procesamiento e interpretación de información',
+    'attr.repetitive_behaviors': 'Comportamientos Repetitivos',
+    'attr.repetitive_behaviors.desc': 'Patrones de acciones, intereses o rutinas repetitivas',
+    'attr.emotional_regulation': 'Regulación Emocional',
+    'attr.emotional_regulation.desc': 'Manejo y expresión de emociones',
+    'attr.special_interests': 'Intereses Especiales',
+    'attr.special_interests.desc': 'Intensidad y enfoque de intereses personales',
+
     // Questions with new answer structure
     'question.1': 'En una reunión de trabajo, tu colega hace una broma de la que todos se ríen, pero no entiendes por qué es gracioso.',
     'question.1.traitAnswer': 'Continuar enfocándose en el contenido de la reunión',
@@ -982,6 +1070,28 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.disclaimerTitle': 'Zelfbeoordelingsinstrument',
     'cdm.disclaimerText': 'Dit is een zelfbeoordelingsinstrument voor persoonlijke reflectie. Het vormt geen medische of psychologische diagnose. Voor professionele evaluatie, raadpleeg een gekwalificeerde specialist.',
     'cdm.generatePdf': 'PDF Genereren',
+
+    // Cognitive Attributes
+    'attr.social_communication': 'Sociale Communicatie',
+    'attr.social_communication.desc': 'Verbale en non-verbale communicatiepatronen in sociale contexten',
+    'attr.social_reciprocity': 'Sociale Wederkerigheid',
+    'attr.social_reciprocity.desc': 'Heen-en-weer sociale interacties en relatiepatronen',
+    'attr.sensory_processing': 'Sensorische Verwerking',
+    'attr.sensory_processing.desc': 'Reactie op sensorische prikkels en omgevingsfactoren',
+    'attr.executive_function': 'Executieve Functie',
+    'attr.executive_function.desc': 'Planning, organisatie en taakmanagementvaardigheden',
+    'attr.cognitive_flexibility': 'Cognitieve Flexibiliteit',
+    'attr.cognitive_flexibility.desc': 'Aanpassingsvermogen aan verandering en schakelen tussen taken of concepten',
+    'attr.attention_focus': 'Aandacht & Focus',
+    'attr.attention_focus.desc': 'Concentratiepatronen en aandachtsregulatie',
+    'attr.literal_thinking': 'Letterlijk Denken',
+    'attr.literal_thinking.desc': 'Informatieverwerking en interpretatiestijl',
+    'attr.repetitive_behaviors': 'Repetitief Gedrag',
+    'attr.repetitive_behaviors.desc': 'Patronen van herhalende acties, interesses of routines',
+    'attr.emotional_regulation': 'Emotionele Regulatie',
+    'attr.emotional_regulation.desc': 'Beheersing en uiting van emoties',
+    'attr.special_interests': 'Speciale Interesses',
+    'attr.special_interests.desc': 'Intensiteit en focus van persoonlijke interesses',
 
     // Home page
     'home.title': 'Autisme Spectrum Kenmerken Beoordeling',
@@ -1219,6 +1329,28 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.disclaimerTitle': 'Selbstbewertungsinstrument',
     'cdm.disclaimerText': 'Dies ist ein Selbstbewertungsinstrument für persönliche Reflexion. Es stellt keine medizinische oder psychologische Diagnose dar. Für professionelle Bewertung konsultieren Sie einen qualifizierten Spezialisten.',
     'cdm.generatePdf': 'PDF Erstellen',
+
+    // Cognitive Attributes
+    'attr.social_communication': 'Soziale Kommunikation',
+    'attr.social_communication.desc': 'Verbale und nonverbale Kommunikationsmuster in sozialen Kontexten',
+    'attr.social_reciprocity': 'Soziale Reziprozität',
+    'attr.social_reciprocity.desc': 'Hin- und her-soziale Interaktionen und Beziehungsmuster',
+    'attr.sensory_processing': 'Sensorische Verarbeitung',
+    'attr.sensory_processing.desc': 'Reaktion auf sensorische Reize und Umweltfaktoren',
+    'attr.executive_function': 'Exekutive Funktion',
+    'attr.executive_function.desc': 'Planungs-, Organisations- und Aufgabenmanagementfähigkeiten',
+    'attr.cognitive_flexibility': 'Kognitive Flexibilität',
+    'attr.cognitive_flexibility.desc': 'Anpassungsfähigkeit an Veränderungen und Wechsel zwischen Aufgaben oder Konzepten',
+    'attr.attention_focus': 'Aufmerksamkeit & Fokus',
+    'attr.attention_focus.desc': 'Konzentrationsmuster und Aufmerksamkeitsregulation',
+    'attr.literal_thinking': 'Wörtliches Denken',
+    'attr.literal_thinking.desc': 'Informationsverarbeitung und Interpretationsstil',
+    'attr.repetitive_behaviors': 'Repetitive Verhaltensweisen',
+    'attr.repetitive_behaviors.desc': 'Muster von wiederholenden Handlungen, Interessen oder Routinen',
+    'attr.emotional_regulation': 'Emotionsregulation',
+    'attr.emotional_regulation.desc': 'Management und Ausdruck von Emotionen',
+    'attr.special_interests': 'Spezielle Interessen',
+    'attr.special_interests.desc': 'Intensität und Fokus persönlicher Interessen',
 
     // Home page
     'home.title': 'Autismus-Spektrum Charakteristiken Bewertung',

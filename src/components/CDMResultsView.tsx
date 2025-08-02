@@ -16,13 +16,17 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
   const { t } = useLanguage();
 
   const getAttributeName = (attributeId: string) => {
-    const attr = COGNITIVE_ATTRIBUTES.find(a => a.id === attributeId);
-    return attr?.name || attributeId;
+    return t(`attr.${attributeId}`) || attributeId;
   };
 
   const getAttributeDescription = (attributeId: string) => {
-    const attr = COGNITIVE_ATTRIBUTES.find(a => a.id === attributeId);
-    return attr?.description || '';
+    return t(`attr.${attributeId}.desc`) || '';
+  };
+
+  const generateProgressBar = (value: number, width: number = 40) => {
+    const filled = Math.round((value / 100) * width);
+    const empty = width - filled;
+    return '█'.repeat(filled) + '░'.repeat(empty);
   };
 
   const generatePDF = () => {
@@ -33,42 +37,57 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
 
     // Title
     pdf.setFontSize(20);
+    pdf.setFont('helvetica', 'bold');
     pdf.text(t('cdm.profileOverview'), margin, yPosition);
     yPosition += 20;
 
     // Overview metrics
-    pdf.setFontSize(14);
-    pdf.text(`${t('cdm.averageAlignment')}: ${Math.round(result.overallProfile.averageProbability * 100)}%`, margin, yPosition);
+    pdf.setFontSize(12);
+    pdf.setFont('helvetica', 'normal');
+    
+    // Create a nice overview section
+    pdf.setDrawColor(200, 200, 200);
+    pdf.rect(margin, yPosition, pageWidth - 2 * margin, 30);
     yPosition += 10;
-    pdf.text(`${t('cdm.consistency')}: ${Math.round(result.overallProfile.consistency * 100)}%`, margin, yPosition);
-    yPosition += 10;
-    pdf.text(`${t('cdm.patternsIdentified')}: ${result.identifiedPatterns.length}`, margin, yPosition);
-    yPosition += 20;
+    
+    pdf.text(`${t('cdm.averageAlignment')}: ${Math.round(result.overallProfile.averageProbability * 100)}%`, margin + 5, yPosition);
+    yPosition += 8;
+    pdf.text(`${t('cdm.consistency')}: ${Math.round(result.overallProfile.consistency * 100)}%`, margin + 5, yPosition);
+    yPosition += 8;
+    pdf.text(`${t('cdm.patternsIdentified')}: ${result.identifiedPatterns.length}`, margin + 5, yPosition);
+    yPosition += 25;
 
     // Identified Patterns
     if (result.identifiedPatterns.length > 0) {
       pdf.setFontSize(16);
+      pdf.setFont('helvetica', 'bold');
       pdf.text(t('cdm.identifiedPatterns'), margin, yPosition);
       yPosition += 15;
 
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
       result.identifiedPatterns.forEach((pattern) => {
-        pdf.setFontSize(12);
         pdf.text(`• ${pattern.name}`, margin, yPosition);
-        yPosition += 8;
+        yPosition += 6;
         
         const lines = pdf.splitTextToSize(pattern.description, pageWidth - 2 * margin - 10);
         lines.forEach((line: string) => {
           pdf.text(line, margin + 10, yPosition);
-          yPosition += 5;
+          yPosition += 4;
         });
         yPosition += 5;
       });
       yPosition += 10;
     }
 
-    // Attribute Details
+    // Attribute Details (similar to the image)
     pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
     pdf.text(t('cdm.attributeDetails'), margin, yPosition);
+    yPosition += 15;
+
+    pdf.setFontSize(10);
+    pdf.text(t('cdm.attributeDetailsDescription'), margin, yPosition);
     yPosition += 15;
 
     result.attributeProbabilities
@@ -79,11 +98,42 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
           yPosition = 30;
         }
 
+        const percentage = Math.round(attr.probability * 100);
+        const progressBar = generateProgressBar(percentage, 30);
+
+        // Attribute name and percentage
         pdf.setFontSize(12);
-        pdf.text(`${getAttributeName(attr.attributeId)}: ${Math.round(attr.probability * 100)}%`, margin, yPosition);
-        yPosition += 8;
-        pdf.text(`${attr.traitAlignedAnswers} ${t('cdm.traitAlignedOf')} ${attr.questionsAnswered} ${t('cdm.questions')}`, margin + 10, yPosition);
-        yPosition += 12;
+        pdf.setFont('helvetica', 'bold');
+        pdf.text(getAttributeName(attr.attributeId), margin, yPosition);
+        pdf.text(`${percentage}%`, pageWidth - margin - 20, yPosition);
+        yPosition += 6;
+
+        // Description
+        pdf.setFontSize(9);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setTextColor(100, 100, 100);
+        const descLines = pdf.splitTextToSize(getAttributeDescription(attr.attributeId), pageWidth - 2 * margin);
+        descLines.forEach((line: string) => {
+          pdf.text(line, margin, yPosition);
+          yPosition += 4;
+        });
+        yPosition += 2;
+
+        // Progress bar (visual representation)
+        pdf.setTextColor(0, 0, 0);
+        pdf.setFont('courier', 'normal');
+        pdf.setFontSize(8);
+        pdf.text(progressBar, margin, yPosition);
+        yPosition += 6;
+
+        // Statistics
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(8);
+        pdf.setTextColor(100, 100, 100);
+        pdf.text(`${attr.traitAlignedAnswers} ${t('cdm.traitAlignedOf')} ${attr.questionsAnswered} ${t('cdm.questions')}`, margin, yPosition);
+        yPosition += 15;
+
+        pdf.setTextColor(0, 0, 0);
       });
 
     // Disclaimer
@@ -94,14 +144,16 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
     
     yPosition += 20;
     pdf.setFontSize(14);
+    pdf.setFont('helvetica', 'bold');
     pdf.text(t('cdm.disclaimerTitle'), margin, yPosition);
     yPosition += 10;
     
-    pdf.setFontSize(10);
+    pdf.setFontSize(9);
+    pdf.setFont('helvetica', 'normal');
     const disclaimerLines = pdf.splitTextToSize(t('cdm.disclaimerText'), pageWidth - 2 * margin);
     disclaimerLines.forEach((line: string) => {
       pdf.text(line, margin, yPosition);
-      yPosition += 5;
+      yPosition += 4;
     });
 
     // Save the PDF
