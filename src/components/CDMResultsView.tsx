@@ -1,9 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import { CDMRadarChart } from "./CDMRadarChart";
 import { CDMResult, COGNITIVE_ATTRIBUTES } from "@/lib/cdm-model";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Download } from "lucide-react";
+import jsPDF from "jspdf";
 
 interface CDMResultsViewProps {
   result: CDMResult;
@@ -22,8 +25,99 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
     return attr?.description || '';
   };
 
+  const generatePDF = () => {
+    const pdf = new jsPDF();
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const margin = 20;
+    let yPosition = 30;
+
+    // Title
+    pdf.setFontSize(20);
+    pdf.text(t('cdm.profileOverview'), margin, yPosition);
+    yPosition += 20;
+
+    // Overview metrics
+    pdf.setFontSize(14);
+    pdf.text(`${t('cdm.averageAlignment')}: ${Math.round(result.overallProfile.averageProbability * 100)}%`, margin, yPosition);
+    yPosition += 10;
+    pdf.text(`${t('cdm.consistency')}: ${Math.round(result.overallProfile.consistency * 100)}%`, margin, yPosition);
+    yPosition += 10;
+    pdf.text(`${t('cdm.patternsIdentified')}: ${result.identifiedPatterns.length}`, margin, yPosition);
+    yPosition += 20;
+
+    // Identified Patterns
+    if (result.identifiedPatterns.length > 0) {
+      pdf.setFontSize(16);
+      pdf.text(t('cdm.identifiedPatterns'), margin, yPosition);
+      yPosition += 15;
+
+      result.identifiedPatterns.forEach((pattern) => {
+        pdf.setFontSize(12);
+        pdf.text(`• ${pattern.name}`, margin, yPosition);
+        yPosition += 8;
+        
+        const lines = pdf.splitTextToSize(pattern.description, pageWidth - 2 * margin - 10);
+        lines.forEach((line: string) => {
+          pdf.text(line, margin + 10, yPosition);
+          yPosition += 5;
+        });
+        yPosition += 5;
+      });
+      yPosition += 10;
+    }
+
+    // Attribute Details
+    pdf.setFontSize(16);
+    pdf.text(t('cdm.attributeDetails'), margin, yPosition);
+    yPosition += 15;
+
+    result.attributeProbabilities
+      .sort((a, b) => b.probability - a.probability)
+      .forEach((attr) => {
+        if (yPosition > 250) {
+          pdf.addPage();
+          yPosition = 30;
+        }
+
+        pdf.setFontSize(12);
+        pdf.text(`${getAttributeName(attr.attributeId)}: ${Math.round(attr.probability * 100)}%`, margin, yPosition);
+        yPosition += 8;
+        pdf.text(`${attr.traitAlignedAnswers} ${t('cdm.traitAlignedOf')} ${attr.questionsAnswered} ${t('cdm.questions')}`, margin + 10, yPosition);
+        yPosition += 12;
+      });
+
+    // Disclaimer
+    if (yPosition > 220) {
+      pdf.addPage();
+      yPosition = 30;
+    }
+    
+    yPosition += 20;
+    pdf.setFontSize(14);
+    pdf.text(t('cdm.disclaimerTitle'), margin, yPosition);
+    yPosition += 10;
+    
+    pdf.setFontSize(10);
+    const disclaimerLines = pdf.splitTextToSize(t('cdm.disclaimerText'), pageWidth - 2 * margin);
+    disclaimerLines.forEach((line: string) => {
+      pdf.text(line, margin, yPosition);
+      yPosition += 5;
+    });
+
+    // Save the PDF
+    pdf.save(`avaliacao-cognitiva-${new Date().getTime()}.pdf`);
+  };
+
   return (
     <div className="space-y-6">
+      {/* PDF Generation Button */}
+      <div className="flex justify-end">
+        <Button onClick={generatePDF} className="flex items-center gap-2">
+          <Download className="h-4 w-4" />
+          {t('cdm.generatePdf')}
+        </Button>
+      </div>
+
       {/* Overview */}
       <Card>
         <CardHeader>

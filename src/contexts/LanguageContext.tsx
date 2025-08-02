@@ -64,22 +64,23 @@ interface TranslationKeys {
   'cta.averageTime': string;
   'cta.entertainmentOnly': string;
   
-  // CDM Results
-  'cdm.profileOverview': string;
-  'cdm.profileDescription': string;
-  'cdm.averageAlignment': string;
-  'cdm.consistency': string;
-  'cdm.patternsIdentified': string;
-  'cdm.cognitiveProfile': string;
-  'cdm.radarDescription': string;
-  'cdm.identifiedPatterns': string;
-  'cdm.patternsDescription': string;
-  'cdm.attributeDetails': string;
-  'cdm.attributeDetailsDescription': string;
-  'cdm.traitAlignedOf': string;
-  'cdm.questions': string;
-  'cdm.disclaimerTitle': string;
-  'cdm.disclaimerText': string;
+    // CDM Results
+    'cdm.profileOverview': string;
+    'cdm.profileDescription': string;
+    'cdm.averageAlignment': string;
+    'cdm.consistency': string;
+    'cdm.patternsIdentified': string;
+    'cdm.cognitiveProfile': string;
+    'cdm.radarDescription': string;
+    'cdm.identifiedPatterns': string;
+    'cdm.patternsDescription': string;
+    'cdm.attributeDetails': string;
+    'cdm.attributeDetailsDescription': string;
+    'cdm.traitAlignedOf': string;
+    'cdm.questions': string;
+    'cdm.disclaimerTitle': string;
+    'cdm.disclaimerText': string;
+    'cdm.generatePdf': string;
 
   // Assessment page
   'assessment.title': string;
@@ -232,6 +233,7 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.questions': 'questões',
     'cdm.disclaimerTitle': 'Ferramenta de Autoconhecimento',
     'cdm.disclaimerText': 'Este é um instrumento de autoavaliação para reflexão pessoal. Não constitui diagnóstico médico ou psicológico. Para avaliação profissional, consulte um especialista qualificado.',
+    'cdm.generatePdf': 'Gerar PDF',
 
     // Language selector
     'language.selector': 'Idioma',
@@ -588,6 +590,7 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.questions': 'questions',
     'cdm.disclaimerTitle': 'Self-Assessment Tool',
     'cdm.disclaimerText': 'This is a self-assessment instrument for personal reflection. It does not constitute medical or psychological diagnosis. For professional evaluation, consult a qualified specialist.',
+    'cdm.generatePdf': 'Generate PDF',
 
     // Language selector
     'language.selector': 'Language',
@@ -952,6 +955,7 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.questions': 'preguntas',
     'cdm.disclaimerTitle': 'Herramienta de Autoconocimiento',
     'cdm.disclaimerText': 'Este es un instrumento de autoevaluación para reflexión personal. No constituye diagnóstico médico o psicológico. Para evaluación profesional, consulte a un especialista cualificado.',
+    'cdm.generatePdf': 'Generar PDF',
 
     // Questions with new answer structure
     'question.1': 'En una reunión de trabajo, tu colega hace una broma de la que todos se ríen, pero no entiendes por qué es gracioso.',
@@ -977,6 +981,7 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.questions': 'vragen',
     'cdm.disclaimerTitle': 'Zelfbeoordelingsinstrument',
     'cdm.disclaimerText': 'Dit is een zelfbeoordelingsinstrument voor persoonlijke reflectie. Het vormt geen medische of psychologische diagnose. Voor professionele evaluatie, raadpleeg een gekwalificeerde specialist.',
+    'cdm.generatePdf': 'PDF Genereren',
 
     // Home page
     'home.title': 'Autisme Spectrum Kenmerken Beoordeling',
@@ -1213,6 +1218,7 @@ const translations: Record<Language, TranslationKeys> = {
     'cdm.questions': 'Fragen',
     'cdm.disclaimerTitle': 'Selbstbewertungsinstrument',
     'cdm.disclaimerText': 'Dies ist ein Selbstbewertungsinstrument für persönliche Reflexion. Es stellt keine medizinische oder psychologische Diagnose dar. Für professionelle Bewertung konsultieren Sie einen qualifizierten Spezialisten.',
+    'cdm.generatePdf': 'PDF Erstellen',
 
     // Home page
     'home.title': 'Autismus-Spektrum Charakteristiken Bewertung',
