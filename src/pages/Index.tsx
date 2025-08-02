@@ -9,11 +9,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Language Selector Header */}
-      <div className="absolute top-4 right-4 z-50">
+      <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50">
         <LanguageSelector />
       </div>
       <HeroSection />
-      <div className="my-8">
+      <div className="my-4 sm:my-8 px-4">
         <AdSenseSlot 
           slot="9204133609" 
           className="max-w-4xl mx-auto"
@@ -21,7 +21,7 @@ const Index = () => {
         />
       </div>
       <AboutSection />
-      <div className="my-8">
+      <div className="my-4 sm:my-8 px-4">
         <AdSenseSlot 
           slot="9204133609" 
           className="max-w-4xl mx-auto"

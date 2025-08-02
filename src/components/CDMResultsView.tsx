@@ -205,48 +205,48 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 px-2 sm:px-0">
       {/* PDF Generation Button */}
       <div className="flex justify-end">
-        <Button onClick={generatePDF} className="flex items-center gap-2">
-          <Download className="h-4 w-4" />
+        <Button onClick={generatePDF} className="flex items-center gap-2 text-sm sm:text-base">
+          <Download className="h-3 w-3 sm:h-4 sm:w-4" />
           {t('cdm.generatePdf')}
         </Button>
       </div>
 
       {/* Overview */}
       <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl text-primary">
+        <CardHeader className="pb-3 sm:pb-6">
+          <CardTitle className="text-lg sm:text-xl lg:text-2xl text-primary">
             {t('cdm.profileOverview')}
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-sm sm:text-base">
             {t('cdm.profileDescription')}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="text-center p-3 sm:p-4 bg-muted/30 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-primary">
                 {Math.round(result.overallProfile.averageProbability * 100)}%
               </div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground">
                 {t('cdm.averageAlignment')}
               </div>
             </div>
-            <div className="text-center p-4 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary">
+            <div className="text-center p-3 sm:p-4 bg-muted/30 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-primary">
                 {Math.round(result.overallProfile.consistency * 100)}%
               </div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground">
                 {t('cdm.consistency')}
               </div>
             </div>
-            <div className="text-center p-4 bg-muted/30 rounded-lg">
-              <div className="text-2xl font-bold text-primary">
+            <div className="text-center p-3 sm:p-4 bg-muted/30 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-primary">
                 {result.identifiedPatterns.length}
               </div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-xs sm:text-sm text-muted-foreground">
                 {t('cdm.patternsIdentified')}
               </div>
             </div>
@@ -256,17 +256,17 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
 
       {/* Radar Chart */}
       <Card>
-        <CardHeader>
-          <CardTitle>{t('cdm.cognitiveProfile')}</CardTitle>
-          <CardDescription>
+        <CardHeader className="pb-3 sm:pb-6">
+          <CardTitle className="text-lg sm:text-xl">{t('cdm.cognitiveProfile')}</CardTitle>
+          <CardDescription className="text-sm sm:text-base">
             {t('cdm.radarDescription')}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div ref={radarChartRef}>
+        <CardContent className="p-2 sm:p-6">
+          <div ref={radarChartRef} className="w-full">
             <CDMRadarChart 
               attributeProbabilities={result.attributeProbabilities}
-              className="mx-auto"
+              className="mx-auto w-full h-64 sm:h-96"
             />
           </div>
         </CardContent>

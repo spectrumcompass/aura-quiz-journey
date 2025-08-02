@@ -17,20 +17,21 @@ export const CDMRadarChart = ({ attributeProbabilities, className }: CDMRadarCha
   });
 
   return (
-    <div className={`w-full h-96 ${className}`}>
+    <div className={`w-full h-64 sm:h-80 md:h-96 ${className}`}>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart data={data} margin={{ top: 20, right: 80, bottom: 20, left: 80 }}>
+        <RadarChart data={data} margin={{ top: 10, right: 40, bottom: 10, left: 40 }}>
           <PolarGrid gridType="polygon" />
           <PolarAngleAxis 
             dataKey="attribute" 
-            tick={{ fontSize: 12 }}
-            className="text-xs"
+            tick={{ fontSize: 10 }}
+            className="text-xs fill-current"
           />
           <PolarRadiusAxis 
             angle={90} 
             domain={[0, 100]} 
-            tick={{ fontSize: 10 }}
+            tick={{ fontSize: 8 }}
             tickFormatter={(value) => `${value}%`}
+            className="text-xs"
           />
           <Radar
             name="Trait Alignment"
@@ -39,7 +40,7 @@ export const CDMRadarChart = ({ attributeProbabilities, className }: CDMRadarCha
             fill="hsl(var(--primary))"
             fillOpacity={0.2}
             strokeWidth={2}
-            dot={{ fill: "hsl(var(--primary))", strokeWidth: 2, r: 4 }}
+            dot={{ fill: "hsl(var(--primary))", strokeWidth: 2, r: 3 }}
           />
         </RadarChart>
       </ResponsiveContainer>

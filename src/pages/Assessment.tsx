@@ -151,7 +151,7 @@ const Assessment = () => {
   return (
     <div className="relative min-h-[100svh] h-[100svh] bg-gradient-secondary overflow-auto">
       {/* Language Selector */}
-      <div className="absolute top-4 right-4 z-50">
+      <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50">
         <LanguageSelector />
       </div>
       
@@ -161,13 +161,14 @@ const Assessment = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
-      <div className="absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 h-full flex items-center justify-center py-8">
-        <div className="flex gap-6 items-center justify-center w-full max-w-6xl">
-          {/* AdSense Left - 2 slots */}
+      {/* Floating Elements - Hidden on mobile for performance */}
+      <div className="hidden lg:block absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
+      <div className="hidden lg:block absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+      <div className="hidden lg:block absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+      
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 max-w-7xl relative z-10 h-full flex items-center justify-center py-4 sm:py-8">
+        <div className="flex gap-2 sm:gap-4 lg:gap-6 items-center justify-center w-full max-w-6xl">
+          {/* AdSense Left - Only on XL screens */}
           <div className="hidden xl:block w-64 flex-shrink-0">
             <div className="sticky top-28 flex flex-col gap-4">
               <AdSenseSlot 
@@ -197,103 +198,95 @@ const Assessment = () => {
 
           {/* Main Content */}
           <div className="flex-1 max-w-3xl h-full flex flex-col justify-center items-center">
-            <Card className="shadow-strong max-h-[80vh] flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm w-full max-w-3xl">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-4">
+            <Card className="shadow-strong max-h-[85vh] sm:max-h-[80vh] flex flex-col overflow-hidden bg-background/95 backdrop-blur-sm w-full max-w-3xl mx-2 sm:mx-0">
+              <CardHeader className="pb-4 sm:pb-6">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
                   <Button 
                     variant="ghost" 
                     onClick={() => navigate("/")}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 text-sm sm:text-base"
                   >
                     <ArrowLeft className="w-4 h-4" />
-                    {t('assessment.back')}
+                    <span className="hidden sm:inline">{t('assessment.back')}</span>
                   </Button>
                   
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-xs sm:text-sm text-muted-foreground">
                     {t('assessment.question')} {currentQuestion + 1} {t('assessment.of')} {questions.length}
                   </span>
                 </div>
                 
-                <Progress value={progress} className="mb-4" />
+                <Progress value={progress} className="mb-3 sm:mb-4" />
                 
-                <CardTitle className="text-2xl text-primary">
+                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-primary">
                   {t('assessment.title')}
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-sm sm:text-base">
                   {t('assessment.subtitle')}
                 </CardDescription>
               </CardHeader>
               
-              <CardContent className="flex-1 overflow-y-auto">
-                <div className="space-y-8">
-                  {/* Pergunta atual */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-medium">
+              <CardContent className="flex-1 overflow-y-auto px-4 sm:px-6">
+                <div className="space-y-6 sm:space-y-8">
+                  {/* Current Question */}
+                  <div className="space-y-4 sm:space-y-6">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-medium leading-relaxed">
                       {t(questions[currentQuestion])}
                     </h3>
                     
                     <RadioGroup
                       value={answers[`question_${currentQuestion}`] || ""}
                       onValueChange={(value) => setValue(`question_${currentQuestion}` as any, value)}
-                      className="space-y-4"
+                      className="space-y-3 sm:space-y-4"
                     >
-                      <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                      <div className="flex items-start space-x-3 p-3 sm:p-4 border rounded-lg hover:bg-muted/50 transition-colors">
                         <RadioGroupItem value="1" id="trait-option" className="mt-1" />
-                        <Label htmlFor="trait-option" className="text-base cursor-pointer flex-1">
+                        <Label htmlFor="trait-option" className="text-sm sm:text-base cursor-pointer flex-1 leading-relaxed">
                           {t(`${questions[currentQuestion]}.traitAnswer`)}
                         </Label>
                       </div>
-                      <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                      <div className="flex items-start space-x-3 p-3 sm:p-4 border rounded-lg hover:bg-muted/50 transition-colors">
                         <RadioGroupItem value="0" id="neurotypical-option" className="mt-1" />
-                        <Label htmlFor="neurotypical-option" className="text-base cursor-pointer flex-1">
+                        <Label htmlFor="neurotypical-option" className="text-sm sm:text-base cursor-pointer flex-1 leading-relaxed">
                           {t(`${questions[currentQuestion]}.neurotypicalAnswer`)}
                         </Label>
                       </div>
                     </RadioGroup>
                   </div>
-                  
-                  {/* Navegação */}
-                  <div className="flex justify-between items-center pt-8">
-                    <Button 
-                      variant="outline" 
-                      onClick={previousQuestion}
-                      disabled={currentQuestion === 0}
-                      className="flex items-center gap-2"
-                    >
-                      <ArrowLeft className="w-4 h-4" />
-                      {t('assessment.previous')}
-                    </Button>
-                  
-                    {currentQuestion === questions.length - 1 ? (
-                      <Button 
-                        onClick={handleSubmit(onSubmit)}
-                        className="flex items-center gap-2"
-                        disabled={!answers[`question_${currentQuestion}`]}
-                      >
-                        {t('assessment.finish')}
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    ) : (
-                      <Button 
-                        onClick={nextQuestion}
-                        disabled={!answers[`question_${currentQuestion}`]}
-                        className="flex items-center gap-2"
-                      >
-                        {t('assessment.next')}
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    )}
-                  </div>
                 </div>
               </CardContent>
+              
+              <div className="p-4 sm:p-6 border-t bg-background/50">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={previousQuestion}
+                    disabled={currentQuestion === 0}
+                    className="w-full sm:w-auto order-2 sm:order-1"
+                  >
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    {t('assessment.previous')}
+                  </Button>
+                  
+                  <Button
+                    type="button"
+                    onClick={currentQuestion === questions.length - 1 ? handleSubmit(onSubmit) : nextQuestion}
+                    disabled={!answers[`question_${currentQuestion}`]}
+                    className="w-full sm:w-auto order-1 sm:order-2"
+                  >
+                    {currentQuestion === questions.length - 1 ? t('assessment.finish') : t('assessment.next')}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
             </Card>
           </div>
-          
-          {/* AdSense Right - 2 slots */}
+
+          {/* AdSense Right - Only on XL screens */}
           <div className="hidden xl:block w-64 flex-shrink-0">
             <div className="sticky top-28 flex flex-col gap-4">
               <AdSenseSlot 
-                slot="9204133609"
+                slot="9204133610"
                 style={{ 
                   display: "block", 
                   width: "250px", 
@@ -304,7 +297,7 @@ const Assessment = () => {
                 className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
               />
               <AdSenseSlot 
-                slot="9204133610"
+                slot="9204133611"
                 style={{ 
                   display: "block", 
                   width: "250px", 
