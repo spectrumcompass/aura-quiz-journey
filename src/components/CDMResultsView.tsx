@@ -26,6 +26,14 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
     return t(`attr.${attributeId}.desc`) || '';
   };
 
+  const getPatternName = (patternId: string) => {
+    return t(`pattern.${patternId}`) || patternId;
+  };
+
+  const getPatternDescription = (patternId: string) => {
+    return t(`pattern.${patternId}.desc`) || '';
+  };
+
   const generateProgressBar = (value: number, width: number = 40) => {
     const filled = Math.round((value / 100) * width);
     const empty = width - filled;
@@ -70,10 +78,10 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
       pdf.setFontSize(10);
       pdf.setFont('helvetica', 'normal');
       result.identifiedPatterns.forEach((pattern) => {
-        pdf.text(`• ${pattern.name}`, margin, yPosition);
+        pdf.text(`• ${getPatternName(pattern.id)}`, margin, yPosition);
         yPosition += 6;
         
-        const lines = pdf.splitTextToSize(pattern.description, pageWidth - 2 * margin - 10);
+        const lines = pdf.splitTextToSize(getPatternDescription(pattern.id), pageWidth - 2 * margin - 10);
         lines.forEach((line: string) => {
           pdf.text(line, margin + 10, yPosition);
           yPosition += 4;
@@ -278,10 +286,10 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
               {result.identifiedPatterns.map((pattern) => (
                 <div key={pattern.id} className="p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border">
                   <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="secondary">{pattern.name}</Badge>
+                    <Badge variant="secondary">{getPatternName(pattern.id)}</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    {pattern.description}
+                    {getPatternDescription(pattern.id)}
                   </p>
                   <div className="mt-2 flex flex-wrap gap-1">
                     {pattern.requiredAttributes.map((attrId) => (

@@ -104,6 +104,20 @@ interface TranslationKeys {
     'attr.special_interests': string;
     'attr.special_interests.desc': string;
 
+    // Cognitive Patterns
+    'pattern.communication_social_cluster': string;
+    'pattern.communication_social_cluster.desc': string;
+    'pattern.sensory_regulation_cluster': string;
+    'pattern.sensory_regulation_cluster.desc': string;
+    'pattern.executive_attention_cluster': string;
+    'pattern.executive_attention_cluster.desc': string;
+    'pattern.rigid_thinking_cluster': string;
+    'pattern.rigid_thinking_cluster.desc': string;
+    'pattern.repetitive_interests_cluster': string;
+    'pattern.repetitive_interests_cluster.desc': string;
+    'pattern.comprehensive_profile': string;
+    'pattern.comprehensive_profile.desc': string;
+
   // Assessment page
   'assessment.title': string;
   'assessment.subtitle': string;
@@ -278,6 +292,20 @@ const translations: Record<Language, TranslationKeys> = {
     'attr.emotional_regulation.desc': 'Gerenciamento e expressão de emoções',
     'attr.special_interests': 'Interesses Especiais',
     'attr.special_interests.desc': 'Intensidade e foco de interesses pessoais',
+
+    // Cognitive Patterns
+    'pattern.communication_social_cluster': 'Cluster Comunicação-Social',
+    'pattern.communication_social_cluster.desc': 'Forte indicação de diferenças na comunicação social e reciprocidade',
+    'pattern.sensory_regulation_cluster': 'Cluster Sensorial-Regulação',
+    'pattern.sensory_regulation_cluster.desc': 'Diferenças intensificadas no processamento sensorial e padrões de regulação emocional',
+    'pattern.executive_attention_cluster': 'Cluster Executivo-Atenção',
+    'pattern.executive_attention_cluster.desc': 'Diferenças no funcionamento executivo e padrões de atenção',
+    'pattern.rigid_thinking_cluster': 'Cluster Pensamento Rígido',
+    'pattern.rigid_thinking_cluster.desc': 'Preferência por pensamento literal e flexibilidade cognitiva reduzida',
+    'pattern.repetitive_interests_cluster': 'Cluster Repetitivo-Interesses',
+    'pattern.repetitive_interests_cluster.desc': 'Padrões fortes de comportamentos repetitivos e interesses especiais intensos',
+    'pattern.comprehensive_profile': 'Perfil Neurodivergente Abrangente',
+    'pattern.comprehensive_profile.desc': 'Múltiplos domínios mostrando características neurodivergentes',
 
     // Language selector
     'language.selector': 'Idioma',
@@ -657,6 +685,20 @@ const translations: Record<Language, TranslationKeys> = {
     'attr.emotional_regulation.desc': 'Management and expression of emotions',
     'attr.special_interests': 'Special Interests',
     'attr.special_interests.desc': 'Intensity and focus of personal interests',
+
+    // Cognitive Patterns
+    'pattern.communication_social_cluster': 'Communication-Social Cluster',
+    'pattern.communication_social_cluster.desc': 'Strong indication of differences in social communication and reciprocity',
+    'pattern.sensory_regulation_cluster': 'Sensory-Regulation Cluster',
+    'pattern.sensory_regulation_cluster.desc': 'Heightened sensory processing differences and emotional regulation patterns',
+    'pattern.executive_attention_cluster': 'Executive-Attention Cluster',
+    'pattern.executive_attention_cluster.desc': 'Differences in executive functioning and attention patterns',
+    'pattern.rigid_thinking_cluster': 'Rigid Thinking Cluster',
+    'pattern.rigid_thinking_cluster.desc': 'Preference for literal thinking and reduced cognitive flexibility',
+    'pattern.repetitive_interests_cluster': 'Repetitive-Interests Cluster',
+    'pattern.repetitive_interests_cluster.desc': 'Strong patterns of repetitive behaviors and intense special interests',
+    'pattern.comprehensive_profile': 'Comprehensive Neurodivergent Profile',
+    'pattern.comprehensive_profile.desc': 'Multiple domains showing neurodivergent characteristics',
 
     // Language selector
     'language.selector': 'Language',
@@ -1045,6 +1087,20 @@ const translations: Record<Language, TranslationKeys> = {
     'attr.special_interests': 'Intereses Especiales',
     'attr.special_interests.desc': 'Intensidad y enfoque de intereses personales',
 
+    // Cognitive Patterns
+    'pattern.communication_social_cluster': 'Grupo Comunicación-Social',
+    'pattern.communication_social_cluster.desc': 'Fuerte indicación de diferencias en la comunicación social y reciprocidad',
+    'pattern.sensory_regulation_cluster': 'Grupo Sensorial-Regulación',
+    'pattern.sensory_regulation_cluster.desc': 'Diferencias intensificadas en procesamiento sensorial y patrones de regulación emocional',
+    'pattern.executive_attention_cluster': 'Grupo Ejecutivo-Atención',
+    'pattern.executive_attention_cluster.desc': 'Diferencias en funcionamiento ejecutivo y patrones de atención',
+    'pattern.rigid_thinking_cluster': 'Grupo Pensamiento Rígido',
+    'pattern.rigid_thinking_cluster.desc': 'Preferencia por pensamiento literal y flexibilidad cognitiva reducida',
+    'pattern.repetitive_interests_cluster': 'Grupo Repetitivo-Intereses',
+    'pattern.repetitive_interests_cluster.desc': 'Patrones fuertes de comportamientos repetitivos e intereses especiales intensos',
+    'pattern.comprehensive_profile': 'Perfil Neurodivergente Integral',
+    'pattern.comprehensive_profile.desc': 'Múltiples dominios mostrando características neurodivergentes',
+
     // Questions with new answer structure
     'question.1': 'En una reunión de trabajo, tu colega hace una broma de la que todos se ríen, pero no entiendes por qué es gracioso.',
     'question.1.traitAnswer': 'Continuar enfocándose en el contenido de la reunión',
@@ -1092,6 +1148,20 @@ const translations: Record<Language, TranslationKeys> = {
     'attr.emotional_regulation.desc': 'Beheersing en uiting van emoties',
     'attr.special_interests': 'Speciale Interesses',
     'attr.special_interests.desc': 'Intensiteit en focus van persoonlijke interesses',
+
+    // Cognitive Patterns
+    'pattern.communication_social_cluster': 'Communicatie-Sociale Cluster',
+    'pattern.communication_social_cluster.desc': 'Sterke indicatie van verschillen in sociale communicatie en wederkerigheid',
+    'pattern.sensory_regulation_cluster': 'Sensorische-Regulatie Cluster',
+    'pattern.sensory_regulation_cluster.desc': 'Verhoogde sensorische verwerkingsverschillen en emotionele regulatiepatronen',
+    'pattern.executive_attention_cluster': 'Executieve-Aandacht Cluster',
+    'pattern.executive_attention_cluster.desc': 'Verschillen in executief functioneren en aandachtspatronen',
+    'pattern.rigid_thinking_cluster': 'Rigide Denken Cluster',
+    'pattern.rigid_thinking_cluster.desc': 'Voorkeur voor letterlijk denken en verminderde cognitieve flexibiliteit',
+    'pattern.repetitive_interests_cluster': 'Repetitieve-Interesses Cluster',
+    'pattern.repetitive_interests_cluster.desc': 'Sterke patronen van repetitief gedrag en intense speciale interesses',
+    'pattern.comprehensive_profile': 'Uitgebreid Neurodivergent Profiel',
+    'pattern.comprehensive_profile.desc': 'Meerdere domeinen die neurodivergente kenmerken tonen',
 
     // Home page
     'home.title': 'Autisme Spectrum Kenmerken Beoordeling',
@@ -1351,6 +1421,20 @@ const translations: Record<Language, TranslationKeys> = {
     'attr.emotional_regulation.desc': 'Management und Ausdruck von Emotionen',
     'attr.special_interests': 'Spezielle Interessen',
     'attr.special_interests.desc': 'Intensität und Fokus persönlicher Interessen',
+
+    // Cognitive Patterns
+    'pattern.communication_social_cluster': 'Kommunikations-Soziales Cluster',
+    'pattern.communication_social_cluster.desc': 'Starke Hinweise auf Unterschiede in sozialer Kommunikation und Gegenseitigkeit',
+    'pattern.sensory_regulation_cluster': 'Sensorisch-Regulations Cluster',
+    'pattern.sensory_regulation_cluster.desc': 'Verstärkte sensorische Verarbeitungsunterschiede und emotionale Regulationsmuster',
+    'pattern.executive_attention_cluster': 'Exekutiv-Aufmerksamkeits Cluster',
+    'pattern.executive_attention_cluster.desc': 'Unterschiede in exekutivem Funktionieren und Aufmerksamkeitsmustern',
+    'pattern.rigid_thinking_cluster': 'Rigides Denken Cluster',
+    'pattern.rigid_thinking_cluster.desc': 'Präferenz für wörtliches Denken und reduzierte kognitive Flexibilität',
+    'pattern.repetitive_interests_cluster': 'Repetitive-Interessen Cluster',
+    'pattern.repetitive_interests_cluster.desc': 'Starke Muster von repetitivem Verhalten und intensiven speziellen Interessen',
+    'pattern.comprehensive_profile': 'Umfassendes Neurodivergentes Profil',
+    'pattern.comprehensive_profile.desc': 'Mehrere Bereiche zeigen neurodivergente Eigenschaften',
 
     // Home page
     'home.title': 'Autismus-Spektrum Charakteristiken Bewertung',
