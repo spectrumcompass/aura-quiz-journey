@@ -7,6 +7,8 @@ import { CDMResult, COGNITIVE_ATTRIBUTES } from "@/lib/cdm-model";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Download } from "lucide-react";
 import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import { useRef } from "react";
 
 interface CDMResultsViewProps {
   result: CDMResult;
@@ -14,6 +16,7 @@ interface CDMResultsViewProps {
 
 export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
   const { t } = useLanguage();
+  const radarChartRef = useRef<HTMLDivElement>(null);
 
   const getAttributeName = (attributeId: string) => {
     return t(`attr.${attributeId}`) || attributeId;
@@ -29,7 +32,7 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
     return '█'.repeat(filled) + '░'.repeat(empty);
   };
 
-  const generatePDF = () => {
+  const generatePDF = async () => {
     const pdf = new jsPDF();
     const pageWidth = pdf.internal.pageSize.getWidth();
     const margin = 20;
@@ -78,6 +81,39 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
         yPosition += 5;
       });
       yPosition += 10;
+    }
+
+    // Cognitive Profile Chart
+    pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text(t('cdm.cognitiveProfile'), margin, yPosition);
+    yPosition += 15;
+
+    // Capture the radar chart
+    if (radarChartRef.current) {
+      try {
+        const canvas = await html2canvas(radarChartRef.current, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          logging: false,
+        });
+        
+        const imgData = canvas.toDataURL('image/png');
+        const imgWidth = 120;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        
+        // Add the chart image to PDF
+        pdf.addImage(imgData, 'PNG', margin + 30, yPosition, imgWidth, imgHeight);
+        yPosition += imgHeight + 20;
+      } catch (error) {
+        console.log('Error capturing chart:', error);
+        yPosition += 20;
+      }
+    }
+
+    if (yPosition > 200) {
+      pdf.addPage();
+      yPosition = 30;
     }
 
     // Attribute Details (similar to the image)
@@ -219,10 +255,12 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <CDMRadarChart 
-            attributeProbabilities={result.attributeProbabilities}
-            className="mx-auto"
-          />
+          <div ref={radarChartRef}>
+            <CDMRadarChart 
+              attributeProbabilities={result.attributeProbabilities}
+              className="mx-auto"
+            />
+          </div>
         </CardContent>
       </Card>
 
