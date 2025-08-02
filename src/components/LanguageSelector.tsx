@@ -36,7 +36,6 @@ const LanguageSelector = () => {
               className="hover:bg-primary/10 focus:bg-primary/10 rounded-lg mx-1 my-0.5 cursor-pointer transition-all duration-150"
             >
               <div className="flex items-center gap-3 py-1">
-                <span className="text-lg">{lang.flag}</span>
                 <span className="text-sm font-medium">{lang.label}</span>
               </div>
             </SelectItem>
