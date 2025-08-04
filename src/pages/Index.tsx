@@ -4,12 +4,14 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import CTASection from "@/components/CTASection";
 import AdSenseSlot from "@/components/AdSenseSlot";
 import LanguageSelector from "@/components/LanguageSelector";
+import AuthButton from "@/components/AuthButton";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* Language Selector Header */}
-      <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50">
+      {/* Header with Language Selector and Auth Button */}
+      <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50 flex gap-2">
+        <AuthButton />
         <LanguageSelector />
       </div>
       <HeroSection />
