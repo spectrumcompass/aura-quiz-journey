@@ -12,8 +12,10 @@ import AdSenseSlot from "@/components/AdSenseSlot";
 import heroImage from "@/assets/hero-autism-assessment.jpg";
 import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { calculateCDMProfile, CDMResult } from "@/lib/cdm-model";
 import { CDMResultsView } from "@/components/CDMResultsView";
+import { supabase } from "@/integrations/supabase/client";
 
 const questions = Array.from({ length: 80 }, (_, i) => `question.${i + 1}`);
 
@@ -28,6 +30,7 @@ const Assessment = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useLanguage();
+  const { user } = useAuth();
   
   const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
   
@@ -49,11 +52,52 @@ const Assessment = () => {
     }
   };
   
-  const onSubmit = (data: FormData) => {
+  const saveResult = async (data: FormData, result: CDMResult) => {
+    if (!user) return; // Só salva se o usuário estiver logado
+    
+    try {
+      const { error } = await supabase
+        .from('assessment_results')
+        .insert({
+          user_id: user.id,
+          title: `Assessment - ${new Date().toLocaleDateString('pt-BR')}`,
+          responses: data as any,
+          cdm_result: result as any,
+          attribute_probabilities: result.attributeProbabilities as any,
+          identified_patterns: result.identifiedPatterns as any,
+          overall_profile: result.overallProfile as any,
+          average_probability: result.overallProfile.averageProbability,
+          dominant_attributes: result.overallProfile.dominantAttributes
+         });
+
+      if (error) {
+        console.error('Error saving result:', error);
+        toast({
+          variant: "destructive",
+          title: "Erro ao salvar resultado",
+          description: "Não foi possível salvar o resultado no seu histórico.",
+        });
+      } else if (user) {
+        toast({
+          title: "Resultado salvo!",
+          description: "O resultado foi salvo no seu dashboard.",
+        });
+      }
+    } catch (err) {
+      console.error('Error saving result:', err);
+    }
+  };
+
+  const onSubmit = async (data: FormData) => {
     // Calcular resultado CDM
     const result = calculateCDMProfile(data);
     setCdmResult(result);
     setShowResult(true);
+    
+    // Salvar resultado se usuário estiver logado
+    if (user) {
+      await saveResult(data, result);
+    }
     
     toast({
       title: t('assessment.finish'),

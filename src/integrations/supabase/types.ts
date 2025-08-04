@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      assessment_results: {
+        Row: {
+          attribute_probabilities: Json
+          average_probability: number
+          cdm_result: Json
+          created_at: string
+          dominant_attributes: string[]
+          id: string
+          identified_patterns: Json
+          overall_profile: Json
+          responses: Json
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          attribute_probabilities: Json
+          average_probability: number
+          cdm_result: Json
+          created_at?: string
+          dominant_attributes?: string[]
+          id?: string
+          identified_patterns: Json
+          overall_profile: Json
+          responses: Json
+          title?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          attribute_probabilities?: Json
+          average_probability?: number
+          cdm_result?: Json
+          created_at?: string
+          dominant_attributes?: string[]
+          id?: string
+          identified_patterns?: Json
+          overall_profile?: Json
+          responses?: Json
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
