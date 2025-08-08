@@ -3,39 +3,25 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { LogIn, LogOut, User, BarChart3 } from 'lucide-react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 const AuthButton = () => {
-  const { user, signOut, loading } = useAuth();
-
+  const {
+    user,
+    signOut,
+    loading
+  } = useAuth();
   if (loading) {
-    return (
-      <Button variant="soft" size="sm" disabled>
+    return <Button variant="soft" size="sm" disabled>
         <User className="h-4 w-4 mr-2" />
         Carregando...
-      </Button>
-    );
+      </Button>;
   }
-
   if (!user) {
-    return (
-      <Button asChild variant="soft" size="sm">
-        <Link to="/auth">
-          <LogIn className="h-4 w-4 mr-2" />
-          Entrar
-        </Link>
-      </Button>
-    );
+    return <Button asChild variant="soft" size="sm">
+        
+      </Button>;
   }
-
-  return (
-    <DropdownMenu>
+  return <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="soft" size="sm">
           <User className="h-4 w-4 mr-2" />
@@ -59,8 +45,6 @@ const AuthButton = () => {
           Sair
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenu>
-  );
+    </DropdownMenu>;
 };
-
 export default AuthButton;
