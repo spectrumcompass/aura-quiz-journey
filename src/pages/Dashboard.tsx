@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,11 +10,13 @@ import { Calendar, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User }
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { CDMResult } from '@/lib/cdm-model';
+import { CDMResult, COGNITIVE_ATTRIBUTES } from '@/lib/cdm-model';
 import AuthButton from '@/components/AuthButton';
 import { CDMResultsView } from '@/components/CDMResultsView';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 interface AssessmentResult {
   id: string;
   title: string;
@@ -37,6 +39,39 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedResult, setSelectedResult] = useState<AssessmentResult | null>(null);
+
+  // Filtros
+  const [attributeFilter, setAttributeFilter] = useState<string>('all');
+  const [startDate, setStartDate] = useState<string>('');
+  const [endDate, setEndDate] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
+
+  const filteredResults = useMemo(() => {
+    let arr = [...results];
+
+    if (attributeFilter !== 'all') {
+      arr = arr.filter(r => r.dominant_attributes?.includes(attributeFilter));
+    }
+
+    if (startDate) {
+      const start = new Date(startDate);
+      arr = arr.filter(r => new Date(r.created_at) >= start);
+    }
+    if (endDate) {
+      const end = new Date(endDate);
+      end.setHours(23, 59, 59, 999);
+      arr = arr.filter(r => new Date(r.created_at) <= end);
+    }
+
+    arr.sort((a, b) =>
+      sortOrder === 'desc'
+        ? b.average_probability - a.average_probability
+        : a.average_probability - b.average_probability
+    );
+
+    return arr;
+  }, [results, attributeFilter, startDate, endDate, sortOrder]);
+
   useEffect(() => {
     if (!authLoading && !user) {
       navigate('/auth');
@@ -130,6 +165,57 @@ const Dashboard = () => {
       </div>
 
       <div className="container mx-auto px-4 py-8">
+        {/* Filtros */}
+        <Card className="mb-8">
+          <CardContent className="pt-6">
+            <div className="grid gap-4 md:grid-cols-5">
+              <div className="md:col-span-2">
+                <label className="text-sm text-muted-foreground">Atributo</label>
+                <Select value={attributeFilter} onValueChange={setAttributeFilter}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Todos os atributos" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Todos os atributos</SelectItem>
+                    {COGNITIVE_ATTRIBUTES.map(attr => (
+                      <SelectItem key={attr.id} value={attr.id}>{attr.name}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="text-sm text-muted-foreground">Data inicial</label>
+                <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="mt-1" />
+              </div>
+              <div>
+                <label className="text-sm text-muted-foreground">Data final</label>
+                <Input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="mt-1" />
+              </div>
+              <div>
+                <label className="text-sm text-muted-foreground">Ordenar por</label>
+                <Select value={sortOrder} onValueChange={(v) => setSortOrder(v as 'asc' | 'desc')}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Ordenar" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="desc">Maior alinhamento médio</SelectItem>
+                    <SelectItem value="asc">Menor alinhamento médio</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-between">
+              <p className="text-sm text-muted-foreground">
+                Mostrando {filteredResults.length} de {results.length} resultados
+              </p>
+              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(''); setEndDate(''); setSortOrder('desc'); }}>
+                Limpar filtros
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+
         {/* Stats Cards */}
         <div className="grid gap-6 md:grid-cols-3 mb-8">
           <Card>
@@ -189,7 +275,8 @@ const Dashboard = () => {
           </Alert>}
 
         {/* Results Grid */}
-        {results.length === 0 ? <Card className="text-center py-12">
+        {results.length === 0 ? (
+          <Card className="text-center py-12">
             <CardContent>
               <BarChart3 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
               <CardTitle className="mb-2">Nenhum resultado ainda</CardTitle>
@@ -201,16 +288,30 @@ const Dashboard = () => {
                 Fazer Assessment
               </Button>
             </CardContent>
-          </Card> : <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {results.map(result => <Card key={result.id} className="hover:shadow-medium transition-shadow">
+          </Card>
+        ) : filteredResults.length === 0 ? (
+          <Card className="text-center py-12">
+            <CardContent>
+              <BarChart3 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+              <CardTitle className="mb-2">Nenhum resultado com esses filtros</CardTitle>
+              <CardDescription className="mb-4">
+                Ajuste os filtros de atributo, data ou ordenação para ver resultados.
+              </CardDescription>
+              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(''); setEndDate(''); setSortOrder('desc'); }}>
+                Limpar filtros
+              </Button>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredResults.map(result => (
+              <Card key={result.id} className="hover:shadow-medium transition-shadow">
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
                       <CardTitle className="text-lg">{result.title}</CardTitle>
                       <CardDescription>
-                        {format(new Date(result.created_at), 'PPp', {
-                    locale: ptBR
-                  })}
+                        {format(new Date(result.created_at), 'PPp', { locale: ptBR })}
                       </CardDescription>
                     </div>
                     <Badge variant="secondary">
@@ -223,12 +324,16 @@ const Dashboard = () => {
                     <div>
                       <p className="text-sm font-medium mb-2">Atributos Dominantes:</p>
                       <div className="flex flex-wrap gap-1">
-                        {result.dominant_attributes.slice(0, 3).map(attr => <Badge key={attr} variant="outline" className="text-xs">
+                        {result.dominant_attributes.slice(0, 3).map(attr => (
+                          <Badge key={attr} variant="outline" className="text-xs">
                             {attr.replace('_', ' ')}
-                          </Badge>)}
-                        {result.dominant_attributes.length > 3 && <Badge variant="outline" className="text-xs">
+                          </Badge>
+                        ))}
+                        {result.dominant_attributes.length > 3 && (
+                          <Badge variant="outline" className="text-xs">
                             +{result.dominant_attributes.length - 3}
-                          </Badge>}
+                          </Badge>
+                        )}
                       </div>
                     </div>
                     
@@ -254,8 +359,10 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>)}
-          </div>}
+              </Card>
+            ))}
+          </div>
+        )
       </div>
     </div>;
 };
