@@ -244,7 +244,7 @@ export const CDMResultsView = ({ result }: CDMResultsViewProps) => {
             </div>
             <div className="text-center p-3 sm:p-4 bg-muted/30 rounded-lg">
               <div className="text-xl sm:text-2xl font-bold text-primary">
-                {result.identifiedPatterns.length}
+                {Math.round(result.overallProfile.averageProbability * 100)}%
               </div>
               <div className="text-xs sm:text-sm text-muted-foreground">
                 {t('cdm.patternsIdentified')}
