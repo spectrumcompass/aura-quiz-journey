@@ -19,11 +19,13 @@ export type Database = {
           attribute_probabilities: Json
           average_probability: number
           cdm_result: Json
+          consent_at: string | null
           created_at: string
           dominant_attributes: string[]
           id: string
           identified_patterns: Json
           overall_profile: Json
+          research_consent: boolean
           responses: Json
           title: string
           updated_at: string
@@ -33,11 +35,13 @@ export type Database = {
           attribute_probabilities: Json
           average_probability: number
           cdm_result: Json
+          consent_at?: string | null
           created_at?: string
           dominant_attributes?: string[]
           id?: string
           identified_patterns: Json
           overall_profile: Json
+          research_consent?: boolean
           responses: Json
           title?: string
           updated_at?: string
@@ -47,11 +51,13 @@ export type Database = {
           attribute_probabilities?: Json
           average_probability?: number
           cdm_result?: Json
+          consent_at?: string | null
           created_at?: string
           dominant_attributes?: string[]
           id?: string
           identified_patterns?: Json
           overall_profile?: Json
+          research_consent?: boolean
           responses?: Json
           title?: string
           updated_at?: string

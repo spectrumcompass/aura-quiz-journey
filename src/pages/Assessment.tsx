@@ -16,6 +16,16 @@ import { useAuth } from "@/contexts/AuthContext";
 import { calculateCDMProfile, CDMResult } from "@/lib/cdm-model";
 import { CDMResultsView } from "@/components/CDMResultsView";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 const questions = Array.from({ length: 80 }, (_, i) => `question.${i + 1}`);
 
@@ -34,12 +44,16 @@ const Assessment = () => {
   
   const { register, handleSubmit, watch, reset, setValue } = useForm<FormData>();
   
+  // Consentimento de pesquisa
+  const [showConsentDialog, setShowConsentDialog] = useState(true);
+  const [researchConsent, setResearchConsent] = useState<boolean>(false);
+
   const answers = watch();
   const progress = ((currentQuestion + 1) / questions.length) * 100;
   
   // Verifica se a pergunta atual foi respondida
   const currentAnswered = !!answers[`question_${currentQuestion}`];
-  
+
   const nextQuestion = () => {
     if (currentAnswered && currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -52,7 +66,7 @@ const Assessment = () => {
     }
   };
   
-  const saveResult = async (data: FormData, result: CDMResult) => {
+  const saveResult = async (data: FormData, result: CDMResult, consent: boolean) => {
     if (!user) return; // Só salva se o usuário estiver logado
     
     try {
@@ -67,7 +81,9 @@ const Assessment = () => {
           identified_patterns: result.identifiedPatterns as any,
           overall_profile: result.overallProfile as any,
           average_probability: result.overallProfile.averageProbability,
-          dominant_attributes: result.overallProfile.dominantAttributes
+          dominant_attributes: result.overallProfile.dominantAttributes,
+          research_consent: consent,
+          consent_at: consent ? new Date().toISOString() : null,
          });
 
       if (error) {
@@ -96,7 +112,7 @@ const Assessment = () => {
     
     // Salvar resultado se usuário estiver logado
     if (user) {
-      await saveResult(data, result);
+      await saveResult(data, result, researchConsent);
     }
     
     toast({
@@ -119,6 +135,44 @@ const Assessment = () => {
         <div className="absolute top-4 right-4 z-50">
           <LanguageSelector />
         </div>
+
+        <AlertDialog open={showConsentDialog} onOpenChange={setShowConsentDialog}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Permitir uso anônimo dos seus dados?</AlertDialogTitle>
+              <AlertDialogDescription>
+                Suas respostas e resultados poderão ser utilizados apenas para pesquisa e aprimoramento do produto.
+                Os dados são anônimos, confidenciais e armazenados com segurança. Nenhuma informação pessoal é compartilhada.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel
+                onClick={() => {
+                  setResearchConsent(false);
+                  setShowConsentDialog(false);
+                  toast({
+                    title: "Sem problemas",
+                    description: "Você pode continuar normalmente. Seus dados não serão usados em pesquisas.",
+                  });
+                }}
+              >
+                Não permitir
+              </AlertDialogCancel>
+              <AlertDialogAction
+                onClick={() => {
+                  setResearchConsent(true);
+                  setShowConsentDialog(false);
+                  toast({
+                    title: "Obrigado!",
+                    description: "Seu consentimento foi registrado. O uso será sempre anônimo, sigiloso e seguro.",
+                  });
+                }}
+              >
+                Permitir uso anônimo
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
         
         {/* Background Image */}
         <div 
@@ -198,6 +252,44 @@ const Assessment = () => {
       <div className="fixed top-2 sm:top-4 right-2 sm:right-4 z-50">
         <LanguageSelector />
       </div>
+
+      <AlertDialog open={showConsentDialog} onOpenChange={setShowConsentDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Permitir uso anônimo dos seus dados?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Suas respostas e resultados poderão ser utilizados apenas para pesquisa e aprimoramento do produto.
+              Os dados são anônimos, confidenciais e armazenados com segurança. Nenhuma informação pessoal é compartilhada.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel
+              onClick={() => {
+                setResearchConsent(false);
+                setShowConsentDialog(false);
+                toast({
+                  title: "Sem problemas",
+                  description: "Você pode continuar normalmente. Seus dados não serão usados em pesquisas.",
+                });
+              }}
+            >
+              Não permitir
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                setResearchConsent(true);
+                setShowConsentDialog(false);
+                toast({
+                  title: "Obrigado!",
+                  description: "Seu consentimento foi registrado. O uso será sempre anônimo, sigiloso e seguro.",
+                });
+              }}
+            >
+              Permitir uso anônimo
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       
       {/* Background Image */}
       <div 
