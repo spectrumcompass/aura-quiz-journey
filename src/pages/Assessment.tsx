@@ -183,22 +183,7 @@ const Assessment = () => {
         <div className="container mx-auto px-6 max-w-7xl relative z-10 py-8">
           <div className="flex gap-6 items-start justify-center w-full">
             {/* AdSense Left */}
-            <div className="hidden xl:block w-64 flex-shrink-0">
-              <div className="sticky top-8 flex flex-col gap-4">
-                <AdSenseSlot 
-                  slot="9204133607"
-                  style={{ 
-                    display: "block", 
-                    width: "250px", 
-                    height: "600px" 
-                  }}
-                  format="rectangle"
-                  responsive={false}
-                  className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
-                />
-              </div>
-            </div>
-
+{/* Side ads removed */}
             {/* Main Content */}
             <div className="flex-1 max-w-4xl">
               <div className="mb-6 flex items-center justify-between">
@@ -224,22 +209,6 @@ const Assessment = () => {
               <CDMResultsView result={cdmResult} />
             </div>
             
-            {/* AdSense Right */}
-            <div className="hidden xl:block w-64 flex-shrink-0">
-              <div className="sticky top-8 flex flex-col gap-4">
-                <AdSenseSlot 
-                  slot="9204133609"
-                  style={{ 
-                    display: "block", 
-                    width: "250px", 
-                    height: "600px" 
-                  }}
-                  format="rectangle"
-                  responsive={false}
-                  className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -300,33 +269,6 @@ const Assessment = () => {
       
       <div className="container mx-auto px-2 sm:px-4 lg:px-6 max-w-7xl relative z-10 h-full flex items-center justify-center py-4 sm:py-8">
         <div className="flex gap-2 sm:gap-4 lg:gap-6 items-center justify-center w-full max-w-6xl">
-          {/* AdSense Left - Only on XL screens */}
-          <div className="hidden xl:block w-64 flex-shrink-0">
-            <div className="sticky top-28 flex flex-col gap-4">
-              <AdSenseSlot 
-                slot="9204133607"
-                style={{ 
-                  display: "block", 
-                  width: "250px", 
-                  height: "calc(50vh - 100px)" 
-                }}
-                format="rectangle"
-                responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
-              />
-              <AdSenseSlot 
-                slot="9204133608"
-                style={{ 
-                  display: "block", 
-                  width: "250px", 
-                  height: "calc(50vh - 100px)" 
-                }}
-                format="rectangle"
-                responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
-              />
-            </div>
-          </div>
 
           {/* Main Content */}
           <div className="flex-1 max-w-3xl h-full flex flex-col justify-center items-center">
@@ -414,33 +356,6 @@ const Assessment = () => {
             </Card>
           </div>
 
-          {/* AdSense Right - Only on XL screens */}
-          <div className="hidden xl:block w-64 flex-shrink-0">
-            <div className="sticky top-28 flex flex-col gap-4">
-              <AdSenseSlot 
-                slot="9204133610"
-                style={{ 
-                  display: "block", 
-                  width: "250px", 
-                  height: "calc(50vh - 100px)" 
-                }}
-                format="rectangle"
-                responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
-              />
-              <AdSenseSlot 
-                slot="9204133611"
-                style={{ 
-                  display: "block", 
-                  width: "250px", 
-                  height: "calc(50vh - 100px)" 
-                }}
-                format="rectangle"
-                responsive={false}
-                className="border border-border rounded-lg p-2 bg-background/50 backdrop-blur-sm"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
