@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calendar, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User } from 'lucide-react';
+import { Calendar as CalendarIcon, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -15,8 +15,10 @@ import AuthButton from '@/components/AuthButton';
 import { CDMResultsView } from '@/components/CDMResultsView';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
 interface AssessmentResult {
   id: string;
   title: string;
@@ -42,8 +44,8 @@ const Dashboard = () => {
 
   // Filtros
   const [attributeFilter, setAttributeFilter] = useState<string>('all');
-  const [startDate, setStartDate] = useState<string>('');
-  const [endDate, setEndDate] = useState<string>('');
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
 
   const filteredResults = useMemo(() => {
@@ -185,11 +187,49 @@ const Dashboard = () => {
               </div>
               <div>
                 <label className="text-sm text-muted-foreground">Data inicial</label>
-                <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="mt-1" />
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={"outline"}
+                      className={cn("mt-1 w-full justify-start text-left font-normal", !startDate && "text-muted-foreground")}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {startDate ? format(startDate, "PPP", { locale: ptBR }) : <span>Selecionar data</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={startDate}
+                      onSelect={setStartDate}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
               <div>
                 <label className="text-sm text-muted-foreground">Data final</label>
-                <Input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="mt-1" />
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={"outline"}
+                      className={cn("mt-1 w-full justify-start text-left font-normal", !endDate && "text-muted-foreground")}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {endDate ? format(endDate, "PPP", { locale: ptBR }) : <span>Selecionar data</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={endDate}
+                      onSelect={setEndDate}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
               <div>
                 <label className="text-sm text-muted-foreground">Ordenar por</label>
@@ -208,7 +248,7 @@ const Dashboard = () => {
               <p className="text-sm text-muted-foreground">
                 Mostrando {filteredResults.length} de {results.length} resultados
               </p>
-              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(''); setEndDate(''); setSortOrder('desc'); }}>
+              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(undefined); setEndDate(undefined); setSortOrder('desc'); }}>
                 Limpar filtros
               </Button>
             </div>
@@ -238,7 +278,7 @@ const Dashboard = () => {
               <CardTitle className="text-sm font-medium">
                 Última Avaliação
               </CardTitle>
-              <Calendar className="h-4 w-4 text-muted-foreground" />
+              <CalendarIcon className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -297,7 +337,7 @@ const Dashboard = () => {
               <CardDescription className="mb-4">
                 Ajuste os filtros de atributo, data ou ordenação para ver resultados.
               </CardDescription>
-              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(''); setEndDate(''); setSortOrder('desc'); }}>
+              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(undefined); setEndDate(undefined); setSortOrder('desc'); }}>
                 Limpar filtros
               </Button>
             </CardContent>
@@ -362,7 +402,7 @@ const Dashboard = () => {
               </Card>
             ))}
           </div>
-        )
+        )}
       </div>
     </div>;
 };
