@@ -205,10 +205,6 @@ const Assessment = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       
-      {/* Floating Elements - Hidden on mobile for performance */}
-      <div className="hidden lg:block absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full animate-float" />
-      <div className="hidden lg:block absolute bottom-32 right-32 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-      <div className="hidden lg:block absolute top-1/3 right-20 w-12 h-12 bg-secondary/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
       
       <div className="container mx-auto px-2 sm:px-4 lg:px-6 max-w-7xl relative z-10 h-full flex items-center justify-center py-4 sm:py-8">
         <div className="flex gap-2 sm:gap-4 lg:gap-6 items-center justify-center w-full max-w-6xl">
