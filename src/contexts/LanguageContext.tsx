@@ -39,6 +39,18 @@ interface TranslationKeys {
   'about.resourcesSupportDesc': string;
   'about.community': string;
   'about.communityDesc': string;
+
+  // Test Info section
+  'testInfo.title': string;
+  'testInfo.subtitle': string;
+  'testInfo.whatIsIt': string;
+  'testInfo.whatIsItDesc': string;
+  'testInfo.howWorksTitle': string;
+  'testInfo.howWorksDesc': string;
+  'testInfo.scientificBasis': string;
+  'testInfo.scientificBasisDesc': string;
+  'testInfo.limitations': string;
+  'testInfo.limitationsDesc': string;
   
   // How it works section
   'howItWorks.title': string;
@@ -202,6 +214,18 @@ const translations: Record<Language, TranslationKeys> = {
     'about.resourcesSupportDesc': 'Acesse informações e recursos relevantes para seu perfil.',
     'about.community': '✓ Comunidade',
     'about.communityDesc': 'Conecte-se com outros que compartilham experiências similares.',
+
+    // Test Info section
+    'testInfo.title': 'Sobre o Teste de Características do Espectro Autista',
+    'testInfo.subtitle': 'Entenda como funciona nossa ferramenta de autoavaliação',
+    'testInfo.whatIsIt': 'O que é este teste?',
+    'testInfo.whatIsItDesc': 'Esta é uma ferramenta de autoavaliação interativa que ajuda a identificar características comumente associadas ao espectro autista. O teste utiliza uma abordagem baseada em evidências científicas para analisar padrões de comportamento, comunicação social e processamento sensorial.',
+    'testInfo.howWorksTitle': 'Como funciona?',
+    'testInfo.howWorksDesc': 'O teste apresenta situações cotidianas onde você escolhe a resposta que mais se alinha com seu comportamento natural. Utilizamos o Modelo de Diagnóstico Cognitivo (CDM) para analisar suas respostas e identificar padrões cognitivos específicos.',
+    'testInfo.scientificBasis': 'Base Científica',
+    'testInfo.scientificBasisDesc': 'Nosso questionário é baseado em critérios diagnósticos reconhecidos internacionalmente e pesquisas atuais sobre neurodiversidade. As perguntas abordam áreas-chave como comunicação social, sensibilidades sensoriais, padrões de comportamento e processamento cognitivo.',
+    'testInfo.limitations': 'Limitações Importantes',
+    'testInfo.limitationsDesc': 'Este teste é exclusivamente para fins educacionais e de autoconhecimento. Não substitui uma avaliação profissional e não deve ser usado para diagnóstico médico. Para uma avaliação completa, sempre consulte um profissional de saúde qualificado.',
     
     // How it works section
     'howItWorks.title': 'Como Funciona',
@@ -596,6 +620,18 @@ const translations: Record<Language, TranslationKeys> = {
     'about.community': '✓ Community',
     'about.communityDesc': 'Connect with others who share similar experiences.',
     
+    // Test Info section
+    'testInfo.title': 'About the Autism Spectrum Characteristics Test',
+    'testInfo.subtitle': 'Understand how our self-assessment tool works',
+    'testInfo.whatIsIt': 'What is this test?',
+    'testInfo.whatIsItDesc': 'This is an interactive self-assessment tool that helps identify characteristics commonly associated with the autism spectrum. The test uses an evidence-based approach to analyze patterns of behavior, social communication, and sensory processing.',
+    'testInfo.howWorksTitle': 'How does it work?',
+    'testInfo.howWorksDesc': 'The test presents everyday situations where you choose the response that most aligns with your natural behavior. We use the Cognitive Diagnostic Model (CDM) to analyze your responses and identify specific cognitive patterns.',
+    'testInfo.scientificBasis': 'Scientific Basis',
+    'testInfo.scientificBasisDesc': 'Our questionnaire is based on internationally recognized diagnostic criteria and current research on neurodiversity. The questions address key areas such as social communication, sensory sensitivities, behavioral patterns, and cognitive processing.',
+    'testInfo.limitations': 'Important Limitations',
+    'testInfo.limitationsDesc': 'This test is exclusively for educational and self-awareness purposes. It does not replace a professional assessment and should not be used for medical diagnosis. For a complete evaluation, always consult a qualified healthcare professional.',
+    
     // How it works section
     'howItWorks.title': 'How It Works',
     'howItWorks.subtitle': 'A simple and scientific 3-step process for your self-assessment',
@@ -989,6 +1025,18 @@ const translations: Record<Language, TranslationKeys> = {
     'about.community': '✓ Comunidad',
     'about.communityDesc': 'Conéctate con otros que comparten experiencias similares.',
     
+    // Test Info section
+    'testInfo.title': 'Sobre la Prueba de Características del Espectro Autista',
+    'testInfo.subtitle': 'Entiende cómo funciona nuestra herramienta de autoevaluación',
+    'testInfo.whatIsIt': '¿Qué es esta prueba?',
+    'testInfo.whatIsItDesc': 'Esta es una herramienta de autoevaluación interactiva que ayuda a identificar características comúnmente asociadas con el espectro autista. La prueba utiliza un enfoque basado en evidencia para analizar patrones de comportamiento, comunicación social y procesamiento sensorial.',
+    'testInfo.howWorksTitle': '¿Cómo funciona?',
+    'testInfo.howWorksDesc': 'La prueba presenta situaciones cotidianas donde eliges la respuesta que más se alinea con tu comportamiento natural. Utilizamos el Modelo de Diagnóstico Cognitivo (CDM) para analizar tus respuestas e identificar patrones cognitivos específicos.',
+    'testInfo.scientificBasis': 'Base Científica',
+    'testInfo.scientificBasisDesc': 'Nuestro cuestionario se basa en criterios diagnósticos reconocidos internacionalmente e investigación actual sobre neurodiversidad. Las preguntas abordan áreas clave como comunicación social, sensibilidades sensoriales, patrones de comportamiento y procesamiento cognitivo.',
+    'testInfo.limitations': 'Limitaciones Importantes',
+    'testInfo.limitationsDesc': 'Esta prueba es exclusivamente para fines educativos y de autoconciencia. No reemplaza una evaluación profesional y no debe usarse para diagnóstico médico. Para una evaluación completa, siempre consulta a un profesional de salud calificado.',
+    
     // How it works section
     'howItWorks.title': 'Cómo Funciona',
     'howItWorks.subtitle': 'Un proceso simple y científico de 3 pasos para tu autoevaluación',
@@ -1199,6 +1247,18 @@ const translations: Record<Language, TranslationKeys> = {
     'about.resourcesSupportDesc': 'Toegang tot informatie en middelen relevant voor je profiel.',
     'about.community': '✓ Gemeenschap',
     'about.communityDesc': 'Verbind met anderen die vergelijkbare ervaringen delen.',
+    
+    // Test Info section
+    'testInfo.title': 'Over de Autisme Spectrum Kenmerken Test',
+    'testInfo.subtitle': 'Begrijp hoe ons zelfbeoordelingsinstrument werkt',
+    'testInfo.whatIsIt': 'Wat is deze test?',
+    'testInfo.whatIsItDesc': 'Dit is een interactief zelfbeoordelingsinstrument dat helpt bij het identificeren van kenmerken die gewoonlijk geassocieerd worden met het autisme spectrum. De test gebruikt een evidence-based benadering om patronen van gedrag, sociale communicatie en sensorische verwerking te analyseren.',
+    'testInfo.howWorksTitle': 'Hoe werkt het?',
+    'testInfo.howWorksDesc': 'De test presenteert alledaagse situaties waar je het antwoord kiest dat het meest overeenkomt met je natuurlijke gedrag. We gebruiken het Cognitieve Diagnostische Model (CDM) om je antwoorden te analyseren en specifieke cognitieve patronen te identificeren.',
+    'testInfo.scientificBasis': 'Wetenschappelijke Basis',
+    'testInfo.scientificBasisDesc': 'Onze vragenlijst is gebaseerd op internationaal erkende diagnostische criteria en huidige onderzoek naar neurodiversiteit. De vragen behandelen belangrijke gebieden zoals sociale communicatie, sensorische gevoeligheden, gedragspatronen en cognitieve verwerking.',
+    'testInfo.limitations': 'Belangrijke Beperkingen',
+    'testInfo.limitationsDesc': 'Deze test is uitsluitend voor educatieve en zelfbewustzijnsdoeleinden. Het vervangt geen professionele beoordeling en moet niet gebruikt worden voor medische diagnose. Voor een complete evaluatie, raadpleeg altijd een gekwalificeerde zorgverlener.',
     
     // How it works section
     'howItWorks.title': 'Hoe Het Werkt',
@@ -1472,6 +1532,18 @@ const translations: Record<Language, TranslationKeys> = {
     'about.resourcesSupportDesc': 'Zugang zu Informationen und Ressourcen, die für dein Profil relevant sind.',
     'about.community': '✓ Gemeinschaft',
     'about.communityDesc': 'Verbinde dich mit anderen, die ähnliche Erfahrungen teilen.',
+    
+    // Test Info section
+    'testInfo.title': 'Über den Autismus-Spektrum Charakteristiken Test',
+    'testInfo.subtitle': 'Verstehe, wie unser Selbstbewertungsinstrument funktioniert',
+    'testInfo.whatIsIt': 'Was ist dieser Test?',
+    'testInfo.whatIsItDesc': 'Dies ist ein interaktives Selbstbewertungsinstrument, das hilft, Charakteristiken zu identifizieren, die häufig mit dem Autismus-Spektrum assoziiert sind. Der Test verwendet einen evidenzbasierten Ansatz zur Analyse von Verhaltensmustern, sozialer Kommunikation und sensorischer Verarbeitung.',
+    'testInfo.howWorksTitle': 'Wie funktioniert es?',
+    'testInfo.howWorksDesc': 'Der Test präsentiert alltägliche Situationen, in denen du die Antwort wählst, die am besten zu deinem natürlichen Verhalten passt. Wir verwenden das Kognitive Diagnostische Modell (CDM), um deine Antworten zu analysieren und spezifische kognitive Muster zu identifizieren.',
+    'testInfo.scientificBasis': 'Wissenschaftliche Grundlage',
+    'testInfo.scientificBasisDesc': 'Unser Fragebogen basiert auf international anerkannten diagnostischen Kriterien und aktueller Forschung zur Neurodiversität. Die Fragen behandeln Schlüsselbereiche wie soziale Kommunikation, sensorische Empfindlichkeiten, Verhaltensmuster und kognitive Verarbeitung.',
+    'testInfo.limitations': 'Wichtige Einschränkungen',
+    'testInfo.limitationsDesc': 'Dieser Test ist ausschließlich für Bildungs- und Selbstbewusstseinszwecke. Er ersetzt keine professionelle Bewertung und sollte nicht für medizinische Diagnosen verwendet werden. Für eine vollständige Bewertung konsultiere immer einen qualifizierten Gesundheitsfachmann.',
     
     // How it works section
     'howItWorks.title': 'Wie Es Funktioniert',

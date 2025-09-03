@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import TestInfoSection from "@/components/TestInfoSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import CTASection from "@/components/CTASection";
 import AdSenseSlot from "@/components/AdSenseSlot";
@@ -24,6 +25,7 @@ const Index = () => {
         />
       </div>
       <AboutSection />
+      <TestInfoSection />
       <div className="my-4 sm:my-8 px-4">
         <AdSenseSlot 
           slot="9204133609" 
