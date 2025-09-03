@@ -47,14 +47,11 @@ const Dashboard = () => {
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = useState<Date | undefined>(undefined);
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
-
   const filteredResults = useMemo(() => {
     let arr = [...results];
-
     if (attributeFilter !== 'all') {
       arr = arr.filter(r => r.dominant_attributes?.includes(attributeFilter));
     }
-
     if (startDate) {
       const start = new Date(startDate);
       arr = arr.filter(r => new Date(r.created_at) >= start);
@@ -64,16 +61,9 @@ const Dashboard = () => {
       end.setHours(23, 59, 59, 999);
       arr = arr.filter(r => new Date(r.created_at) <= end);
     }
-
-    arr.sort((a, b) =>
-      sortOrder === 'desc'
-        ? b.average_probability - a.average_probability
-        : a.average_probability - b.average_probability
-    );
-
+    arr.sort((a, b) => sortOrder === 'desc' ? b.average_probability - a.average_probability : a.average_probability - b.average_probability);
     return arr;
   }, [results, attributeFilter, startDate, endDate, sortOrder]);
-
   useEffect(() => {
     if (!authLoading && !user) {
       navigate('/auth');
@@ -176,9 +166,7 @@ const Dashboard = () => {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">Todos os atributos</SelectItem>
-                          {COGNITIVE_ATTRIBUTES.map(attr => (
-                            <SelectItem key={attr.id} value={attr.id}>{attr.name}</SelectItem>
-                          ))}
+                          {COGNITIVE_ATTRIBUTES.map(attr => <SelectItem key={attr.id} value={attr.id}>{attr.name}</SelectItem>)}
                         </SelectContent>
                       </Select>
                     </div>
@@ -188,22 +176,15 @@ const Dashboard = () => {
                         <label className="text-sm font-medium">Data Inicial</label>
                         <Popover>
                           <PopoverTrigger asChild>
-                            <Button
-                              variant={"outline"}
-                              className={cn("mt-1 w-full justify-start text-left font-normal", !startDate && "text-muted-foreground")}
-                            >
+                            <Button variant={"outline"} className={cn("mt-1 w-full justify-start text-left font-normal", !startDate && "text-muted-foreground")}>
                               <CalendarIcon className="mr-2 h-4 w-4" />
-                              {startDate ? format(startDate, "dd/MM", { locale: ptBR }) : <span>Inicial</span>}
+                              {startDate ? format(startDate, "dd/MM", {
+                              locale: ptBR
+                            }) : <span>Inicial</span>}
                             </Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={startDate}
-                              onSelect={setStartDate}
-                              initialFocus
-                              className={cn("p-3 pointer-events-auto")}
-                            />
+                            <Calendar mode="single" selected={startDate} onSelect={setStartDate} initialFocus className={cn("p-3 pointer-events-auto")} />
                           </PopoverContent>
                         </Popover>
                       </div>
@@ -212,22 +193,15 @@ const Dashboard = () => {
                         <label className="text-sm font-medium">Data Final</label>
                         <Popover>
                           <PopoverTrigger asChild>
-                            <Button
-                              variant={"outline"}
-                              className={cn("mt-1 w-full justify-start text-left font-normal", !endDate && "text-muted-foreground")}
-                            >
+                            <Button variant={"outline"} className={cn("mt-1 w-full justify-start text-left font-normal", !endDate && "text-muted-foreground")}>
                               <CalendarIcon className="mr-2 h-4 w-4" />
-                              {endDate ? format(endDate, "dd/MM", { locale: ptBR }) : <span>Final</span>}
+                              {endDate ? format(endDate, "dd/MM", {
+                              locale: ptBR
+                            }) : <span>Final</span>}
                             </Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={endDate}
-                              onSelect={setEndDate}
-                              initialFocus
-                              className={cn("p-3 pointer-events-auto")}
-                            />
+                            <Calendar mode="single" selected={endDate} onSelect={setEndDate} initialFocus className={cn("p-3 pointer-events-auto")} />
                           </PopoverContent>
                         </Popover>
                       </div>
@@ -235,7 +209,7 @@ const Dashboard = () => {
                     
                     <div>
                       <label className="text-sm font-medium">Ordenação</label>
-                      <Select value={sortOrder} onValueChange={(v) => setSortOrder(v as 'asc' | 'desc')}>
+                      <Select value={sortOrder} onValueChange={v => setSortOrder(v as 'asc' | 'desc')}>
                         <SelectTrigger className="mt-1">
                           <SelectValue placeholder="Ordenar por alinhamento" />
                         </SelectTrigger>
@@ -250,16 +224,12 @@ const Dashboard = () => {
                       <p className="text-sm text-muted-foreground">
                         {filteredResults.length} de {results.length} resultados
                       </p>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => { 
-                          setAttributeFilter('all'); 
-                          setStartDate(undefined); 
-                          setEndDate(undefined); 
-                          setSortOrder('desc'); 
-                        }}
-                      >
+                      <Button variant="outline" size="sm" onClick={() => {
+                      setAttributeFilter('all');
+                      setStartDate(undefined);
+                      setEndDate(undefined);
+                      setSortOrder('desc');
+                    }}>
                         Limpar Filtros
                       </Button>
                     </div>
@@ -318,24 +288,12 @@ const Dashboard = () => {
           {/* Average Alignment Card */}
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                Média de Alinhamento
-              </CardTitle>
+              <CardTitle className="text-sm font-medium">Em Breve</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
-                {results.length > 0 
-                  ? Math.round((results.reduce((sum, r) => sum + r.average_probability, 0) / results.length) * 100) + '%'
-                  : '--'
-                }
-              </div>
-              <p className="text-xs text-muted-foreground">
-                {results.length > 0 
-                  ? 'média geral dos assessments'
-                  : 'Nenhuma avaliação ainda'
-                }
-              </p>
+              
+              
             </CardContent>
           </Card>
         </div>
@@ -347,8 +305,7 @@ const Dashboard = () => {
           </Alert>}
 
         {/* Results Grid */}
-        {results.length === 0 ? (
-          <Card className="text-center py-12">
+        {results.length === 0 ? <Card className="text-center py-12">
             <CardContent>
               <BarChart3 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
               <CardTitle className="mb-2">Nenhum resultado ainda</CardTitle>
@@ -360,30 +317,32 @@ const Dashboard = () => {
                 Fazer Assessment
               </Button>
             </CardContent>
-          </Card>
-        ) : filteredResults.length === 0 ? (
-          <Card className="text-center py-12">
+          </Card> : filteredResults.length === 0 ? <Card className="text-center py-12">
             <CardContent>
               <BarChart3 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
               <CardTitle className="mb-2">Nenhum resultado com esses filtros</CardTitle>
               <CardDescription className="mb-4">
                 Ajuste os filtros de atributo, data ou ordenação para ver resultados.
               </CardDescription>
-              <Button variant="outline" onClick={() => { setAttributeFilter('all'); setStartDate(undefined); setEndDate(undefined); setSortOrder('desc'); }}>
+              <Button variant="outline" onClick={() => {
+            setAttributeFilter('all');
+            setStartDate(undefined);
+            setEndDate(undefined);
+            setSortOrder('desc');
+          }}>
                 Limpar filtros
               </Button>
             </CardContent>
-          </Card>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredResults.map(result => (
-              <Card key={result.id} className="hover:shadow-medium transition-shadow">
+          </Card> : <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredResults.map(result => <Card key={result.id} className="hover:shadow-medium transition-shadow">
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
                       <CardTitle className="text-lg">{result.title}</CardTitle>
                       <CardDescription>
-                        {format(new Date(result.created_at), 'PPp', { locale: ptBR })}
+                        {format(new Date(result.created_at), 'PPp', {
+                    locale: ptBR
+                  })}
                       </CardDescription>
                     </div>
                     <Badge variant="secondary">
@@ -396,16 +355,12 @@ const Dashboard = () => {
                     <div>
                       <p className="text-sm font-medium mb-2">Atributos Dominantes:</p>
                       <div className="flex flex-wrap gap-1">
-                        {result.dominant_attributes.slice(0, 3).map(attr => (
-                          <Badge key={attr} variant="outline" className="text-xs">
+                        {result.dominant_attributes.slice(0, 3).map(attr => <Badge key={attr} variant="outline" className="text-xs">
                             {attr.replace('_', ' ')}
-                          </Badge>
-                        ))}
-                        {result.dominant_attributes.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
+                          </Badge>)}
+                        {result.dominant_attributes.length > 3 && <Badge variant="outline" className="text-xs">
                             +{result.dominant_attributes.length - 3}
-                          </Badge>
-                        )}
+                          </Badge>}
                       </div>
                     </div>
                     
@@ -431,10 +386,8 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+              </Card>)}
+          </div>}
       </div>
     </div>;
 };
