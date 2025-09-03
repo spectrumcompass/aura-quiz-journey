@@ -5,6 +5,7 @@ import CTASection from "@/components/CTASection";
 import AdSenseSlot from "@/components/AdSenseSlot";
 import LanguageSelector from "@/components/LanguageSelector";
 import AuthButton from "@/components/AuthButton";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -32,6 +33,7 @@ const Index = () => {
       </div>
       <HowItWorksSection />
       <CTASection />
+      <Footer />
     </div>
   );
 };
