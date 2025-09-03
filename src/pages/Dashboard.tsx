@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calendar as CalendarIcon, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User } from 'lucide-react';
+import { Calendar as CalendarIcon, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User, Compass } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -156,6 +156,116 @@ const Dashboard = () => {
               </Badge>
             </div>
             <div className="flex items-center gap-2">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <Compass className="w-4 h-4 mr-2" />
+                    Filtros
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Filtros de Busca</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4 pt-4">
+                    <div>
+                      <label className="text-sm font-medium">Atributo Dominante</label>
+                      <Select value={attributeFilter} onValueChange={setAttributeFilter}>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Todos os atributos" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Todos os atributos</SelectItem>
+                          {COGNITIVE_ATTRIBUTES.map(attr => (
+                            <SelectItem key={attr.id} value={attr.id}>{attr.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm font-medium">Data Inicial</label>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant={"outline"}
+                              className={cn("mt-1 w-full justify-start text-left font-normal", !startDate && "text-muted-foreground")}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {startDate ? format(startDate, "dd/MM", { locale: ptBR }) : <span>Inicial</span>}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={startDate}
+                              onSelect={setStartDate}
+                              initialFocus
+                              className={cn("p-3 pointer-events-auto")}
+                            />
+                          </PopoverContent>
+                        </Popover>
+                      </div>
+                      
+                      <div>
+                        <label className="text-sm font-medium">Data Final</label>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant={"outline"}
+                              className={cn("mt-1 w-full justify-start text-left font-normal", !endDate && "text-muted-foreground")}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {endDate ? format(endDate, "dd/MM", { locale: ptBR }) : <span>Final</span>}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={endDate}
+                              onSelect={setEndDate}
+                              initialFocus
+                              className={cn("p-3 pointer-events-auto")}
+                            />
+                          </PopoverContent>
+                        </Popover>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="text-sm font-medium">Ordenação</label>
+                      <Select value={sortOrder} onValueChange={(v) => setSortOrder(v as 'asc' | 'desc')}>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Ordenar por alinhamento" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="desc">Maior alinhamento primeiro</SelectItem>
+                          <SelectItem value="asc">Menor alinhamento primeiro</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t">
+                      <p className="text-sm text-muted-foreground">
+                        {filteredResults.length} de {results.length} resultados
+                      </p>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => { 
+                          setAttributeFilter('all'); 
+                          setStartDate(undefined); 
+                          setEndDate(undefined); 
+                          setSortOrder('desc'); 
+                        }}
+                      >
+                        Limpar Filtros
+                      </Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
               <Button onClick={() => navigate('/assessment')} variant="hero" size="sm">
                 <Plus className="w-4 h-4 mr-2" />
                 Novo Assessment
@@ -205,95 +315,27 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          {/* Filtros Card */}
+          {/* Average Alignment Card */}
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Filtros</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Média de Alinhamento
+              </CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div>
-                  <label className="text-xs text-muted-foreground">Atributo</label>
-                  <Select value={attributeFilter} onValueChange={setAttributeFilter}>
-                    <SelectTrigger className="mt-1 h-8">
-                      <SelectValue placeholder="Todos" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">Todos os atributos</SelectItem>
-                      {COGNITIVE_ATTRIBUTES.map(attr => (
-                        <SelectItem key={attr.id} value={attr.id}>{attr.name}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-xs text-muted-foreground">Data inicial</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant={"outline"}
-                        className={cn("mt-1 w-full h-8 justify-start text-left font-normal text-xs", !startDate && "text-muted-foreground")}
-                      >
-                        <CalendarIcon className="mr-1 h-3 w-3" />
-                        {startDate ? format(startDate, "dd/MM", { locale: ptBR }) : <span>Inicial</span>}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={startDate}
-                        onSelect={setStartDate}
-                        initialFocus
-                        className={cn("p-3 pointer-events-auto")}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-                <div>
-                  <label className="text-xs text-muted-foreground">Data final</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant={"outline"}
-                        className={cn("mt-1 w-full h-8 justify-start text-left font-normal text-xs", !endDate && "text-muted-foreground")}
-                      >
-                        <CalendarIcon className="mr-1 h-3 w-3" />
-                        {endDate ? format(endDate, "dd/MM", { locale: ptBR }) : <span>Final</span>}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={endDate}
-                        onSelect={setEndDate}
-                        initialFocus
-                        className={cn("p-3 pointer-events-auto")}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-                <div>
-                  <label className="text-xs text-muted-foreground">Ordenar</label>
-                  <Select value={sortOrder} onValueChange={(v) => setSortOrder(v as 'asc' | 'desc')}>
-                    <SelectTrigger className="mt-1 h-8">
-                      <SelectValue placeholder="Ordenar" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="desc">Maior alinhamento</SelectItem>
-                      <SelectItem value="asc">Menor alinhamento</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="flex items-center justify-between pt-2">
-                  <p className="text-xs text-muted-foreground">
-                    {filteredResults.length}/{results.length}
-                  </p>
-                  <Button variant="outline" size="sm" className="h-6 text-xs px-2" onClick={() => { setAttributeFilter('all'); setStartDate(undefined); setEndDate(undefined); setSortOrder('desc'); }}>
-                    Limpar
-                  </Button>
-                </div>
+              <div className="text-2xl font-bold">
+                {results.length > 0 
+                  ? Math.round((results.reduce((sum, r) => sum + r.average_probability, 0) / results.length) * 100) + '%'
+                  : '--'
+                }
               </div>
+              <p className="text-xs text-muted-foreground">
+                {results.length > 0 
+                  ? 'média geral dos assessments'
+                  : 'Nenhuma avaliação ainda'
+                }
+              </p>
             </CardContent>
           </Card>
         </div>
