@@ -1,5 +1,5 @@
 const Footer = () => {
-  return <footer className="bg-muted/50 border-t border-border py-8 mt-16">
+  return <footer className="bg-muted/50 border-t border-border py-8 mt-8">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-2">
           <p className="text-sm text-muted-foreground">
