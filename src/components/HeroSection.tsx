@@ -56,8 +56,10 @@ const HeroSection = () => {
                 </Link>
               </Button>
               
-              <Button variant="soft" size="lg" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
-                {t('home.about')}
+              <Button variant="soft" size="lg" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" asChild>
+                <Link to="/test-info">
+                  {t('home.about')}
+                </Link>
               </Button>
             </div>
 

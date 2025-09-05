@@ -43,14 +43,33 @@ interface TranslationKeys {
   // Test Info section
   'testInfo.title': string;
   'testInfo.subtitle': string;
+  'testInfo.pageTitle': string;
+  'testInfo.pageSubtitle': string;
+  'testInfo.backToHome': string;
   'testInfo.whatIsIt': string;
   'testInfo.whatIsItDesc': string;
+  'testInfo.whatIsItDesc2': string;
   'testInfo.howWorksTitle': string;
   'testInfo.howWorksDesc': string;
+  'testInfo.howWorksDesc2': string;
   'testInfo.scientificBasis': string;
   'testInfo.scientificBasisDesc': string;
   'testInfo.limitations': string;
   'testInfo.limitationsDesc': string;
+  'testInfo.researcherTitle': string;
+  'testInfo.researcherSubtitle': string;
+  'testInfo.doctorName': string;
+  'testInfo.doctorInfo': string;
+  'testInfo.qualifications': string;
+  'testInfo.qualificationsDesc': string;
+  'testInfo.researchPurpose': string;
+  'testInfo.researchPurposeDesc': string;
+  'testInfo.dataUsageTitle': string;
+  'testInfo.dataUsage1': string;
+  'testInfo.dataUsage2': string;
+  'testInfo.dataUsage3': string;
+  'testInfo.dataUsage4': string;
+  'testInfo.startAssessment': string;
   
   // How it works section
   'howItWorks.title': string;
@@ -218,14 +237,33 @@ const translations: Record<Language, TranslationKeys> = {
     // Test Info section
     'testInfo.title': 'Sobre o Teste de Características do Espectro Autista',
     'testInfo.subtitle': 'Entenda como funciona nossa ferramenta de autoavaliação',
+    'testInfo.pageTitle': 'Informações Detalhadas do Teste',
+    'testInfo.pageSubtitle': 'Conheça mais sobre nossa avaliação e os profissionais envolvidos na pesquisa',
+    'testInfo.backToHome': 'Voltar ao Início',
     'testInfo.whatIsIt': 'O que é este teste?',
-    'testInfo.whatIsItDesc': 'Esta é uma ferramenta de autoavaliação interativa que ajuda a identificar características comumente associadas ao espectro autista. O teste utiliza uma abordagem baseada em evidências científicas para analisar padrões de comportamento, comunicação social e processamento sensorial.',
+    'testInfo.whatIsItDesc': 'Esta é uma ferramenta de autoavaliação interativa que ajuda a identificar características comumente associadas ao espectro autista.',
+    'testInfo.whatIsItDesc2': 'O teste utiliza uma abordagem baseada em evidências científicas para analisar padrões de comportamento, comunicação social e processamento sensorial de forma não invasiva.',
     'testInfo.howWorksTitle': 'Como funciona?',
-    'testInfo.howWorksDesc': 'O teste apresenta situações cotidianas onde você escolhe a resposta que mais se alinha com seu comportamento natural. Utilizamos o Modelo de Diagnóstico Cognitivo (CDM) para analisar suas respostas e identificar padrões cognitivos específicos.',
+    'testInfo.howWorksDesc': 'O teste apresenta situações cotidianas onde você escolhe a resposta que mais se alinha com seu comportamento natural.',
+    'testInfo.howWorksDesc2': 'Utilizamos o Modelo de Diagnóstico Cognitivo (CDM) para analisar suas respostas e identificar padrões cognitivos específicos relacionados ao neurodesenvolvimento.',
     'testInfo.scientificBasis': 'Base Científica',
     'testInfo.scientificBasisDesc': 'Nosso questionário é baseado em critérios diagnósticos reconhecidos internacionalmente e pesquisas atuais sobre neurodiversidade. As perguntas abordam áreas-chave como comunicação social, sensibilidades sensoriais, padrões de comportamento e processamento cognitivo.',
     'testInfo.limitations': 'Limitações Importantes',
     'testInfo.limitationsDesc': 'Este teste é exclusivamente para fins educacionais e de autoconhecimento. Não substitui uma avaliação profissional e não deve ser usado para diagnóstico médico. Para uma avaliação completa, sempre consulte um profissional de saúde qualificado.',
+    'testInfo.researcherTitle': 'Profissional Responsável pela Pesquisa',
+    'testInfo.researcherSubtitle': 'Conheça o profissional que pode utilizar dados anônimos para pesquisa científica',
+    'testInfo.doctorName': 'Dr. William Wendling Veiga',
+    'testInfo.doctorInfo': 'Médico especialista em neurologia e neurodevelopment, com foco em pesquisas sobre espectro autista e neurodiversidade.',
+    'testInfo.qualifications': 'Qualificações',
+    'testInfo.qualificationsDesc': 'Especialista em Neurologia, Mestre em Neurociências, com mais de 10 anos de experiência em pesquisa sobre transtornos do neurodesenvolvimento.',
+    'testInfo.researchPurpose': 'Propósito da Pesquisa',
+    'testInfo.researchPurposeDesc': 'Os dados coletados podem ser utilizados para pesquisas científicas sobre padrões cognitivos e desenvolvimento de melhores ferramentas de avaliação.',
+    'testInfo.dataUsageTitle': 'Como seus dados podem ser utilizados:',
+    'testInfo.dataUsage1': 'Todos os dados são completamente anônimos e não identificáveis',
+    'testInfo.dataUsage2': 'Utilizados exclusivamente para pesquisa científica sobre neurodiversidade',
+    'testInfo.dataUsage3': 'Podem contribuir para o desenvolvimento de melhores ferramentas de avaliação',
+    'testInfo.dataUsage4': 'Nunca são compartilhados com terceiros para fins comerciais',
+    'testInfo.startAssessment': 'Iniciar Avaliação',
     
     // How it works section
     'howItWorks.title': 'Como Funciona',
@@ -623,14 +661,33 @@ const translations: Record<Language, TranslationKeys> = {
     // Test Info section
     'testInfo.title': 'About the Autism Spectrum Characteristics Test',
     'testInfo.subtitle': 'Understand how our self-assessment tool works',
+    'testInfo.pageTitle': 'Detailed Test Information',
+    'testInfo.pageSubtitle': 'Learn more about our assessment and the professionals involved in research',
+    'testInfo.backToHome': 'Back to Home',
     'testInfo.whatIsIt': 'What is this test?',
-    'testInfo.whatIsItDesc': 'This is an interactive self-assessment tool that helps identify characteristics commonly associated with the autism spectrum. The test uses an evidence-based approach to analyze patterns of behavior, social communication, and sensory processing.',
+    'testInfo.whatIsItDesc': 'This is an interactive self-assessment tool that helps identify characteristics commonly associated with the autism spectrum.',
+    'testInfo.whatIsItDesc2': 'The test uses an evidence-based approach to analyze patterns of behavior, social communication, and sensory processing in a non-invasive manner.',
     'testInfo.howWorksTitle': 'How does it work?',
-    'testInfo.howWorksDesc': 'The test presents everyday situations where you choose the response that most aligns with your natural behavior. We use the Cognitive Diagnostic Model (CDM) to analyze your responses and identify specific cognitive patterns.',
+    'testInfo.howWorksDesc': 'The test presents everyday situations where you choose the response that most aligns with your natural behavior.',
+    'testInfo.howWorksDesc2': 'We use the Cognitive Diagnostic Model (CDM) to analyze your responses and identify specific cognitive patterns related to neurodevelopment.',
     'testInfo.scientificBasis': 'Scientific Basis',
     'testInfo.scientificBasisDesc': 'Our questionnaire is based on internationally recognized diagnostic criteria and current research on neurodiversity. The questions address key areas such as social communication, sensory sensitivities, behavioral patterns, and cognitive processing.',
     'testInfo.limitations': 'Important Limitations',
     'testInfo.limitationsDesc': 'This test is exclusively for educational and self-awareness purposes. It does not replace a professional assessment and should not be used for medical diagnosis. For a complete evaluation, always consult a qualified healthcare professional.',
+    'testInfo.researcherTitle': 'Research Professional',
+    'testInfo.researcherSubtitle': 'Meet the professional who may use anonymous data for scientific research',
+    'testInfo.doctorName': 'Dr. William Wendling Veiga',
+    'testInfo.doctorInfo': 'Specialist physician in neurology and neurodevelopment, focused on autism spectrum and neurodiversity research.',
+    'testInfo.qualifications': 'Qualifications',
+    'testInfo.qualificationsDesc': 'Neurology Specialist, Master in Neurosciences, with over 10 years of experience in neurodevelopmental disorder research.',
+    'testInfo.researchPurpose': 'Research Purpose',
+    'testInfo.researchPurposeDesc': 'Collected data may be used for scientific research on cognitive patterns and development of better assessment tools.',
+    'testInfo.dataUsageTitle': 'How your data may be used:',
+    'testInfo.dataUsage1': 'All data is completely anonymous and non-identifiable',
+    'testInfo.dataUsage2': 'Used exclusively for scientific research on neurodiversity',
+    'testInfo.dataUsage3': 'May contribute to the development of better assessment tools',
+    'testInfo.dataUsage4': 'Never shared with third parties for commercial purposes',
+    'testInfo.startAssessment': 'Start Assessment',
     
     // How it works section
     'howItWorks.title': 'How It Works',
@@ -1028,14 +1085,33 @@ const translations: Record<Language, TranslationKeys> = {
     // Test Info section
     'testInfo.title': 'Sobre la Prueba de Características del Espectro Autista',
     'testInfo.subtitle': 'Entiende cómo funciona nuestra herramienta de autoevaluación',
+    'testInfo.pageTitle': 'Información Detallada de la Prueba',
+    'testInfo.pageSubtitle': 'Conoce más sobre nuestra evaluación y los profesionales involucrados en la investigación',
+    'testInfo.backToHome': 'Volver al Inicio',
     'testInfo.whatIsIt': '¿Qué es esta prueba?',
-    'testInfo.whatIsItDesc': 'Esta es una herramienta de autoevaluación interactiva que ayuda a identificar características comúnmente asociadas con el espectro autista. La prueba utiliza un enfoque basado en evidencia para analizar patrones de comportamiento, comunicación social y procesamiento sensorial.',
+    'testInfo.whatIsItDesc': 'Esta es una herramienta de autoevaluación interactiva que ayuda a identificar características comúnmente asociadas con el espectro autista.',
+    'testInfo.whatIsItDesc2': 'La prueba utiliza un enfoque basado en evidencia para analizar patrones de comportamiento, comunicación social y procesamiento sensorial de manera no invasiva.',
     'testInfo.howWorksTitle': '¿Cómo funciona?',
-    'testInfo.howWorksDesc': 'La prueba presenta situaciones cotidianas donde eliges la respuesta que más se alinea con tu comportamiento natural. Utilizamos el Modelo de Diagnóstico Cognitivo (CDM) para analizar tus respuestas e identificar patrones cognitivos específicos.',
+    'testInfo.howWorksDesc': 'La prueba presenta situaciones cotidianas donde eliges la respuesta que más se alinea con tu comportamiento natural.',
+    'testInfo.howWorksDesc2': 'Utilizamos el Modelo de Diagnóstico Cognitivo (CDM) para analizar tus respuestas e identificar patrones cognitivos específicos relacionados con el neurodesarrollo.',
     'testInfo.scientificBasis': 'Base Científica',
     'testInfo.scientificBasisDesc': 'Nuestro cuestionario se basa en criterios diagnósticos reconocidos internacionalmente e investigación actual sobre neurodiversidad. Las preguntas abordan áreas clave como comunicación social, sensibilidades sensoriales, patrones de comportamiento y procesamiento cognitivo.',
     'testInfo.limitations': 'Limitaciones Importantes',
     'testInfo.limitationsDesc': 'Esta prueba es exclusivamente para fines educativos y de autoconciencia. No reemplaza una evaluación profesional y no debe usarse para diagnóstico médico. Para una evaluación completa, siempre consulta a un profesional de salud calificado.',
+    'testInfo.researcherTitle': 'Profesional Responsable de la Investigación',
+    'testInfo.researcherSubtitle': 'Conoce al profesional que puede utilizar datos anónimos para investigación científica',
+    'testInfo.doctorName': 'Dr. William Wendling Veiga',
+    'testInfo.doctorInfo': 'Médico especialista en neurología y neurodesarrollo, enfocado en investigación sobre espectro autista y neurodiversidad.',
+    'testInfo.qualifications': 'Calificaciones',
+    'testInfo.qualificationsDesc': 'Especialista en Neurología, Maestro en Neurociencias, con más de 10 años de experiencia en investigación de trastornos del neurodesarrollo.',
+    'testInfo.researchPurpose': 'Propósito de la Investigación',
+    'testInfo.researchPurposeDesc': 'Los datos recolectados pueden ser utilizados para investigación científica sobre patrones cognitivos y desarrollo de mejores herramientas de evaluación.',
+    'testInfo.dataUsageTitle': 'Cómo pueden ser utilizados tus datos:',
+    'testInfo.dataUsage1': 'Todos los datos son completamente anónimos y no identificables',
+    'testInfo.dataUsage2': 'Utilizados exclusivamente para investigación científica sobre neurodiversidad',
+    'testInfo.dataUsage3': 'Pueden contribuir al desarrollo de mejores herramientas de evaluación',
+    'testInfo.dataUsage4': 'Nunca son compartidos con terceros para fines comerciales',
+    'testInfo.startAssessment': 'Iniciar Evaluación',
     
     // How it works section
     'howItWorks.title': 'Cómo Funciona',
@@ -1251,14 +1327,33 @@ const translations: Record<Language, TranslationKeys> = {
     // Test Info section
     'testInfo.title': 'Over de Autisme Spectrum Kenmerken Test',
     'testInfo.subtitle': 'Begrijp hoe ons zelfbeoordelingsinstrument werkt',
+    'testInfo.pageTitle': 'Gedetailleerde Testinformatie',
+    'testInfo.pageSubtitle': 'Leer meer over onze beoordeling en de professionals betrokken bij onderzoek',
+    'testInfo.backToHome': 'Terug naar Home',
     'testInfo.whatIsIt': 'Wat is deze test?',
-    'testInfo.whatIsItDesc': 'Dit is een interactief zelfbeoordelingsinstrument dat helpt bij het identificeren van kenmerken die gewoonlijk geassocieerd worden met het autisme spectrum. De test gebruikt een evidence-based benadering om patronen van gedrag, sociale communicatie en sensorische verwerking te analyseren.',
+    'testInfo.whatIsItDesc': 'Dit is een interactief zelfbeoordelingsinstrument dat helpt bij het identificeren van kenmerken die gewoonlijk geassocieerd worden met het autisme spectrum.',
+    'testInfo.whatIsItDesc2': 'De test gebruikt een evidence-based benadering om patronen van gedrag, sociale communicatie en sensorische verwerking op een niet-invasieve manier te analyseren.',
     'testInfo.howWorksTitle': 'Hoe werkt het?',
-    'testInfo.howWorksDesc': 'De test presenteert alledaagse situaties waar je het antwoord kiest dat het meest overeenkomt met je natuurlijke gedrag. We gebruiken het Cognitieve Diagnostische Model (CDM) om je antwoorden te analyseren en specifieke cognitieve patronen te identificeren.',
+    'testInfo.howWorksDesc': 'De test presenteert alledaagse situaties waar je het antwoord kiest dat het meest overeenkomt met je natuurlijke gedrag.',
+    'testInfo.howWorksDesc2': 'We gebruiken het Cognitieve Diagnostische Model (CDM) om je antwoorden te analyseren en specifieke cognitieve patronen gerelateerd aan neuroontwikkeling te identificeren.',
     'testInfo.scientificBasis': 'Wetenschappelijke Basis',
     'testInfo.scientificBasisDesc': 'Onze vragenlijst is gebaseerd op internationaal erkende diagnostische criteria en huidige onderzoek naar neurodiversiteit. De vragen behandelen belangrijke gebieden zoals sociale communicatie, sensorische gevoeligheden, gedragspatronen en cognitieve verwerking.',
     'testInfo.limitations': 'Belangrijke Beperkingen',
     'testInfo.limitationsDesc': 'Deze test is uitsluitend voor educatieve en zelfbewustzijnsdoeleinden. Het vervangt geen professionele beoordeling en moet niet gebruikt worden voor medische diagnose. Voor een complete evaluatie, raadpleeg altijd een gekwalificeerde zorgverlener.',
+    'testInfo.researcherTitle': 'Verantwoordelijke Onderzoeksprofessional',
+    'testInfo.researcherSubtitle': 'Ontmoet de professional die anonieme gegevens voor wetenschappelijk onderzoek kan gebruiken',
+    'testInfo.doctorName': 'Dr. William Wendling Veiga',
+    'testInfo.doctorInfo': 'Specialist arts in neurologie en neuroontwikkeling, gericht op autisme spectrum en neurodiversiteitsonderzoek.',
+    'testInfo.qualifications': 'Kwalificaties',
+    'testInfo.qualificationsDesc': 'Neuroloog Specialist, Master in Neurowetenschappen, met meer dan 10 jaar ervaring in neuroontwikkelingsstoornis onderzoek.',
+    'testInfo.researchPurpose': 'Onderzoeksdoel',
+    'testInfo.researchPurposeDesc': 'Verzamelde gegevens kunnen worden gebruikt voor wetenschappelijk onderzoek naar cognitieve patronen en ontwikkeling van betere beoordelingsinstrumenten.',
+    'testInfo.dataUsageTitle': 'Hoe je gegevens kunnen worden gebruikt:',
+    'testInfo.dataUsage1': 'Alle gegevens zijn volledig anoniem en niet-identificeerbaar',
+    'testInfo.dataUsage2': 'Uitsluitend gebruikt voor wetenschappelijk onderzoek naar neurodiversiteit',
+    'testInfo.dataUsage3': 'Kunnen bijdragen aan de ontwikkeling van betere beoordelingsinstrumenten',
+    'testInfo.dataUsage4': 'Nooit gedeeld met derden voor commerciële doeleinden',
+    'testInfo.startAssessment': 'Start Beoordeling',
     
     // How it works section
     'howItWorks.title': 'Hoe Het Werkt',
@@ -1536,14 +1631,33 @@ const translations: Record<Language, TranslationKeys> = {
     // Test Info section
     'testInfo.title': 'Über den Autismus-Spektrum Charakteristiken Test',
     'testInfo.subtitle': 'Verstehe, wie unser Selbstbewertungsinstrument funktioniert',
+    'testInfo.pageTitle': 'Detaillierte Testinformationen',
+    'testInfo.pageSubtitle': 'Erfahre mehr über unsere Bewertung und die an der Forschung beteiligten Fachkräfte',
+    'testInfo.backToHome': 'Zurück zur Startseite',
     'testInfo.whatIsIt': 'Was ist dieser Test?',
-    'testInfo.whatIsItDesc': 'Dies ist ein interaktives Selbstbewertungsinstrument, das hilft, Charakteristiken zu identifizieren, die häufig mit dem Autismus-Spektrum assoziiert sind. Der Test verwendet einen evidenzbasierten Ansatz zur Analyse von Verhaltensmustern, sozialer Kommunikation und sensorischer Verarbeitung.',
+    'testInfo.whatIsItDesc': 'Dies ist ein interaktives Selbstbewertungsinstrument, das hilft, Charakteristiken zu identifizieren, die häufig mit dem Autismus-Spektrum assoziiert sind.',
+    'testInfo.whatIsItDesc2': 'Der Test verwendet einen evidenzbasierten Ansatz zur Analyse von Verhaltensmustern, sozialer Kommunikation und sensorischer Verarbeitung auf nicht-invasive Weise.',
     'testInfo.howWorksTitle': 'Wie funktioniert es?',
-    'testInfo.howWorksDesc': 'Der Test präsentiert alltägliche Situationen, in denen du die Antwort wählst, die am besten zu deinem natürlichen Verhalten passt. Wir verwenden das Kognitive Diagnostische Modell (CDM), um deine Antworten zu analysieren und spezifische kognitive Muster zu identifizieren.',
+    'testInfo.howWorksDesc': 'Der Test präsentiert alltägliche Situationen, in denen du die Antwort wählst, die am besten zu deinem natürlichen Verhalten passt.',
+    'testInfo.howWorksDesc2': 'Wir verwenden das Kognitive Diagnostische Modell (CDM), um deine Antworten zu analysieren und spezifische kognitive Muster bezüglich der Neuroenwicklung zu identifizieren.',
     'testInfo.scientificBasis': 'Wissenschaftliche Grundlage',
     'testInfo.scientificBasisDesc': 'Unser Fragebogen basiert auf international anerkannten diagnostischen Kriterien und aktueller Forschung zur Neurodiversität. Die Fragen behandeln Schlüsselbereiche wie soziale Kommunikation, sensorische Empfindlichkeiten, Verhaltensmuster und kognitive Verarbeitung.',
     'testInfo.limitations': 'Wichtige Einschränkungen',
     'testInfo.limitationsDesc': 'Dieser Test ist ausschließlich für Bildungs- und Selbstbewusstseinszwecke. Er ersetzt keine professionelle Bewertung und sollte nicht für medizinische Diagnosen verwendet werden. Für eine vollständige Bewertung konsultiere immer einen qualifizierten Gesundheitsfachmann.',
+    'testInfo.researcherTitle': 'Verantwortlicher Forschungsprofi',
+    'testInfo.researcherSubtitle': 'Lerne den Fachmann kennen, der anonyme Daten für wissenschaftliche Forschung verwenden kann',
+    'testInfo.doctorName': 'Dr. William Wendling Veiga',
+    'testInfo.doctorInfo': 'Facharzt für Neurologie und Neuroenwicklung, spezialisiert auf Autismus-Spektrum und Neurodiversitätsforschung.',
+    'testInfo.qualifications': 'Qualifikationen',
+    'testInfo.qualificationsDesc': 'Neurologe Spezialist, Master in Neurowissenschaften, mit über 10 Jahren Erfahrung in der Neuroenwicklungsstörungsforschung.',
+    'testInfo.researchPurpose': 'Forschungszweck',
+    'testInfo.researchPurposeDesc': 'Gesammelte Daten können für wissenschaftliche Forschung über kognitive Muster und Entwicklung besserer Bewertungsinstrumente verwendet werden.',
+    'testInfo.dataUsageTitle': 'Wie deine Daten verwendet werden können:',
+    'testInfo.dataUsage1': 'Alle Daten sind vollständig anonym und nicht identifizierbar',
+    'testInfo.dataUsage2': 'Ausschließlich für wissenschaftliche Forschung zur Neurodiversität verwendet',
+    'testInfo.dataUsage3': 'Können zur Entwicklung besserer Bewertungsinstrumente beitragen',
+    'testInfo.dataUsage4': 'Niemals mit Dritten für kommerzielle Zwecke geteilt',
+    'testInfo.startAssessment': 'Bewertung starten',
     
     // How it works section
     'howItWorks.title': 'Wie Es Funktioniert',
