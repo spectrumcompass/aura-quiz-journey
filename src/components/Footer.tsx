@@ -6,7 +6,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Todos os direitos reservados
           </p>
           <p className="text-sm text-muted-foreground">
-            Feito por <span className="font-medium text-foreground">William Wendling Veiga e Carlos Fernando Collares</span>
+            Desenvolvido por <span className="font-medium text-foreground">William Wendling Veiga e Carlos Fernando Collares</span>
           </p>
         </div>
       </div>
