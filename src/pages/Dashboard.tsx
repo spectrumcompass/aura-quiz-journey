@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calendar as CalendarIcon, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User, Compass } from 'lucide-react';
+import { Calendar as CalendarIcon, TrendingUp, Eye, Trash2, Plus, BarChart3, AlertCircle, User, Compass, Shield } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -19,6 +19,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
+import { useUserRole } from '@/hooks/useUserRole';
+import { AdminAnalytics } from '@/components/AdminAnalytics';
+import { AdminUserManagement } from '@/components/AdminUserManagement';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 interface AssessmentResult {
   id: string;
   title: string;
@@ -33,6 +37,7 @@ const Dashboard = () => {
     user,
     loading: authLoading
   } = useAuth();
+  const { isAdmin, loading: roleLoading } = useUserRole();
   const navigate = useNavigate();
   const {
     toast
@@ -115,7 +120,7 @@ const Dashboard = () => {
       });
     }
   };
-  if (authLoading || loading) {
+  if (authLoading || loading || roleLoading) {
     return <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
         <div className="container mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-8">
@@ -140,10 +145,18 @@ const Dashboard = () => {
               <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 Dashboard
               </h1>
-              <Badge variant="secondary" className="hidden sm:inline-flex">
-                <User className="w-3 h-3 mr-1" />
-                {user.user_metadata?.display_name || user.email}
-              </Badge>
+              <div className="flex items-center gap-2">
+                <Badge variant="secondary" className="hidden sm:inline-flex">
+                  <User className="w-3 h-3 mr-1" />
+                  {user.user_metadata?.display_name || user.email}
+                </Badge>
+                {isAdmin && (
+                  <Badge variant="default" className="hidden sm:inline-flex">
+                    <Shield className="w-3 h-3 mr-1" />
+                    Admin
+                  </Badge>
+                )}
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <Dialog>
@@ -247,6 +260,35 @@ const Dashboard = () => {
       </div>
 
       <div className="container mx-auto px-4 py-8">
+        {isAdmin ? (
+          <Tabs defaultValue="personal" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="personal">Meus Assessments</TabsTrigger>
+              <TabsTrigger value="admin">Análise Geral</TabsTrigger>
+              <TabsTrigger value="users">Usuários</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="personal" className="space-y-6 mt-6">
+              {renderPersonalDashboard()}
+            </TabsContent>
+            
+            <TabsContent value="admin" className="space-y-6 mt-6">
+              <AdminAnalytics />
+            </TabsContent>
+            
+            <TabsContent value="users" className="space-y-6 mt-6">
+              <AdminUserManagement />
+            </TabsContent>
+          </Tabs>
+        ) : (
+          renderPersonalDashboard()
+        )}
+      </div>
+    </div>;
+  
+  function renderPersonalDashboard() {
+    return (
+      <>
         {/* Stats Cards */}
         <div className="grid gap-6 md:grid-cols-3 mb-8">
           <Card>
@@ -388,7 +430,8 @@ const Dashboard = () => {
                 </CardContent>
               </Card>)}
           </div>}
-      </div>
-    </div>;
+      </>
+    );
+  }
 };
 export default Dashboard;
