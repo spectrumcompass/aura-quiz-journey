@@ -1,0 +1,26 @@
+-- SECURE ADMIN BOOTSTRAP INSTRUCTIONS
+-- =====================================
+-- This migration provides a secure way to create the first admin user.
+-- The SQL command below is COMMENTED OUT by default for security.
+--
+-- TO CREATE THE FIRST ADMIN:
+-- 1. Go to the Supabase SQL Editor: https://supabase.com/dashboard/project/jggsobiattiqisqvchzq/sql/new
+-- 2. Create a user account normally through the application signup
+-- 3. Get the user's UUID from: https://supabase.com/dashboard/project/jggsobiattiqisqvchzq/auth/users
+-- 4. Replace 'USER_ID_HERE' below with the actual UUID
+-- 5. Uncomment and run the INSERT statement
+--
+-- IMPORTANT SECURITY NOTES:
+-- - Only database administrators should have access to run this
+-- - This should only be run ONCE to create the first admin
+-- - After the first admin is created, use the Admin User Management interface
+--   to promote other users (requires admin privileges)
+-- - Never expose this functionality through the client application
+--
+-- UNCOMMENT THE LINE BELOW AND REPLACE USER_ID_HERE WITH ACTUAL UUID:
+-- INSERT INTO public.user_roles (user_id, role)
+-- VALUES ('USER_ID_HERE', 'admin'::app_role)
+-- ON CONFLICT (user_id, role) DO NOTHING;
+
+-- Add a comment to document this process
+COMMENT ON TABLE public.user_roles IS 'User roles table. First admin must be created manually via SQL Editor. See migration for instructions.';
