@@ -87,7 +87,10 @@ const Assessment = () => {
          });
 
       if (error) {
-        console.error('Error saving result:', error);
+        // Log only in development
+        if (import.meta.env.DEV) {
+          console.error('Error saving result:', error);
+        }
         toast({
           variant: "destructive",
           title: "Erro ao salvar resultado",
@@ -100,7 +103,10 @@ const Assessment = () => {
         });
       }
     } catch (err) {
-      console.error('Error saving result:', err);
+      // Log only in development
+      if (import.meta.env.DEV) {
+        console.error('Error saving result:', err);
+      }
     }
   };
 

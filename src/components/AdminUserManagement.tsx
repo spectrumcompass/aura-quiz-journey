@@ -66,7 +66,10 @@ export const AdminUserManagement = () => {
 
       setUsers(usersData);
     } catch (err) {
-      console.error('Error fetching users:', err);
+      // Log only in development
+      if (import.meta.env.DEV) {
+        console.error('Error fetching users:', err);
+      }
       setError('Erro ao carregar usuários.');
     } finally {
       setLoading(false);
@@ -75,12 +78,14 @@ export const AdminUserManagement = () => {
 
   const assignRole = async (userId: string, role: 'admin' | 'moderator' | 'user') => {
     try {
-      // First try to update existing role
+      // Get current role for audit trail
       const { data: existing } = await supabase
         .from('user_roles')
-        .select('id')
+        .select('role')
         .eq('user_id', userId)
         .single();
+
+      const oldRole = existing?.role;
 
       if (existing) {
         const { error } = await supabase
@@ -97,6 +102,19 @@ export const AdminUserManagement = () => {
         if (error) throw error;
       }
 
+      // Log the role change to audit trail
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+      if (currentUser) {
+        await supabase.from('audit_log').insert({
+          action: 'role_change',
+          actor_user_id: currentUser.id,
+          target_user_id: userId,
+          old_value: oldRole ? { role: oldRole } : null,
+          new_value: { role },
+          metadata: { timestamp: new Date().toISOString() }
+        });
+      }
+
       // Update local state
       setUsers(users.map(user => 
         user.id === userId ? { ...user, role } : user
@@ -107,7 +125,10 @@ export const AdminUserManagement = () => {
         description: `Usuário agora tem permissão de ${role}.`
       });
     } catch (err) {
-      console.error('Error assigning role:', err);
+      // Log only in development
+      if (import.meta.env.DEV) {
+        console.error('Error assigning role:', err);
+      }
       toast({
         variant: "destructive",
         title: "Erro ao atualizar permissão",

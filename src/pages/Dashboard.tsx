@@ -94,7 +94,10 @@ const Dashboard = () => {
         cdm_result: item.cdm_result as unknown as CDMResult
       })));
     } catch (err) {
-      console.error('Error fetching results:', err);
+      // Log only in development
+      if (import.meta.env.DEV) {
+        console.error('Error fetching results:', err);
+      }
       setError('Erro ao carregar os resultados. Tente novamente.');
     } finally {
       setLoading(false);
@@ -112,7 +115,10 @@ const Dashboard = () => {
         description: "O resultado foi removido com sucesso."
       });
     } catch (err) {
-      console.error('Error deleting result:', err);
+      // Log only in development
+      if (import.meta.env.DEV) {
+        console.error('Error deleting result:', err);
+      }
       toast({
         variant: "destructive",
         title: "Erro ao excluir",
