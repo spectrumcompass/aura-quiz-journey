@@ -12,8 +12,9 @@ const AuthButton = () => {
     signOut,
     loading
   } = useAuth();
-  const { isAdmin } = useUserRole();
-
+  const {
+    isAdmin
+  } = useUserRole();
   if (loading) {
     return <Button variant="soft" size="sm" disabled>
         <User className="h-4 w-4 mr-2" />
@@ -22,10 +23,7 @@ const AuthButton = () => {
   }
   if (!user) {
     return <Button asChild variant="soft" size="sm">
-        <Link to="/auth">
-          <LogIn className="h-4 w-4 mr-2" />
-          Entrar
-        </Link>
+        
       </Button>;
   }
   return <DropdownMenu>
