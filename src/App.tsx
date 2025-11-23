@@ -9,6 +9,7 @@ import Assessment from "./pages/Assessment";
 import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
 import ForgotPassword from "./pages/ForgotPassword";
+import SampleReport from "./pages/SampleReport";
 import Privacy from "./pages/Privacy";
 import TestInfo from "./pages/TestInfo";
 import NotFound from "./pages/NotFound";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/sample-report" element={<SampleReport />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/test-info" element={<TestInfo />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
