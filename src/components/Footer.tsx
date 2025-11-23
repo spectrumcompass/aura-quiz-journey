@@ -12,10 +12,9 @@ const Footer = () => {
           </p>
           <Link 
             to="/auth" 
-            className="inline-block text-xs text-muted-foreground/30 hover:text-muted-foreground/50 transition-colors mt-4"
-            aria-label="Acesso pesquisador"
+            className="inline-block text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors mt-4"
           >
-            •
+            Acesso Pesquisador
           </Link>
         </div>
       </div>
