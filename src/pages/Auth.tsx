@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -156,6 +156,15 @@ const Auth = () => {
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Entrar
             </Button>
+
+            <div className="text-center">
+              <Link 
+                to="/forgot-password" 
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Esqueceu sua senha?
+              </Link>
+            </div>
           </form>
         </CardContent>
       </Card>
