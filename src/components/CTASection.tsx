@@ -40,11 +40,14 @@ const CTASection = () => {
             
             <Button 
               variant="outline" 
-              size="lg" 
+              size="lg"
+              asChild
               className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
-              <FileText className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-              {t('cta.sampleReport')}
+              <Link to="/sample-report">
+                <FileText className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                {t('cta.sampleReport')}
+              </Link>
             </Button>
           </div>
 
