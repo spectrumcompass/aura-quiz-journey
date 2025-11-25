@@ -10,12 +10,28 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             Desenvolvido por <span className="font-medium text-foreground">William Wendling Veiga e Carlos Fernando Collares</span>
           </p>
-          <Link 
-            to="/auth" 
-            className="inline-block text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors mt-4"
-          >
-            Acesso Pesquisador
-          </Link>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <Link 
+              to="/test-info" 
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Sobre o Espectro
+            </Link>
+            <span className="text-muted-foreground/30">•</span>
+            <Link 
+              to="/privacy" 
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Privacidade
+            </Link>
+            <span className="text-muted-foreground/30">•</span>
+            <Link 
+              to="/auth" 
+              className="text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors"
+            >
+              Acesso Pesquisador
+            </Link>
+          </div>
         </div>
       </div>
     </footer>;
