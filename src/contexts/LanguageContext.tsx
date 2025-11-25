@@ -71,6 +71,58 @@ interface TranslationKeys {
   'testInfo.dataUsage4': string;
   'testInfo.startAssessment': string;
   
+  // Spectrum Info page
+  'spectrum.pageTitle': string;
+  'spectrum.pageSubtitle': string;
+  'spectrum.backButton': string;
+  'spectrum.whatIsTitle': string;
+  'spectrum.whatIsDesc1': string;
+  'spectrum.whatIsDesc2': string;
+  'spectrum.characteristicsTitle': string;
+  'spectrum.socialCommunication': string;
+  'spectrum.socialCommunication.item1': string;
+  'spectrum.socialCommunication.item2': string;
+  'spectrum.socialCommunication.item3': string;
+  'spectrum.socialCommunication.item4': string;
+  'spectrum.behaviorPatterns': string;
+  'spectrum.behaviorPatterns.item1': string;
+  'spectrum.behaviorPatterns.item2': string;
+  'spectrum.behaviorPatterns.item3': string;
+  'spectrum.behaviorPatterns.item4': string;
+  'spectrum.sensoryProcessing': string;
+  'spectrum.sensoryProcessing.item1': string;
+  'spectrum.sensoryProcessing.item2': string;
+  'spectrum.sensoryProcessing.item3': string;
+  'spectrum.sensoryProcessing.item4': string;
+  'spectrum.strengthsAbilities': string;
+  'spectrum.strengthsAbilities.item1': string;
+  'spectrum.strengthsAbilities.item2': string;
+  'spectrum.strengthsAbilities.item3': string;
+  'spectrum.strengthsAbilities.item4': string;
+  'spectrum.whySpectrumTitle': string;
+  'spectrum.whySpectrumDesc1': string;
+  'spectrum.supportLevelsTitle': string;
+  'spectrum.supportLevel1': string;
+  'spectrum.supportLevel2': string;
+  'spectrum.supportLevel3': string;
+  'spectrum.supportLevelsNote': string;
+  'spectrum.mythsTitle': string;
+  'spectrum.myth1': string;
+  'spectrum.truth1': string;
+  'spectrum.myth2': string;
+  'spectrum.truth2': string;
+  'spectrum.myth3': string;
+  'spectrum.truth3': string;
+  'spectrum.myth4': string;
+  'spectrum.truth4': string;
+  'spectrum.ctaTitle': string;
+  'spectrum.ctaDesc': string;
+  'spectrum.ctaButton': string;
+  
+  // Disclaimer Alert
+  'disclaimer.important': string;
+  'disclaimer.text': string;
+  
   // How it works section
   'howItWorks.title': string;
   'howItWorks.subtitle': string;
@@ -264,6 +316,58 @@ const translations: Record<Language, TranslationKeys> = {
     'testInfo.dataUsage3': 'Podem contribuir para o desenvolvimento de melhores ferramentas de avaliação',
     'testInfo.dataUsage4': 'Nunca são compartilhados com terceiros para fins comerciais',
     'testInfo.startAssessment': 'Iniciar Avaliação',
+    
+    // Spectrum Info page
+    'spectrum.pageTitle': 'Entendendo o Espectro Autista',
+    'spectrum.pageSubtitle': 'Uma jornada para compreender a diversidade neurocognitiva e celebrar diferentes formas de processar o mundo',
+    'spectrum.backButton': 'Voltar',
+    'spectrum.whatIsTitle': 'O Que É o Espectro Autista?',
+    'spectrum.whatIsDesc1': 'O Transtorno do Espectro Autista (TEA) é uma condição do neurodesenvolvimento que afeta a forma como uma pessoa percebe, processa e interage com o mundo ao seu redor. É chamado de "espectro" porque se manifesta de formas muito variadas em diferentes pessoas.',
+    'spectrum.whatIsDesc2': 'Cada pessoa autista é única, com suas próprias forças, desafios, interesses e necessidades. Algumas podem precisar de apoio significativo no dia a dia, enquanto outras vivem de forma mais independente, mas todas compartilham diferenças na comunicação social e nos padrões de comportamento.',
+    'spectrum.characteristicsTitle': 'Características Principais',
+    'spectrum.socialCommunication': 'Comunicação Social',
+    'spectrum.socialCommunication.item1': '• Dificuldade em entender sinais sociais não-verbais',
+    'spectrum.socialCommunication.item2': '• Preferência por comunicação direta e literal',
+    'spectrum.socialCommunication.item3': '• Desafios em manter conversas recíprocas',
+    'spectrum.socialCommunication.item4': '• Diferentes formas de expressar emoções',
+    'spectrum.behaviorPatterns': 'Padrões de Comportamento',
+    'spectrum.behaviorPatterns.item1': '• Interesses intensos e específicos',
+    'spectrum.behaviorPatterns.item2': '• Necessidade de rotinas e previsibilidade',
+    'spectrum.behaviorPatterns.item3': '• Movimentos repetitivos (stimming)',
+    'spectrum.behaviorPatterns.item4': '• Atenção detalhada a padrões e detalhes',
+    'spectrum.sensoryProcessing': 'Processamento Sensorial',
+    'spectrum.sensoryProcessing.item1': '• Sensibilidade aumentada ou reduzida a estímulos',
+    'spectrum.sensoryProcessing.item2': '• Reações intensas a sons, luzes ou texturas',
+    'spectrum.sensoryProcessing.item3': '• Preferências alimentares específicas',
+    'spectrum.sensoryProcessing.item4': '• Necessidade de estímulos sensoriais específicos',
+    'spectrum.strengthsAbilities': 'Forças e Habilidades',
+    'spectrum.strengthsAbilities.item1': '• Atenção excepcional aos detalhes',
+    'spectrum.strengthsAbilities.item2': '• Memória e concentração profundas',
+    'spectrum.strengthsAbilities.item3': '• Pensamento lógico e sistemático',
+    'spectrum.strengthsAbilities.item4': '• Criatividade e perspectivas únicas',
+    'spectrum.whySpectrumTitle': 'Por Que "Espectro"?',
+    'spectrum.whySpectrumDesc1': 'O termo "espectro" reflete a enorme diversidade de como o autismo se manifesta. Não existe uma única forma de "ser autista" - cada pessoa está em um ponto único do espectro com suas próprias características.',
+    'spectrum.supportLevelsTitle': 'Níveis de Suporte:',
+    'spectrum.supportLevel1': 'Nível 1: Necessita de algum suporte em situações sociais específicas',
+    'spectrum.supportLevel2': 'Nível 2: Necessita de suporte substancial no dia a dia',
+    'spectrum.supportLevel3': 'Nível 3: Necessita de suporte muito substancial em várias áreas',
+    'spectrum.supportLevelsNote': 'É importante lembrar que o nível de suporte necessário não define o valor ou potencial de uma pessoa - apenas indica o tipo de apoio que pode ser benéfico.',
+    'spectrum.mythsTitle': 'Mitos e Verdades',
+    'spectrum.myth1': '❌ Mito: Pessoas autistas não sentem emoções',
+    'spectrum.truth1': '✓ Verdade: Pessoas autistas sentem emoções profundamente, mas podem expressá-las de maneiras diferentes',
+    'spectrum.myth2': '❌ Mito: Todas as pessoas autistas têm habilidades extraordinárias',
+    'spectrum.truth2': '✓ Verdade: Como todos, pessoas autistas têm diferentes talentos e habilidades - algumas podem ter habilidades excepcionais em áreas específicas, outras não',
+    'spectrum.myth3': '❌ Mito: O autismo pode ser "curado"',
+    'spectrum.truth3': '✓ Verdade: O autismo é uma condição neurológica permanente. O foco deve estar em apoio, aceitação e desenvolvimento de habilidades',
+    'spectrum.myth4': '❌ Mito: Pessoas autistas preferem ficar sozinhas',
+    'spectrum.truth4': '✓ Verdade: Muitas pessoas autistas desejam conexões sociais, mas podem precisar de abordagens diferentes de interação',
+    'spectrum.ctaTitle': 'Quer Saber Mais Sobre Seu Perfil?',
+    'spectrum.ctaDesc': 'Nossa avaliação baseada no modelo CDM pode ajudar você a entender melhor suas características e encontrar os recursos adequados.',
+    'spectrum.ctaButton': 'Iniciar Avaliação',
+    
+    // Disclaimer Alert
+    'disclaimer.important': 'IMPORTANTE:',
+    'disclaimer.text': 'Esta ferramenta é destinada apenas para entretenimento e reflexão pessoal. Não possui validade científica, diagnóstica ou clínica. Os resultados não devem ser interpretados como um diagnóstico médico. Se você suspeita ter características do espectro autista, procure um profissional qualificado (psicólogo ou psiquiatra especializado em autismo) para uma avaliação adequada.',
     
     // How it works section
     'howItWorks.title': 'Como Funciona',
@@ -689,6 +793,58 @@ const translations: Record<Language, TranslationKeys> = {
     'testInfo.dataUsage4': 'Never shared with third parties for commercial purposes',
     'testInfo.startAssessment': 'Start Assessment',
     
+    // Spectrum Info page
+    'spectrum.pageTitle': 'Understanding the Autism Spectrum',
+    'spectrum.pageSubtitle': 'A journey to understand neurocognitive diversity and celebrate different ways of processing the world',
+    'spectrum.backButton': 'Back',
+    'spectrum.whatIsTitle': 'What is the Autism Spectrum?',
+    'spectrum.whatIsDesc1': 'Autism Spectrum Disorder (ASD) is a neurodevelopmental condition that affects how a person perceives, processes and interacts with the world around them. It is called a "spectrum" because it manifests in very varied ways in different people.',
+    'spectrum.whatIsDesc2': 'Each autistic person is unique, with their own strengths, challenges, interests and needs. Some may need significant support in daily life, while others live more independently, but all share differences in social communication and behavior patterns.',
+    'spectrum.characteristicsTitle': 'Main Characteristics',
+    'spectrum.socialCommunication': 'Social Communication',
+    'spectrum.socialCommunication.item1': '• Difficulty understanding non-verbal social cues',
+    'spectrum.socialCommunication.item2': '• Preference for direct and literal communication',
+    'spectrum.socialCommunication.item3': '• Challenges maintaining reciprocal conversations',
+    'spectrum.socialCommunication.item4': '• Different ways of expressing emotions',
+    'spectrum.behaviorPatterns': 'Behavior Patterns',
+    'spectrum.behaviorPatterns.item1': '• Intense and specific interests',
+    'spectrum.behaviorPatterns.item2': '• Need for routines and predictability',
+    'spectrum.behaviorPatterns.item3': '• Repetitive movements (stimming)',
+    'spectrum.behaviorPatterns.item4': '• Detailed attention to patterns and details',
+    'spectrum.sensoryProcessing': 'Sensory Processing',
+    'spectrum.sensoryProcessing.item1': '• Increased or reduced sensitivity to stimuli',
+    'spectrum.sensoryProcessing.item2': '• Intense reactions to sounds, lights or textures',
+    'spectrum.sensoryProcessing.item3': '• Specific food preferences',
+    'spectrum.sensoryProcessing.item4': '• Need for specific sensory stimuli',
+    'spectrum.strengthsAbilities': 'Strengths and Abilities',
+    'spectrum.strengthsAbilities.item1': '• Exceptional attention to detail',
+    'spectrum.strengthsAbilities.item2': '• Deep memory and concentration',
+    'spectrum.strengthsAbilities.item3': '• Logical and systematic thinking',
+    'spectrum.strengthsAbilities.item4': '• Creativity and unique perspectives',
+    'spectrum.whySpectrumTitle': 'Why "Spectrum"?',
+    'spectrum.whySpectrumDesc1': 'The term "spectrum" reflects the enormous diversity of how autism manifests. There is no single way to "be autistic" - each person is at a unique point on the spectrum with their own characteristics.',
+    'spectrum.supportLevelsTitle': 'Support Levels:',
+    'spectrum.supportLevel1': 'Level 1: Requires some support in specific social situations',
+    'spectrum.supportLevel2': 'Level 2: Requires substantial support in daily life',
+    'spectrum.supportLevel3': 'Level 3: Requires very substantial support in multiple areas',
+    'spectrum.supportLevelsNote': 'It is important to remember that the level of support needed does not define a person\'s worth or potential - it only indicates the type of support that may be beneficial.',
+    'spectrum.mythsTitle': 'Myths and Facts',
+    'spectrum.myth1': '❌ Myth: Autistic people don\'t feel emotions',
+    'spectrum.truth1': '✓ Truth: Autistic people feel emotions deeply, but may express them in different ways',
+    'spectrum.myth2': '❌ Myth: All autistic people have extraordinary abilities',
+    'spectrum.truth2': '✓ Truth: Like everyone, autistic people have different talents and abilities - some may have exceptional skills in specific areas, others do not',
+    'spectrum.myth3': '❌ Myth: Autism can be "cured"',
+    'spectrum.truth3': '✓ Truth: Autism is a permanent neurological condition. The focus should be on support, acceptance and skills development',
+    'spectrum.myth4': '❌ Myth: Autistic people prefer to be alone',
+    'spectrum.truth4': '✓ Truth: Many autistic people desire social connections, but may need different approaches to interaction',
+    'spectrum.ctaTitle': 'Want to Know More About Your Profile?',
+    'spectrum.ctaDesc': 'Our CDM model-based assessment can help you better understand your characteristics and find appropriate resources.',
+    'spectrum.ctaButton': 'Start Assessment',
+    
+    // Disclaimer Alert
+    'disclaimer.important': 'IMPORTANT:',
+    'disclaimer.text': 'This tool is intended for entertainment and personal reflection only. It has no scientific, diagnostic or clinical validity. Results should not be interpreted as a medical diagnosis. If you suspect you have autism spectrum characteristics, seek a qualified professional (psychologist or psychiatrist specialized in autism) for a proper evaluation.',
+    
     // How it works section
     'howItWorks.title': 'How It Works',
     'howItWorks.subtitle': 'A simple and scientific 3-step process for your self-assessment',
@@ -1113,6 +1269,58 @@ const translations: Record<Language, TranslationKeys> = {
     'testInfo.dataUsage4': 'Nunca son compartidos con terceros para fines comerciales',
     'testInfo.startAssessment': 'Iniciar Evaluación',
     
+    // Spectrum Info page
+    'spectrum.pageTitle': 'Entendiendo el Espectro Autista',
+    'spectrum.pageSubtitle': 'Un viaje para comprender la diversidad neurocognitiva y celebrar diferentes formas de procesar el mundo',
+    'spectrum.backButton': 'Volver',
+    'spectrum.whatIsTitle': '¿Qué es el Espectro Autista?',
+    'spectrum.whatIsDesc1': 'El Trastorno del Espectro Autista (TEA) es una condición del neurodesarrollo que afecta la forma en que una persona percibe, procesa e interactúa con el mundo que la rodea. Se llama "espectro" porque se manifiesta de formas muy variadas en diferentes personas.',
+    'spectrum.whatIsDesc2': 'Cada persona autista es única, con sus propias fortalezas, desafíos, intereses y necesidades. Algunas pueden necesitar apoyo significativo en la vida diaria, mientras que otras viven de forma más independiente, pero todas comparten diferencias en la comunicación social y los patrones de comportamiento.',
+    'spectrum.characteristicsTitle': 'Características Principales',
+    'spectrum.socialCommunication': 'Comunicación Social',
+    'spectrum.socialCommunication.item1': '• Dificultad para entender señales sociales no verbales',
+    'spectrum.socialCommunication.item2': '• Preferencia por comunicación directa y literal',
+    'spectrum.socialCommunication.item3': '• Desafíos para mantener conversaciones recíprocas',
+    'spectrum.socialCommunication.item4': '• Diferentes formas de expresar emociones',
+    'spectrum.behaviorPatterns': 'Patrones de Comportamiento',
+    'spectrum.behaviorPatterns.item1': '• Intereses intensos y específicos',
+    'spectrum.behaviorPatterns.item2': '• Necesidad de rutinas y previsibilidad',
+    'spectrum.behaviorPatterns.item3': '• Movimientos repetitivos (stimming)',
+    'spectrum.behaviorPatterns.item4': '• Atención detallada a patrones y detalles',
+    'spectrum.sensoryProcessing': 'Procesamiento Sensorial',
+    'spectrum.sensoryProcessing.item1': '• Sensibilidad aumentada o reducida a estímulos',
+    'spectrum.sensoryProcessing.item2': '• Reacciones intensas a sonidos, luces o texturas',
+    'spectrum.sensoryProcessing.item3': '• Preferencias alimentarias específicas',
+    'spectrum.sensoryProcessing.item4': '• Necesidad de estímulos sensoriales específicos',
+    'spectrum.strengthsAbilities': 'Fortalezas y Habilidades',
+    'spectrum.strengthsAbilities.item1': '• Atención excepcional a los detalles',
+    'spectrum.strengthsAbilities.item2': '• Memoria y concentración profundas',
+    'spectrum.strengthsAbilities.item3': '• Pensamiento lógico y sistemático',
+    'spectrum.strengthsAbilities.item4': '• Creatividad y perspectivas únicas',
+    'spectrum.whySpectrumTitle': '¿Por Qué "Espectro"?',
+    'spectrum.whySpectrumDesc1': 'El término "espectro" refleja la enorme diversidad de cómo se manifiesta el autismo. No existe una única forma de "ser autista" - cada persona está en un punto único del espectro con sus propias características.',
+    'spectrum.supportLevelsTitle': 'Niveles de Apoyo:',
+    'spectrum.supportLevel1': 'Nivel 1: Necesita algo de apoyo en situaciones sociales específicas',
+    'spectrum.supportLevel2': 'Nivel 2: Necesita apoyo sustancial en la vida diaria',
+    'spectrum.supportLevel3': 'Nivel 3: Necesita apoyo muy sustancial en múltiples áreas',
+    'spectrum.supportLevelsNote': 'Es importante recordar que el nivel de apoyo necesario no define el valor o potencial de una persona - solo indica el tipo de apoyo que puede ser beneficioso.',
+    'spectrum.mythsTitle': 'Mitos y Verdades',
+    'spectrum.myth1': '❌ Mito: Las personas autistas no sienten emociones',
+    'spectrum.truth1': '✓ Verdad: Las personas autistas sienten emociones profundamente, pero pueden expresarlas de maneras diferentes',
+    'spectrum.myth2': '❌ Mito: Todas las personas autistas tienen habilidades extraordinarias',
+    'spectrum.truth2': '✓ Verdad: Como todos, las personas autistas tienen diferentes talentos y habilidades - algunas pueden tener habilidades excepcionales en áreas específicas, otras no',
+    'spectrum.myth3': '❌ Mito: El autismo puede ser "curado"',
+    'spectrum.truth3': '✓ Verdad: El autismo es una condición neurológica permanente. El enfoque debe estar en apoyo, aceptación y desarrollo de habilidades',
+    'spectrum.myth4': '❌ Mito: Las personas autistas prefieren estar solas',
+    'spectrum.truth4': '✓ Verdad: Muchas personas autistas desean conexiones sociales, pero pueden necesitar diferentes enfoques de interacción',
+    'spectrum.ctaTitle': '¿Quieres Saber Más Sobre Tu Perfil?',
+    'spectrum.ctaDesc': 'Nuestra evaluación basada en el modelo CDM puede ayudarte a entender mejor tus características y encontrar los recursos adecuados.',
+    'spectrum.ctaButton': 'Iniciar Evaluación',
+    
+    // Disclaimer Alert
+    'disclaimer.important': 'IMPORTANTE:',
+    'disclaimer.text': 'Esta herramienta está destinada solo para entretenimiento y reflexión personal. No tiene validez científica, diagnóstica o clínica. Los resultados no deben interpretarse como un diagnóstico médico. Si sospechas que tienes características del espectro autista, busca un profesional calificado (psicólogo o psiquiatra especializado en autismo) para una evaluación adecuada.',
+    
     // How it works section
     'howItWorks.title': 'Cómo Funciona',
     'howItWorks.subtitle': 'Un proceso simple y científico de 3 pasos para tu autoevaluación',
@@ -1233,6 +1441,58 @@ const translations: Record<Language, TranslationKeys> = {
   },
 
   nl: {
+    // Spectrum Info page
+    'spectrum.pageTitle': 'Het Autismespectrum Begrijpen',
+    'spectrum.pageSubtitle': 'Een reis om neurocognitieve diversiteit te begrijpen en verschillende manieren van de wereld verwerken te vieren',
+    'spectrum.backButton': 'Terug',
+    'spectrum.whatIsTitle': 'Wat is het Autismespectrum?',
+    'spectrum.whatIsDesc1': 'Autismespectrumstoornis (ASS) is een neurologische ontwikkelingsstoornis die invloed heeft op hoe een persoon de wereld om zich heen waarneemt, verwerkt en ermee omgaat. Het wordt een "spectrum" genoemd omdat het zich op zeer verschillende manieren manifesteert bij verschillende mensen.',
+    'spectrum.whatIsDesc2': 'Elke autistische persoon is uniek, met hun eigen sterke punten, uitdagingen, interesses en behoeften. Sommigen hebben aanzienlijke ondersteuning nodig in het dagelijks leven, terwijl anderen meer onafhankelijk leven, maar allen delen verschillen in sociale communicatie en gedragspatronen.',
+    'spectrum.characteristicsTitle': 'Belangrijkste Kenmerken',
+    'spectrum.socialCommunication': 'Sociale Communicatie',
+    'spectrum.socialCommunication.item1': '• Moeite met het begrijpen van non-verbale sociale signalen',
+    'spectrum.socialCommunication.item2': '• Voorkeur voor directe en letterlijke communicatie',
+    'spectrum.socialCommunication.item3': '• Uitdagingen bij het onderhouden van wederzijdse gesprekken',
+    'spectrum.socialCommunication.item4': '• Verschillende manieren om emoties uit te drukken',
+    'spectrum.behaviorPatterns': 'Gedragspatronen',
+    'spectrum.behaviorPatterns.item1': '• Intense en specifieke interesses',
+    'spectrum.behaviorPatterns.item2': '• Behoefte aan routines en voorspelbaarheid',
+    'spectrum.behaviorPatterns.item3': '• Repetitieve bewegingen (stimming)',
+    'spectrum.behaviorPatterns.item4': '• Gedetailleerde aandacht voor patronen en details',
+    'spectrum.sensoryProcessing': 'Zintuiglijke Verwerking',
+    'spectrum.sensoryProcessing.item1': '• Verhoogde of verminderde gevoeligheid voor prikkels',
+    'spectrum.sensoryProcessing.item2': '• Intense reacties op geluiden, lichten of texturen',
+    'spectrum.sensoryProcessing.item3': '• Specifieke voedselvoorkeuren',
+    'spectrum.sensoryProcessing.item4': '• Behoefte aan specifieke zintuiglijke prikkels',
+    'spectrum.strengthsAbilities': 'Sterke Punten en Vaardigheden',
+    'spectrum.strengthsAbilities.item1': '• Uitzonderlijke aandacht voor details',
+    'spectrum.strengthsAbilities.item2': '• Diep geheugen en concentratie',
+    'spectrum.strengthsAbilities.item3': '• Logisch en systematisch denken',
+    'spectrum.strengthsAbilities.item4': '• Creativiteit en unieke perspectieven',
+    'spectrum.whySpectrumTitle': 'Waarom "Spectrum"?',
+    'spectrum.whySpectrumDesc1': 'De term "spectrum" weerspiegelt de enorme diversiteit van hoe autisme zich manifesteert. Er is geen enkele manier om "autistisch te zijn" - elke persoon bevindt zich op een uniek punt op het spectrum met hun eigen kenmerken.',
+    'spectrum.supportLevelsTitle': 'Ondersteuningsniveaus:',
+    'spectrum.supportLevel1': 'Niveau 1: Heeft enige ondersteuning nodig in specifieke sociale situaties',
+    'spectrum.supportLevel2': 'Niveau 2: Heeft substantiële ondersteuning nodig in het dagelijks leven',
+    'spectrum.supportLevel3': 'Niveau 3: Heeft zeer substantiële ondersteuning nodig in meerdere gebieden',
+    'spectrum.supportLevelsNote': 'Het is belangrijk om te onthouden dat het benodigde ondersteuningsniveau niet de waarde of het potentieel van een persoon definieert - het geeft alleen aan welk type ondersteuning nuttig kan zijn.',
+    'spectrum.mythsTitle': 'Mythes en Feiten',
+    'spectrum.myth1': '❌ Mythe: Autistische mensen voelen geen emoties',
+    'spectrum.truth1': '✓ Feit: Autistische mensen voelen emoties diep, maar kunnen ze op verschillende manieren uiten',
+    'spectrum.myth2': '❌ Mythe: Alle autistische mensen hebben buitengewone vaardigheden',
+    'spectrum.truth2': '✓ Feit: Zoals iedereen hebben autistische mensen verschillende talenten en vaardigheden - sommigen hebben uitzonderlijke vaardigheden op specifieke gebieden, anderen niet',
+    'spectrum.myth3': '❌ Mythe: Autisme kan worden "genezen"',
+    'spectrum.truth3': '✓ Feit: Autisme is een permanente neurologische aandoening. De focus moet liggen op ondersteuning, acceptatie en ontwikkeling van vaardigheden',
+    'spectrum.myth4': '❌ Mythe: Autistische mensen willen liever alleen zijn',
+    'spectrum.truth4': '✓ Feit: Veel autistische mensen verlangen naar sociale verbindingen, maar hebben mogelijk verschillende benaderingen van interactie nodig',
+    'spectrum.ctaTitle': 'Wil je Meer Weten Over Je Profiel?',
+    'spectrum.ctaDesc': 'Onze CDM-model gebaseerde beoordeling kan je helpen je kenmerken beter te begrijpen en passende bronnen te vinden.',
+    'spectrum.ctaButton': 'Start Beoordeling',
+    
+    // Disclaimer Alert
+    'disclaimer.important': 'BELANGRIJK:',
+    'disclaimer.text': 'Deze tool is alleen bedoeld voor entertainment en persoonlijke reflectie. Het heeft geen wetenschappelijke, diagnostische of klinische geldigheid. Resultaten mogen niet worden geïnterpreteerd als medische diagnose. Als je vermoedt dat je kenmerken van het autismespectrum hebt, zoek dan een gekwalificeerde professional (psycholoog of psychiater gespecialiseerd in autisme) voor een goede evaluatie.',
+    
     // CDM Results
     'cdm.profileOverview': 'Profieloverzicht',
     'cdm.profileDescription': 'Cognitief profiel gebaseerd op Cognitieve Diagnostische Modellering',
@@ -1658,6 +1918,58 @@ const translations: Record<Language, TranslationKeys> = {
     'testInfo.dataUsage3': 'Können zur Entwicklung besserer Bewertungsinstrumente beitragen',
     'testInfo.dataUsage4': 'Niemals mit Dritten für kommerzielle Zwecke geteilt',
     'testInfo.startAssessment': 'Bewertung starten',
+    
+    // Spectrum Info page
+    'spectrum.pageTitle': 'Das Autismus-Spektrum Verstehen',
+    'spectrum.pageSubtitle': 'Eine Reise, um neurokognitive Vielfalt zu verstehen und verschiedene Arten der Weltverarbeitung zu feiern',
+    'spectrum.backButton': 'Zurück',
+    'spectrum.whatIsTitle': 'Was ist das Autismus-Spektrum?',
+    'spectrum.whatIsDesc1': 'Die Autismus-Spektrum-Störung (ASS) ist eine neurologische Entwicklungsstörung, die beeinflusst, wie eine Person die Welt um sich herum wahrnimmt, verarbeitet und mit ihr interagiert. Sie wird "Spektrum" genannt, weil sie sich bei verschiedenen Menschen sehr unterschiedlich manifestiert.',
+    'spectrum.whatIsDesc2': 'Jeder autistische Mensch ist einzigartig mit eigenen Stärken, Herausforderungen, Interessen und Bedürfnissen. Einige benötigen erhebliche Unterstützung im täglichen Leben, während andere unabhängiger leben, aber alle teilen Unterschiede in sozialer Kommunikation und Verhaltensmustern.',
+    'spectrum.characteristicsTitle': 'Hauptmerkmale',
+    'spectrum.socialCommunication': 'Soziale Kommunikation',
+    'spectrum.socialCommunication.item1': '• Schwierigkeiten beim Verstehen nonverbaler sozialer Signale',
+    'spectrum.socialCommunication.item2': '• Präferenz für direkte und wörtliche Kommunikation',
+    'spectrum.socialCommunication.item3': '• Herausforderungen bei der Aufrechterhaltung wechselseitiger Gespräche',
+    'spectrum.socialCommunication.item4': '• Verschiedene Arten, Emotionen auszudrücken',
+    'spectrum.behaviorPatterns': 'Verhaltensmuster',
+    'spectrum.behaviorPatterns.item1': '• Intensive und spezifische Interessen',
+    'spectrum.behaviorPatterns.item2': '• Bedürfnis nach Routinen und Vorhersehbarkeit',
+    'spectrum.behaviorPatterns.item3': '• Repetitive Bewegungen (Stimming)',
+    'spectrum.behaviorPatterns.item4': '• Detaillierte Aufmerksamkeit für Muster und Details',
+    'spectrum.sensoryProcessing': 'Sensorische Verarbeitung',
+    'spectrum.sensoryProcessing.item1': '• Erhöhte oder verminderte Empfindlichkeit gegenüber Reizen',
+    'spectrum.sensoryProcessing.item2': '• Intensive Reaktionen auf Geräusche, Lichter oder Texturen',
+    'spectrum.sensoryProcessing.item3': '• Spezifische Nahrungsmittelpräferenzen',
+    'spectrum.sensoryProcessing.item4': '• Bedürfnis nach spezifischen sensorischen Reizen',
+    'spectrum.strengthsAbilities': 'Stärken und Fähigkeiten',
+    'spectrum.strengthsAbilities.item1': '• Außergewöhnliche Aufmerksamkeit für Details',
+    'spectrum.strengthsAbilities.item2': '• Tiefes Gedächtnis und Konzentration',
+    'spectrum.strengthsAbilities.item3': '• Logisches und systematisches Denken',
+    'spectrum.strengthsAbilities.item4': '• Kreativität und einzigartige Perspektiven',
+    'spectrum.whySpectrumTitle': 'Warum "Spektrum"?',
+    'spectrum.whySpectrumDesc1': 'Der Begriff "Spektrum" spiegelt die enorme Vielfalt wider, wie sich Autismus manifestiert. Es gibt keine einzige Art, "autistisch zu sein" - jede Person befindet sich an einem einzigartigen Punkt im Spektrum mit eigenen Merkmalen.',
+    'spectrum.supportLevelsTitle': 'Unterstützungsstufen:',
+    'spectrum.supportLevel1': 'Stufe 1: Benötigt etwas Unterstützung in spezifischen sozialen Situationen',
+    'spectrum.supportLevel2': 'Stufe 2: Benötigt erhebliche Unterstützung im täglichen Leben',
+    'spectrum.supportLevel3': 'Stufe 3: Benötigt sehr erhebliche Unterstützung in mehreren Bereichen',
+    'spectrum.supportLevelsNote': 'Es ist wichtig sich zu erinnern, dass die benötigte Unterstützungsstufe nicht den Wert oder das Potenzial einer Person definiert - sie zeigt nur die Art der Unterstützung an, die nützlich sein kann.',
+    'spectrum.mythsTitle': 'Mythen und Fakten',
+    'spectrum.myth1': '❌ Mythos: Autistische Menschen fühlen keine Emotionen',
+    'spectrum.truth1': '✓ Fakt: Autistische Menschen fühlen Emotionen tief, können sie aber auf unterschiedliche Weise ausdrücken',
+    'spectrum.myth2': '❌ Mythos: Alle autistischen Menschen haben außergewöhnliche Fähigkeiten',
+    'spectrum.truth2': '✓ Fakt: Wie jeder haben autistische Menschen unterschiedliche Talente und Fähigkeiten - einige haben außergewöhnliche Fähigkeiten in bestimmten Bereichen, andere nicht',
+    'spectrum.myth3': '❌ Mythos: Autismus kann "geheilt" werden',
+    'spectrum.truth3': '✓ Fakt: Autismus ist eine dauerhafte neurologische Erkrankung. Der Fokus sollte auf Unterstützung, Akzeptanz und Fähigkeitenentwicklung liegen',
+    'spectrum.myth4': '❌ Mythos: Autistische Menschen ziehen es vor, allein zu sein',
+    'spectrum.truth4': '✓ Fakt: Viele autistische Menschen wünschen sich soziale Verbindungen, benötigen aber möglicherweise unterschiedliche Interaktionsansätze',
+    'spectrum.ctaTitle': 'Möchten Sie Mehr Über Ihr Profil Erfahren?',
+    'spectrum.ctaDesc': 'Unsere CDM-Modell-basierte Bewertung kann Ihnen helfen, Ihre Merkmale besser zu verstehen und geeignete Ressourcen zu finden.',
+    'spectrum.ctaButton': 'Bewertung Starten',
+    
+    // Disclaimer Alert
+    'disclaimer.important': 'WICHTIG:',
+    'disclaimer.text': 'Dieses Tool ist nur für Unterhaltung und persönliche Reflexion gedacht. Es hat keine wissenschaftliche, diagnostische oder klinische Gültigkeit. Ergebnisse sollten nicht als medizinische Diagnose interpretiert werden. Wenn Sie vermuten, dass Sie Merkmale des Autismus-Spektrums haben, suchen Sie einen qualifizierten Fachmann (Psychologen oder Psychiater spezialisiert auf Autismus) für eine angemessene Bewertung auf.',
     
     // How it works section
     'howItWorks.title': 'Wie Es Funktioniert',
