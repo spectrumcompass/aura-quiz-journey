@@ -1,14 +1,16 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, FileText, Brain, Search, AlertTriangle, UserCheck, GraduationCap, Building } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowLeft, Brain, Users, Lightbulb, Heart, Sparkles, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import LanguageSelector from "@/components/LanguageSelector";
+import Footer from "@/components/Footer";
 import AuthButton from "@/components/AuthButton";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const TestInfo = () => {
+  const navigate = useNavigate();
   const { t } = useLanguage();
-  
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -17,46 +19,70 @@ const TestInfo = () => {
         <LanguageSelector />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-5xl">
         {/* Back Button */}
-        <div className="mb-6">
-          <Button variant="outline" size="sm" asChild>
-            <Link to="/">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              {t('testInfo.backToHome')}
-            </Link>
-          </Button>
+        <Button
+          variant="ghost"
+          onClick={() => navigate("/")}
+          className="mb-6 sm:mb-8"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Voltar
+        </Button>
+
+        {/* Hero Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+            <Brain className="w-8 h-8 text-primary" />
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-foreground">
+            Entendendo o Espectro Autista
+          </h1>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Uma jornada para compreender a diversidade neurocognitiva e celebrar diferentes formas de processar o mundo
+          </p>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-              {t('testInfo.pageTitle')}
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              {t('testInfo.pageSubtitle')}
-            </p>
-          </div>
+        {/* What is Autism */}
+        <section className="mb-12 sm:mb-16">
+          <Card className="border-primary/20">
+            <CardHeader>
+              <CardTitle className="text-2xl sm:text-3xl flex items-center gap-3">
+                <Sparkles className="w-7 h-7 text-primary" />
+                O Que É o Espectro Autista?
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg">
+                O Transtorno do Espectro Autista (TEA) é uma condição do neurodesenvolvimento que afeta a forma como uma pessoa percebe, processa e interage com o mundo ao seu redor. É chamado de "espectro" porque se manifesta de formas muito variadas em diferentes pessoas.
+              </p>
+              <p className="text-base sm:text-lg">
+                Cada pessoa autista é única, com suas próprias forças, desafios, interesses e necessidades. Algumas podem precisar de apoio significativo no dia a dia, enquanto outras vivem de forma mais independente, mas todas compartilham diferenças na comunicação social e nos padrões de comportamento.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
 
-          {/* Test Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {/* Main Characteristics Grid */}
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-foreground">
+            Características Principais
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <Card className="shadow-soft hover:shadow-medium transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
-                  <FileText className="w-6 h-6 text-primary" />
+                  <Users className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl text-foreground">
-                  {t('testInfo.whatIsIt')}
+                <CardTitle className="text-lg sm:text-xl">
+                  Comunicação Social
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  {t('testInfo.whatIsItDesc')}
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('testInfo.whatIsItDesc2')}
-                </p>
+              <CardContent className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                <p>• Dificuldade em entender sinais sociais não-verbais</p>
+                <p>• Preferência por comunicação direta e literal</p>
+                <p>• Desafios em manter conversas recíprocas</p>
+                <p>• Diferentes formas de expressar emoções</p>
               </CardContent>
             </Card>
 
@@ -65,146 +91,139 @@ const TestInfo = () => {
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-3">
                   <Brain className="w-6 h-6 text-accent" />
                 </div>
-                <CardTitle className="text-xl text-foreground">
-                  {t('testInfo.howWorksTitle')}
+                <CardTitle className="text-lg sm:text-xl">
+                  Padrões de Comportamento
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  {t('testInfo.howWorksDesc')}
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('testInfo.howWorksDesc2')}
-                </p>
+              <CardContent className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                <p>• Interesses intensos e específicos</p>
+                <p>• Necessidade de rotinas e previsibilidade</p>
+                <p>• Movimentos repetitivos (stimming)</p>
+                <p>• Atenção detalhada a padrões e detalhes</p>
               </CardContent>
             </Card>
 
             <Card className="shadow-soft hover:shadow-medium transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-3">
-                  <Search className="w-6 h-6 text-success" />
+                  <Lightbulb className="w-6 h-6 text-success" />
                 </div>
-                <CardTitle className="text-xl text-foreground">
-                  {t('testInfo.scientificBasis')}
+                <CardTitle className="text-lg sm:text-xl">
+                  Processamento Sensorial
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('testInfo.scientificBasisDesc')}
-                </p>
+              <CardContent className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                <p>• Sensibilidade aumentada ou reduzida a estímulos</p>
+                <p>• Reações intensas a sons, luzes ou texturas</p>
+                <p>• Preferências alimentares específicas</p>
+                <p>• Necessidade de estímulos sensoriais específicos</p>
               </CardContent>
             </Card>
 
-            <Card className="shadow-soft hover:shadow-medium transition-all duration-300 border-warning/20">
+            <Card className="shadow-soft hover:shadow-medium transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-warning/10 rounded-full flex items-center justify-center mb-3">
-                  <AlertTriangle className="w-6 h-6 text-warning" />
+                  <Heart className="w-6 h-6 text-warning" />
                 </div>
-                <CardTitle className="text-xl text-foreground">
-                  {t('testInfo.limitations')}
+                <CardTitle className="text-lg sm:text-xl">
+                  Forças e Habilidades
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('testInfo.limitationsDesc')}
-                </p>
+              <CardContent className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                <p>• Atenção excepcional aos detalhes</p>
+                <p>• Memória e concentração profundas</p>
+                <p>• Pensamento lógico e sistemático</p>
+                <p>• Criatividade e perspectivas únicas</p>
               </CardContent>
             </Card>
           </div>
+        </section>
 
-          {/* Doctor/Researcher Information */}
-          <div className="bg-muted/50 rounded-lg p-6 sm:p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">
-                {t('testInfo.researcherTitle')}
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                {t('testInfo.researcherSubtitle')}
+        {/* Understanding the Spectrum */}
+        <section className="mb-12 sm:mb-16">
+          <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+            <CardHeader>
+              <CardTitle className="text-2xl sm:text-3xl flex items-center gap-3">
+                <BookOpen className="w-7 h-7 text-primary" />
+                Por Que "Espectro"?
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg">
+                O termo "espectro" reflete a enorme diversidade de como o autismo se manifesta. Não existe uma única forma de "ser autista" - cada pessoa está em um ponto único do espectro com suas próprias características.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <Card className="shadow-soft">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
-                    <UserCheck className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg text-foreground">
-                    {t('testInfo.doctorName')}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    {t('testInfo.doctorInfo')}
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-soft">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-3">
-                    <GraduationCap className="w-6 h-6 text-accent" />
-                  </div>
-                  <CardTitle className="text-lg text-foreground">
-                    {t('testInfo.qualifications')}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    {t('testInfo.qualificationsDesc')}
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-soft">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mb-3">
-                    <Building className="w-6 h-6 text-success" />
-                  </div>
-                  <CardTitle className="text-lg text-foreground">
-                    {t('testInfo.researchPurpose')}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    {t('testInfo.researchPurposeDesc')}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Data Usage Information */}
-            <div className="mt-8 p-6 bg-card rounded-lg border border-border">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
-                {t('testInfo.dataUsageTitle')}
-              </h3>
-              <div className="space-y-3">
-                <p className="text-muted-foreground">
-                  • {t('testInfo.dataUsage1')}
-                </p>
-                <p className="text-muted-foreground">
-                  • {t('testInfo.dataUsage2')}
-                </p>
-                <p className="text-muted-foreground">
-                  • {t('testInfo.dataUsage3')}
-                </p>
-                <p className="text-muted-foreground">
-                  • {t('testInfo.dataUsage4')}
-                </p>
+              <div className="bg-background/50 p-4 sm:p-6 rounded-lg space-y-3">
+                <p className="font-semibold text-foreground">Níveis de Suporte:</p>
+                <p><strong>Nível 1:</strong> Necessita de algum suporte em situações sociais específicas</p>
+                <p><strong>Nível 2:</strong> Necessita de suporte substancial no dia a dia</p>
+                <p><strong>Nível 3:</strong> Necessita de suporte muito substancial em várias áreas</p>
               </div>
-            </div>
-          </div>
+              <p className="text-base sm:text-lg italic">
+                É importante lembrar que o nível de suporte necessário não define o valor ou potencial de uma pessoa - apenas indica o tipo de apoio que pode ser benéfico.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
 
-          {/* CTA Section */}
-          <div className="text-center mt-12">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/assessment">
-                {t('testInfo.startAssessment')}
-              </Link>
-            </Button>
+        {/* Myths vs Facts */}
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-foreground">
+            Mitos e Verdades
+          </h2>
+          <div className="space-y-4">
+            <Card className="border-l-4 border-l-destructive/50">
+              <CardContent className="pt-6">
+                <p className="font-semibold text-destructive mb-2">❌ Mito: Pessoas autistas não sentem emoções</p>
+                <p className="text-muted-foreground">✓ Verdade: Pessoas autistas sentem emoções profundamente, mas podem expressá-las de maneiras diferentes</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-destructive/50">
+              <CardContent className="pt-6">
+                <p className="font-semibold text-destructive mb-2">❌ Mito: Todas as pessoas autistas têm habilidades extraordinárias</p>
+                <p className="text-muted-foreground">✓ Verdade: Como todos, pessoas autistas têm diferentes talentos e habilidades - algumas podem ter habilidades excepcionais em áreas específicas, outras não</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-destructive/50">
+              <CardContent className="pt-6">
+                <p className="font-semibold text-destructive mb-2">❌ Mito: O autismo pode ser "curado"</p>
+                <p className="text-muted-foreground">✓ Verdade: O autismo é uma condição neurológica permanente. O foco deve estar em apoio, aceitação e desenvolvimento de habilidades</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-destructive/50">
+              <CardContent className="pt-6">
+                <p className="font-semibold text-destructive mb-2">❌ Mito: Pessoas autistas preferem ficar sozinhas</p>
+                <p className="text-muted-foreground">✓ Verdade: Muitas pessoas autistas desejam conexões sociais, mas podem precisar de abordagens diferentes de interação</p>
+              </CardContent>
+            </Card>
           </div>
-        </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="text-center">
+          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30">
+            <CardContent className="pt-8 pb-8 space-y-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+                Quer Saber Mais Sobre Seu Perfil?
+              </h3>
+              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+                Nossa avaliação baseada no modelo CDM pode ajudar você a entender melhor suas características e encontrar os recursos adequados.
+              </p>
+              <Button
+                size="lg"
+                onClick={() => navigate("/assessment")}
+                className="text-base sm:text-lg px-6 sm:px-8"
+              >
+                Iniciar Avaliação
+              </Button>
+            </CardContent>
+          </Card>
+        </section>
       </div>
+
+      <Footer />
     </div>
   );
 };
