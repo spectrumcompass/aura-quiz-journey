@@ -3,6 +3,9 @@ import AboutSection from "@/components/AboutSection";
 import TestInfoSection from "@/components/TestInfoSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import CTASection from "@/components/CTASection";
+import FAQSection from "@/components/FAQSection";
+import StatisticsSection from "@/components/StatisticsSection";
+import ResourcesSection from "@/components/ResourcesSection";
 import AdSenseSlot from "@/components/AdSenseSlot";
 import LanguageSelector from "@/components/LanguageSelector";
 import AuthButton from "@/components/AuthButton";
@@ -25,6 +28,7 @@ const Index = () => {
         />
       </div>
       <AboutSection />
+      <StatisticsSection />
       <TestInfoSection />
       <div className="my-4 sm:my-8 px-4">
         <AdSenseSlot 
@@ -34,6 +38,8 @@ const Index = () => {
         />
       </div>
       <HowItWorksSection />
+      <FAQSection />
+      <ResourcesSection />
       <CTASection />
       <Footer />
     </div>
