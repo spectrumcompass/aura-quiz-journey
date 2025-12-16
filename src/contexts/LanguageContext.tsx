@@ -248,6 +248,59 @@ interface TranslationKeys {
   'language.spanish': string;
   'language.dutch': string;
   'language.german': string;
+
+  // FAQ section
+  'faq.title': string;
+  'faq.subtitle': string;
+  'faq.q1': string;
+  'faq.a1': string;
+  'faq.q2': string;
+  'faq.a2': string;
+  'faq.q3': string;
+  'faq.a3': string;
+  'faq.q4': string;
+  'faq.a4': string;
+  'faq.q5': string;
+  'faq.a5': string;
+  'faq.q6': string;
+  'faq.a6': string;
+
+  // Statistics section
+  'stats.title': string;
+  'stats.subtitle': string;
+  'stats.prevalence': string;
+  'stats.prevalenceDesc': string;
+  'stats.worldwide': string;
+  'stats.worldwideDesc': string;
+  'stats.diagnosis': string;
+  'stats.diagnosisDesc': string;
+  'stats.support': string;
+  'stats.supportDesc': string;
+  'stats.source': string;
+
+  // Resources section
+  'resources.title': string;
+  'resources.subtitle': string;
+  'resources.education': string;
+  'resources.educationDesc': string;
+  'resources.educationItem1': string;
+  'resources.educationItem2': string;
+  'resources.educationItem3': string;
+  'resources.community': string;
+  'resources.communityDesc': string;
+  'resources.communityItem1': string;
+  'resources.communityItem2': string;
+  'resources.communityItem3': string;
+  'resources.professional': string;
+  'resources.professionalDesc': string;
+  'resources.professionalItem1': string;
+  'resources.professionalItem2': string;
+  'resources.professionalItem3': string;
+  'resources.strategies': string;
+  'resources.strategiesDesc': string;
+  'resources.strategiesItem1': string;
+  'resources.strategiesItem2': string;
+  'resources.strategiesItem3': string;
   
   // Questions
   [key: string]: string; // For dynamic question keys
@@ -508,6 +561,59 @@ const translations: Record<Language, TranslationKeys> = {
     'language.spanish': 'Español',
     'language.dutch': 'Nederlands',
     'language.german': 'Deutsch',
+
+    // FAQ section
+    'faq.title': 'Perguntas Frequentes',
+    'faq.subtitle': 'Tire suas dúvidas sobre o espectro autista e nossa avaliação',
+    'faq.q1': 'O que é o Transtorno do Espectro Autista (TEA)?',
+    'faq.a1': 'O TEA é uma condição do neurodesenvolvimento que afeta a comunicação social, comportamentos e processamento sensorial. É chamado de "espectro" porque se manifesta de formas muito diversas em cada pessoa.',
+    'faq.q2': 'Este teste pode me diagnosticar com autismo?',
+    'faq.a2': 'Não. Este é um instrumento de autoconhecimento e entretenimento. Apenas profissionais qualificados (psicólogos ou psiquiatras especializados) podem realizar um diagnóstico formal de autismo.',
+    'faq.q3': 'Quais são os sinais mais comuns do autismo em adultos?',
+    'faq.a3': 'Alguns sinais incluem: dificuldades na comunicação social, preferência por rotinas, interesses intensos e específicos, sensibilidades sensoriais, e diferentes formas de processar informações.',
+    'faq.q4': 'É possível ser autista e não saber?',
+    'faq.a4': 'Sim, muitas pessoas descobrem que são autistas na vida adulta, especialmente mulheres e pessoas que desenvolveram estratégias de camuflagem social ao longo da vida.',
+    'faq.q5': 'O que fazer se eu suspeitar que sou autista?',
+    'faq.a5': 'Recomendamos buscar uma avaliação com profissional especializado em autismo. Enquanto isso, você pode se informar mais sobre o tema e conectar-se com comunidades de apoio.',
+    'faq.q6': 'O autismo tem cura?',
+    'faq.a6': 'O autismo não é uma doença, portanto não há "cura". É uma forma diferente de funcionamento neurológico. O foco deve ser no apoio, aceitação e desenvolvimento de habilidades.',
+
+    // Statistics section
+    'stats.title': 'O Autismo em Números',
+    'stats.subtitle': 'Dados importantes sobre prevalência e impacto do espectro autista no mundo',
+    'stats.prevalence': 'Prevalência Global',
+    'stats.prevalenceDesc': 'Aproximadamente 1 em cada 36 crianças é diagnosticada com TEA segundo dados do CDC (2023)',
+    'stats.worldwide': 'Pessoas no Mundo',
+    'stats.worldwideDesc': 'Estima-se que mais de 78 milhões de pessoas no mundo estejam no espectro autista',
+    'stats.diagnosis': 'Mais Diagnósticos',
+    'stats.diagnosisDesc': 'Homens são diagnosticados 4 vezes mais que mulheres, mas essa diferença está diminuindo',
+    'stats.support': 'Benefício do Apoio',
+    'stats.supportDesc': 'Intervenções precoces melhoram significativamente a qualidade de vida de pessoas autistas',
+    'stats.source': 'Fontes: CDC (2023), OMS, Autism Speaks. Os números são estimativas baseadas em pesquisas científicas recentes.',
+
+    // Resources section
+    'resources.title': 'Recursos e Apoio',
+    'resources.subtitle': 'Informações úteis para entender melhor o autismo e encontrar suporte',
+    'resources.education': 'Educação e Informação',
+    'resources.educationDesc': 'Materiais para aprender mais sobre neurodiversidade e autismo',
+    'resources.educationItem1': 'Livros e artigos científicos sobre TEA',
+    'resources.educationItem2': 'Cursos online sobre neurodiversidade',
+    'resources.educationItem3': 'Documentários e conteúdos audiovisuais',
+    'resources.community': 'Comunidade e Conexão',
+    'resources.communityDesc': 'Conecte-se com outras pessoas e famílias',
+    'resources.communityItem1': 'Grupos de apoio online e presenciais',
+    'resources.communityItem2': 'Comunidades de adultos autistas',
+    'resources.communityItem3': 'Redes de familiares e cuidadores',
+    'resources.professional': 'Apoio Profissional',
+    'resources.professionalDesc': 'Orientações para buscar ajuda especializada',
+    'resources.professionalItem1': 'Psicólogos especializados em TEA',
+    'resources.professionalItem2': 'Psiquiatras com experiência em autismo',
+    'resources.professionalItem3': 'Terapeutas ocupacionais e fonoaudiólogos',
+    'resources.strategies': 'Estratégias do Dia a Dia',
+    'resources.strategiesDesc': 'Dicas práticas para melhorar a qualidade de vida',
+    'resources.strategiesItem1': 'Técnicas de organização e rotina',
+    'resources.strategiesItem2': 'Estratégias de regulação sensorial',
+    'resources.strategiesItem3': 'Ferramentas de comunicação social',
     
     // Questions with new answer structure
     'question.1': 'Em uma reunião de trabalho, seu colega faz uma piada que todos acham engraçada, mas você não entende por que é engraçado.',
@@ -998,6 +1104,59 @@ const translations: Record<Language, TranslationKeys> = {
     'language.spanish': 'Español',
     'language.dutch': 'Nederlands',
     'language.german': 'Deutsch',
+
+    // FAQ section
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Get answers about the autism spectrum and our assessment',
+    'faq.q1': 'What is Autism Spectrum Disorder (ASD)?',
+    'faq.a1': 'ASD is a neurodevelopmental condition that affects social communication, behaviors, and sensory processing. It is called a "spectrum" because it manifests very differently in each person.',
+    'faq.q2': 'Can this test diagnose me with autism?',
+    'faq.a2': 'No. This is a self-awareness and entertainment tool. Only qualified professionals (specialized psychologists or psychiatrists) can make a formal autism diagnosis.',
+    'faq.q3': 'What are the most common signs of autism in adults?',
+    'faq.a3': 'Some signs include: difficulties in social communication, preference for routines, intense and specific interests, sensory sensitivities, and different ways of processing information.',
+    'faq.q4': 'Is it possible to be autistic and not know it?',
+    'faq.a4': 'Yes, many people discover they are autistic in adulthood, especially women and people who have developed social camouflaging strategies throughout life.',
+    'faq.q5': 'What should I do if I suspect I am autistic?',
+    'faq.a5': 'We recommend seeking an evaluation with a professional specialized in autism. In the meantime, you can learn more about the topic and connect with support communities.',
+    'faq.q6': 'Does autism have a cure?',
+    'faq.a6': 'Autism is not a disease, so there is no "cure." It is a different form of neurological functioning. The focus should be on support, acceptance, and skill development.',
+
+    // Statistics section
+    'stats.title': 'Autism by the Numbers',
+    'stats.subtitle': 'Important data on the prevalence and impact of autism spectrum worldwide',
+    'stats.prevalence': 'Global Prevalence',
+    'stats.prevalenceDesc': 'Approximately 1 in 36 children is diagnosed with ASD according to CDC data (2023)',
+    'stats.worldwide': 'People Worldwide',
+    'stats.worldwideDesc': 'It is estimated that more than 78 million people worldwide are on the autism spectrum',
+    'stats.diagnosis': 'More Diagnoses',
+    'stats.diagnosisDesc': 'Men are diagnosed 4 times more than women, but this difference is decreasing',
+    'stats.support': 'Support Benefit',
+    'stats.supportDesc': 'Early interventions significantly improve the quality of life for autistic people',
+    'stats.source': 'Sources: CDC (2023), WHO, Autism Speaks. Numbers are estimates based on recent scientific research.',
+
+    // Resources section
+    'resources.title': 'Resources and Support',
+    'resources.subtitle': 'Useful information to better understand autism and find support',
+    'resources.education': 'Education and Information',
+    'resources.educationDesc': 'Materials to learn more about neurodiversity and autism',
+    'resources.educationItem1': 'Books and scientific articles on ASD',
+    'resources.educationItem2': 'Online courses on neurodiversity',
+    'resources.educationItem3': 'Documentaries and audiovisual content',
+    'resources.community': 'Community and Connection',
+    'resources.communityDesc': 'Connect with other people and families',
+    'resources.communityItem1': 'Online and in-person support groups',
+    'resources.communityItem2': 'Autistic adult communities',
+    'resources.communityItem3': 'Family and caregiver networks',
+    'resources.professional': 'Professional Support',
+    'resources.professionalDesc': 'Guidance for seeking specialized help',
+    'resources.professionalItem1': 'Psychologists specialized in ASD',
+    'resources.professionalItem2': 'Psychiatrists with autism experience',
+    'resources.professionalItem3': 'Occupational therapists and speech therapists',
+    'resources.strategies': 'Daily Strategies',
+    'resources.strategiesDesc': 'Practical tips to improve quality of life',
+    'resources.strategiesItem1': 'Organization and routine techniques',
+    'resources.strategiesItem2': 'Sensory regulation strategies',
+    'resources.strategiesItem3': 'Social communication tools',
     
     // Questions with new answer structure
     'question.1': "At a work meeting, your colleague makes a joke that everyone laughs at, but you don't understand why it's funny.",
@@ -1434,6 +1593,59 @@ const translations: Record<Language, TranslationKeys> = {
     'language.spanish': 'Español',
     'language.dutch': 'Nederlands',
     'language.german': 'Deutsch',
+
+    // FAQ section
+    'faq.title': 'Preguntas Frecuentes',
+    'faq.subtitle': 'Resuelve tus dudas sobre el espectro autista y nuestra evaluación',
+    'faq.q1': '¿Qué es el Trastorno del Espectro Autista (TEA)?',
+    'faq.a1': 'El TEA es una condición del neurodesarrollo que afecta la comunicación social, los comportamientos y el procesamiento sensorial. Se llama "espectro" porque se manifiesta de formas muy diversas en cada persona.',
+    'faq.q2': '¿Este test puede diagnosticarme con autismo?',
+    'faq.a2': 'No. Esta es una herramienta de autoconocimiento y entretenimiento. Solo profesionales calificados (psicólogos o psiquiatras especializados) pueden realizar un diagnóstico formal de autismo.',
+    'faq.q3': '¿Cuáles son las señales más comunes del autismo en adultos?',
+    'faq.a3': 'Algunas señales incluyen: dificultades en la comunicación social, preferencia por rutinas, intereses intensos y específicos, sensibilidades sensoriales y diferentes formas de procesar información.',
+    'faq.q4': '¿Es posible ser autista y no saberlo?',
+    'faq.a4': 'Sí, muchas personas descubren que son autistas en la edad adulta, especialmente mujeres y personas que han desarrollado estrategias de camuflaje social a lo largo de la vida.',
+    'faq.q5': '¿Qué hacer si sospecho que soy autista?',
+    'faq.a5': 'Recomendamos buscar una evaluación con un profesional especializado en autismo. Mientras tanto, puedes informarte más sobre el tema y conectarte con comunidades de apoyo.',
+    'faq.q6': '¿El autismo tiene cura?',
+    'faq.a6': 'El autismo no es una enfermedad, por lo tanto no hay "cura". Es una forma diferente de funcionamiento neurológico. El enfoque debe estar en el apoyo, la aceptación y el desarrollo de habilidades.',
+
+    // Statistics section
+    'stats.title': 'El Autismo en Números',
+    'stats.subtitle': 'Datos importantes sobre la prevalencia e impacto del espectro autista en el mundo',
+    'stats.prevalence': 'Prevalencia Global',
+    'stats.prevalenceDesc': 'Aproximadamente 1 de cada 36 niños es diagnosticado con TEA según datos del CDC (2023)',
+    'stats.worldwide': 'Personas en el Mundo',
+    'stats.worldwideDesc': 'Se estima que más de 78 millones de personas en el mundo están en el espectro autista',
+    'stats.diagnosis': 'Más Diagnósticos',
+    'stats.diagnosisDesc': 'Los hombres son diagnosticados 4 veces más que las mujeres, pero esta diferencia está disminuyendo',
+    'stats.support': 'Beneficio del Apoyo',
+    'stats.supportDesc': 'Las intervenciones tempranas mejoran significativamente la calidad de vida de las personas autistas',
+    'stats.source': 'Fuentes: CDC (2023), OMS, Autism Speaks. Los números son estimaciones basadas en investigaciones científicas recientes.',
+
+    // Resources section
+    'resources.title': 'Recursos y Apoyo',
+    'resources.subtitle': 'Información útil para entender mejor el autismo y encontrar soporte',
+    'resources.education': 'Educación e Información',
+    'resources.educationDesc': 'Materiales para aprender más sobre neurodiversidad y autismo',
+    'resources.educationItem1': 'Libros y artículos científicos sobre TEA',
+    'resources.educationItem2': 'Cursos online sobre neurodiversidad',
+    'resources.educationItem3': 'Documentales y contenidos audiovisuales',
+    'resources.community': 'Comunidad y Conexión',
+    'resources.communityDesc': 'Conéctate con otras personas y familias',
+    'resources.communityItem1': 'Grupos de apoyo online y presenciales',
+    'resources.communityItem2': 'Comunidades de adultos autistas',
+    'resources.communityItem3': 'Redes de familiares y cuidadores',
+    'resources.professional': 'Apoyo Profesional',
+    'resources.professionalDesc': 'Orientaciones para buscar ayuda especializada',
+    'resources.professionalItem1': 'Psicólogos especializados en TEA',
+    'resources.professionalItem2': 'Psiquiatras con experiencia en autismo',
+    'resources.professionalItem3': 'Terapeutas ocupacionales y fonoaudiólogos',
+    'resources.strategies': 'Estrategias del Día a Día',
+    'resources.strategiesDesc': 'Consejos prácticos para mejorar la calidad de vida',
+    'resources.strategiesItem1': 'Técnicas de organización y rutina',
+    'resources.strategiesItem2': 'Estrategias de regulación sensorial',
+    'resources.strategiesItem3': 'Herramientas de comunicación social',
     
     // CDM Results
     'cdm.profileOverview': 'Resumen del Perfil',
@@ -1742,6 +1954,59 @@ const translations: Record<Language, TranslationKeys> = {
     'language.spanish': 'Español',
     'language.dutch': 'Nederlands',
     'language.german': 'Deutsch',
+
+    // FAQ section
+    'faq.title': 'Veelgestelde Vragen',
+    'faq.subtitle': 'Antwoorden over het autismespectrum en onze beoordeling',
+    'faq.q1': 'Wat is een Autismespectrumstoornis (ASS)?',
+    'faq.a1': 'ASS is een neurologische ontwikkelingsstoornis die sociale communicatie, gedrag en sensorische verwerking beïnvloedt. Het wordt een "spectrum" genoemd omdat het zich bij elke persoon heel verschillend manifesteert.',
+    'faq.q2': 'Kan deze test bij mij autisme diagnosticeren?',
+    'faq.a2': 'Nee. Dit is een hulpmiddel voor zelfbewustzijn en entertainment. Alleen gekwalificeerde professionals (gespecialiseerde psychologen of psychiaters) kunnen een formele autismediagnose stellen.',
+    'faq.q3': 'Wat zijn de meest voorkomende tekenen van autisme bij volwassenen?',
+    'faq.a3': 'Enkele tekenen zijn: moeilijkheden in sociale communicatie, voorkeur voor routines, intense en specifieke interesses, sensorische gevoeligheden en verschillende manieren van informatieverwerking.',
+    'faq.q4': 'Is het mogelijk autistisch te zijn zonder het te weten?',
+    'faq.a4': 'Ja, veel mensen ontdekken op volwassen leeftijd dat ze autistisch zijn, vooral vrouwen en mensen die hun hele leven sociale camouflagestrategieën hebben ontwikkeld.',
+    'faq.q5': 'Wat moet ik doen als ik vermoed dat ik autistisch ben?',
+    'faq.a5': 'We raden aan om een evaluatie te zoeken bij een professional die gespecialiseerd is in autisme. In de tussentijd kun je meer over het onderwerp leren en contact leggen met ondersteuningsgemeenschappen.',
+    'faq.q6': 'Is autisme te genezen?',
+    'faq.a6': 'Autisme is geen ziekte, dus er is geen "genezing". Het is een andere vorm van neurologisch functioneren. De focus moet liggen op ondersteuning, acceptatie en vaardigheidsontwikkeling.',
+
+    // Statistics section
+    'stats.title': 'Autisme in Cijfers',
+    'stats.subtitle': 'Belangrijke gegevens over de prevalentie en impact van autismespectrum wereldwijd',
+    'stats.prevalence': 'Wereldwijde Prevalentie',
+    'stats.prevalenceDesc': 'Ongeveer 1 op de 36 kinderen wordt gediagnosticeerd met ASS volgens CDC-gegevens (2023)',
+    'stats.worldwide': 'Mensen Wereldwijd',
+    'stats.worldwideDesc': 'Naar schatting bevinden meer dan 78 miljoen mensen wereldwijd zich op het autismespectrum',
+    'stats.diagnosis': 'Meer Diagnoses',
+    'stats.diagnosisDesc': 'Mannen worden 4 keer vaker gediagnosticeerd dan vrouwen, maar dit verschil wordt kleiner',
+    'stats.support': 'Voordeel van Ondersteuning',
+    'stats.supportDesc': 'Vroege interventies verbeteren de kwaliteit van leven van autistische mensen aanzienlijk',
+    'stats.source': 'Bronnen: CDC (2023), WHO, Autism Speaks. Cijfers zijn schattingen gebaseerd op recent wetenschappelijk onderzoek.',
+
+    // Resources section
+    'resources.title': 'Hulpbronnen en Ondersteuning',
+    'resources.subtitle': 'Nuttige informatie om autisme beter te begrijpen en ondersteuning te vinden',
+    'resources.education': 'Educatie en Informatie',
+    'resources.educationDesc': 'Materialen om meer te leren over neurodiversiteit en autisme',
+    'resources.educationItem1': 'Boeken en wetenschappelijke artikelen over ASS',
+    'resources.educationItem2': 'Online cursussen over neurodiversiteit',
+    'resources.educationItem3': 'Documentaires en audiovisuele content',
+    'resources.community': 'Gemeenschap en Verbinding',
+    'resources.communityDesc': 'Maak contact met andere mensen en gezinnen',
+    'resources.communityItem1': 'Online en persoonlijke ondersteuningsgroepen',
+    'resources.communityItem2': 'Autistische volwassenengemeenschappen',
+    'resources.communityItem3': 'Familie- en verzorgersnetwerken',
+    'resources.professional': 'Professionele Ondersteuning',
+    'resources.professionalDesc': 'Begeleiding voor het zoeken naar gespecialiseerde hulp',
+    'resources.professionalItem1': 'Psychologen gespecialiseerd in ASS',
+    'resources.professionalItem2': 'Psychiaters met autisme-ervaring',
+    'resources.professionalItem3': 'Ergotherapeuten en logopedisten',
+    'resources.strategies': 'Dagelijkse Strategieën',
+    'resources.strategiesDesc': 'Praktische tips om de kwaliteit van leven te verbeteren',
+    'resources.strategiesItem1': 'Organisatie- en routinetechnieken',
+    'resources.strategiesItem2': 'Sensorische regulatiestrategieën',
+    'resources.strategiesItem3': 'Sociale communicatietools',
     
     // Questions with new answer structure (all 80 questions in Dutch)
     'question.1': 'Op een werkvergadering maakt je collega een grap waar iedereen om lacht, maar je begrijpt niet waarom het grappig is.',
@@ -2112,6 +2377,59 @@ const translations: Record<Language, TranslationKeys> = {
     'language.spanish': 'Español',
     'language.dutch': 'Nederlands',
     'language.german': 'Deutsch',
+
+    // FAQ section
+    'faq.title': 'Häufig gestellte Fragen',
+    'faq.subtitle': 'Antworten zum Autismus-Spektrum und unserer Bewertung',
+    'faq.q1': 'Was ist eine Autismus-Spektrum-Störung (ASS)?',
+    'faq.a1': 'ASS ist eine neurologische Entwicklungsstörung, die soziale Kommunikation, Verhalten und sensorische Verarbeitung beeinflusst. Es wird "Spektrum" genannt, weil es sich bei jeder Person sehr unterschiedlich manifestiert.',
+    'faq.q2': 'Kann dieser Test bei mir Autismus diagnostizieren?',
+    'faq.a2': 'Nein. Dies ist ein Werkzeug zur Selbsterkenntnis und Unterhaltung. Nur qualifizierte Fachleute (spezialisierte Psychologen oder Psychiater) können eine formelle Autismusdiagnose stellen.',
+    'faq.q3': 'Was sind die häufigsten Anzeichen von Autismus bei Erwachsenen?',
+    'faq.a3': 'Einige Anzeichen umfassen: Schwierigkeiten in der sozialen Kommunikation, Vorliebe für Routinen, intensive und spezifische Interessen, sensorische Empfindlichkeiten und unterschiedliche Arten der Informationsverarbeitung.',
+    'faq.q4': 'Ist es möglich, autistisch zu sein und es nicht zu wissen?',
+    'faq.a4': 'Ja, viele Menschen entdecken im Erwachsenenalter, dass sie autistisch sind, besonders Frauen und Menschen, die ihr Leben lang soziale Tarnstrategien entwickelt haben.',
+    'faq.q5': 'Was soll ich tun, wenn ich vermute, dass ich autistisch bin?',
+    'faq.a5': 'Wir empfehlen, eine Bewertung bei einem auf Autismus spezialisierten Fachmann zu suchen. In der Zwischenzeit können Sie mehr über das Thema erfahren und sich mit Unterstützungsgemeinschaften verbinden.',
+    'faq.q6': 'Ist Autismus heilbar?',
+    'faq.a6': 'Autismus ist keine Krankheit, daher gibt es keine "Heilung". Es ist eine andere Form neurologischer Funktion. Der Fokus sollte auf Unterstützung, Akzeptanz und Kompetenzentwicklung liegen.',
+
+    // Statistics section
+    'stats.title': 'Autismus in Zahlen',
+    'stats.subtitle': 'Wichtige Daten zur Prävalenz und Auswirkung des Autismus-Spektrums weltweit',
+    'stats.prevalence': 'Weltweite Prävalenz',
+    'stats.prevalenceDesc': 'Etwa 1 von 36 Kindern wird laut CDC-Daten (2023) mit ASS diagnostiziert',
+    'stats.worldwide': 'Menschen Weltweit',
+    'stats.worldwideDesc': 'Es wird geschätzt, dass mehr als 78 Millionen Menschen weltweit im Autismus-Spektrum sind',
+    'stats.diagnosis': 'Mehr Diagnosen',
+    'stats.diagnosisDesc': 'Männer werden 4-mal häufiger diagnostiziert als Frauen, aber dieser Unterschied nimmt ab',
+    'stats.support': 'Nutzen der Unterstützung',
+    'stats.supportDesc': 'Frühe Interventionen verbessern die Lebensqualität autistischer Menschen erheblich',
+    'stats.source': 'Quellen: CDC (2023), WHO, Autism Speaks. Zahlen sind Schätzungen basierend auf aktueller wissenschaftlicher Forschung.',
+
+    // Resources section
+    'resources.title': 'Ressourcen und Unterstützung',
+    'resources.subtitle': 'Nützliche Informationen zum besseren Verständnis von Autismus und zur Unterstützung',
+    'resources.education': 'Bildung und Information',
+    'resources.educationDesc': 'Materialien um mehr über Neurodiversität und Autismus zu lernen',
+    'resources.educationItem1': 'Bücher und wissenschaftliche Artikel über ASS',
+    'resources.educationItem2': 'Online-Kurse über Neurodiversität',
+    'resources.educationItem3': 'Dokumentationen und audiovisuelle Inhalte',
+    'resources.community': 'Gemeinschaft und Verbindung',
+    'resources.communityDesc': 'Verbinden Sie sich mit anderen Menschen und Familien',
+    'resources.communityItem1': 'Online- und persönliche Selbsthilfegruppen',
+    'resources.communityItem2': 'Autistische Erwachsenengemeinschaften',
+    'resources.communityItem3': 'Familien- und Betreuernetzwerke',
+    'resources.professional': 'Professionelle Unterstützung',
+    'resources.professionalDesc': 'Anleitung zur Suche nach spezialisierter Hilfe',
+    'resources.professionalItem1': 'Auf ASS spezialisierte Psychologen',
+    'resources.professionalItem2': 'Psychiater mit Autismus-Erfahrung',
+    'resources.professionalItem3': 'Ergotherapeuten und Logopäden',
+    'resources.strategies': 'Alltägliche Strategien',
+    'resources.strategiesDesc': 'Praktische Tipps zur Verbesserung der Lebensqualität',
+    'resources.strategiesItem1': 'Organisations- und Routinetechniken',
+    'resources.strategiesItem2': 'Sensorische Regulationsstrategien',
+    'resources.strategiesItem3': 'Soziale Kommunikationswerkzeuge',
     
     // Questions with new answer structure (all 80 questions in German)
     'question.1': 'In einem Arbeitsmeeting macht dein Kollege einen Witz, über den alle lachen, aber du verstehst nicht, warum es lustig ist.',
