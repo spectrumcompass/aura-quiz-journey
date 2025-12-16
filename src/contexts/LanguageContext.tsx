@@ -212,6 +212,20 @@ interface TranslationKeys {
   'assessment.finish': string;
   'assessment.backToHome': string;
   
+  // Consent dialog
+  'consent.title': string;
+  'consent.description': string;
+  'consent.deny': string;
+  'consent.allow': string;
+  'consent.deniedTitle': string;
+  'consent.deniedDescription': string;
+  'consent.allowedTitle': string;
+  'consent.allowedDescription': string;
+  'consent.saveError': string;
+  'consent.saveErrorDescription': string;
+  'consent.savedTitle': string;
+  'consent.savedDescription': string;
+  
   // Results
   'results.title': string;
   'results.subtitle': string;
@@ -403,6 +417,20 @@ const translations: Record<Language, TranslationKeys> = {
     'assessment.next': 'Próxima',
     'assessment.finish': 'Finalizar Avaliação',
     'assessment.backToHome': 'Voltar ao Início',
+    
+    // Consent dialog
+    'consent.title': 'Permitir uso anônimo dos seus dados?',
+    'consent.description': 'Suas respostas e resultados poderão ser utilizados apenas para pesquisa e aprimoramento do produto. Os dados são anônimos, confidenciais e armazenados com segurança. Nenhuma informação pessoal é compartilhada.',
+    'consent.deny': 'Não permitir',
+    'consent.allow': 'Permitir uso anônimo',
+    'consent.deniedTitle': 'Sem problemas',
+    'consent.deniedDescription': 'Você pode continuar normalmente. Seus dados não serão usados em pesquisas.',
+    'consent.allowedTitle': 'Obrigado!',
+    'consent.allowedDescription': 'Seu consentimento foi registrado. O uso será sempre anônimo, sigiloso e seguro.',
+    'consent.saveError': 'Erro ao salvar resultado',
+    'consent.saveErrorDescription': 'Não foi possível salvar o resultado no seu histórico.',
+    'consent.savedTitle': 'Resultado salvo!',
+    'consent.savedDescription': 'O resultado foi salvo no seu dashboard.',
     
     // Results
     'results.title': 'Resultado da Avaliação',
@@ -880,6 +908,20 @@ const translations: Record<Language, TranslationKeys> = {
     'assessment.finish': 'Finish Assessment',
     'assessment.backToHome': 'Back to Home',
     
+    // Consent dialog
+    'consent.title': 'Allow anonymous use of your data?',
+    'consent.description': 'Your responses and results may be used only for research and product improvement. The data is anonymous, confidential, and securely stored. No personal information is shared.',
+    'consent.deny': 'Do not allow',
+    'consent.allow': 'Allow anonymous use',
+    'consent.deniedTitle': 'No problem',
+    'consent.deniedDescription': 'You can continue normally. Your data will not be used in research.',
+    'consent.allowedTitle': 'Thank you!',
+    'consent.allowedDescription': 'Your consent has been recorded. Usage will always be anonymous, confidential, and secure.',
+    'consent.saveError': 'Error saving result',
+    'consent.saveErrorDescription': 'Could not save the result to your history.',
+    'consent.savedTitle': 'Result saved!',
+    'consent.savedDescription': 'The result has been saved to your dashboard.',
+    
     // Results
     'results.title': 'Assessment Results',
     'results.subtitle': 'Analysis based on your responses',
@@ -1356,6 +1398,20 @@ const translations: Record<Language, TranslationKeys> = {
     'assessment.finish': 'Finalizar Evaluación',
     'assessment.backToHome': 'Volver al Inicio',
     
+    // Consent dialog
+    'consent.title': '¿Permitir uso anónimo de sus datos?',
+    'consent.description': 'Sus respuestas y resultados podrán ser utilizados solo para investigación y mejora del producto. Los datos son anónimos, confidenciales y almacenados de forma segura. No se comparte información personal.',
+    'consent.deny': 'No permitir',
+    'consent.allow': 'Permitir uso anónimo',
+    'consent.deniedTitle': 'Sin problema',
+    'consent.deniedDescription': 'Puede continuar normalmente. Sus datos no serán usados en investigaciones.',
+    'consent.allowedTitle': '¡Gracias!',
+    'consent.allowedDescription': 'Su consentimiento ha sido registrado. El uso siempre será anónimo, confidencial y seguro.',
+    'consent.saveError': 'Error al guardar resultado',
+    'consent.saveErrorDescription': 'No se pudo guardar el resultado en su historial.',
+    'consent.savedTitle': '¡Resultado guardado!',
+    'consent.savedDescription': 'El resultado ha sido guardado en su panel.',
+    
     // Results
     'results.title': 'Resultados de la Evaluación',
     'results.subtitle': 'Análisis basado en tus respuestas',
@@ -1649,6 +1705,20 @@ const translations: Record<Language, TranslationKeys> = {
     'assessment.next': 'Volgende',
     'assessment.finish': 'Beoordeling Voltooien',
     'assessment.backToHome': 'Terug naar Home',
+    
+    // Consent dialog
+    'consent.title': 'Anoniem gebruik van uw gegevens toestaan?',
+    'consent.description': 'Uw antwoorden en resultaten mogen alleen worden gebruikt voor onderzoek en productverbetering. De gegevens zijn anoniem, vertrouwelijk en veilig opgeslagen. Er wordt geen persoonlijke informatie gedeeld.',
+    'consent.deny': 'Niet toestaan',
+    'consent.allow': 'Anoniem gebruik toestaan',
+    'consent.deniedTitle': 'Geen probleem',
+    'consent.deniedDescription': 'U kunt normaal doorgaan. Uw gegevens worden niet gebruikt voor onderzoek.',
+    'consent.allowedTitle': 'Bedankt!',
+    'consent.allowedDescription': 'Uw toestemming is geregistreerd. Het gebruik zal altijd anoniem, vertrouwelijk en veilig zijn.',
+    'consent.saveError': 'Fout bij opslaan resultaat',
+    'consent.saveErrorDescription': 'Kon het resultaat niet opslaan in uw geschiedenis.',
+    'consent.savedTitle': 'Resultaat opgeslagen!',
+    'consent.savedDescription': 'Het resultaat is opgeslagen in uw dashboard.',
     
     // Results
     'results.title': 'Beoordelingsresultaten',
@@ -2005,6 +2075,20 @@ const translations: Record<Language, TranslationKeys> = {
     'assessment.next': 'Nächste',
     'assessment.finish': 'Bewertung Beenden',
     'assessment.backToHome': 'Zurück zur Startseite',
+    
+    // Consent dialog
+    'consent.title': 'Anonyme Nutzung Ihrer Daten erlauben?',
+    'consent.description': 'Ihre Antworten und Ergebnisse dürfen nur für Forschung und Produktverbesserung verwendet werden. Die Daten sind anonym, vertraulich und sicher gespeichert. Es werden keine persönlichen Informationen geteilt.',
+    'consent.deny': 'Nicht erlauben',
+    'consent.allow': 'Anonyme Nutzung erlauben',
+    'consent.deniedTitle': 'Kein Problem',
+    'consent.deniedDescription': 'Sie können normal fortfahren. Ihre Daten werden nicht für Forschung verwendet.',
+    'consent.allowedTitle': 'Danke!',
+    'consent.allowedDescription': 'Ihre Zustimmung wurde registriert. Die Nutzung wird immer anonym, vertraulich und sicher sein.',
+    'consent.saveError': 'Fehler beim Speichern des Ergebnisses',
+    'consent.saveErrorDescription': 'Das Ergebnis konnte nicht in Ihrem Verlauf gespeichert werden.',
+    'consent.savedTitle': 'Ergebnis gespeichert!',
+    'consent.savedDescription': 'Das Ergebnis wurde in Ihrem Dashboard gespeichert.',
     
     // Results
     'results.title': 'Bewertungsergebnisse',

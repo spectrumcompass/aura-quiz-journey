@@ -93,13 +93,13 @@ const Assessment = () => {
         }
         toast({
           variant: "destructive",
-          title: "Erro ao salvar resultado",
-          description: "Não foi possível salvar o resultado no seu histórico.",
+          title: t('consent.saveError'),
+          description: t('consent.saveErrorDescription'),
         });
       } else if (user) {
         toast({
-          title: "Resultado salvo!",
-          description: "O resultado foi salvo no seu dashboard.",
+          title: t('consent.savedTitle'),
+          description: t('consent.savedDescription'),
         });
       }
     } catch (err) {
@@ -145,10 +145,9 @@ const Assessment = () => {
         <AlertDialog open={showConsentDialog} onOpenChange={setShowConsentDialog}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Permitir uso anônimo dos seus dados?</AlertDialogTitle>
+              <AlertDialogTitle>{t('consent.title')}</AlertDialogTitle>
               <AlertDialogDescription>
-                Suas respostas e resultados poderão ser utilizados apenas para pesquisa e aprimoramento do produto.
-                Os dados são anônimos, confidenciais e armazenados com segurança. Nenhuma informação pessoal é compartilhada.
+                {t('consent.description')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
@@ -157,24 +156,24 @@ const Assessment = () => {
                   setResearchConsent(false);
                   setShowConsentDialog(false);
                   toast({
-                    title: "Sem problemas",
-                    description: "Você pode continuar normalmente. Seus dados não serão usados em pesquisas.",
+                    title: t('consent.deniedTitle'),
+                    description: t('consent.deniedDescription'),
                   });
                 }}
               >
-                Não permitir
+                {t('consent.deny')}
               </AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => {
                   setResearchConsent(true);
                   setShowConsentDialog(false);
                   toast({
-                    title: "Obrigado!",
-                    description: "Seu consentimento foi registrado. O uso será sempre anônimo, sigiloso e seguro.",
+                    title: t('consent.allowedTitle'),
+                    description: t('consent.allowedDescription'),
                   });
                 }}
               >
-                Permitir uso anônimo
+                {t('consent.allow')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
@@ -231,10 +230,9 @@ const Assessment = () => {
       <AlertDialog open={showConsentDialog} onOpenChange={setShowConsentDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Permitir uso anônimo dos seus dados?</AlertDialogTitle>
+            <AlertDialogTitle>{t('consent.title')}</AlertDialogTitle>
             <AlertDialogDescription>
-              Suas respostas e resultados poderão ser utilizados apenas para pesquisa e aprimoramento do produto.
-              Os dados são anônimos, confidenciais e armazenados com segurança. Nenhuma informação pessoal é compartilhada.
+              {t('consent.description')}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -243,24 +241,24 @@ const Assessment = () => {
                 setResearchConsent(false);
                 setShowConsentDialog(false);
                 toast({
-                  title: "Sem problemas",
-                  description: "Você pode continuar normalmente. Seus dados não serão usados em pesquisas.",
+                  title: t('consent.deniedTitle'),
+                  description: t('consent.deniedDescription'),
                 });
               }}
             >
-              Não permitir
+              {t('consent.deny')}
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={() => {
                 setResearchConsent(true);
                 setShowConsentDialog(false);
                 toast({
-                  title: "Obrigado!",
-                  description: "Seu consentimento foi registrado. O uso será sempre anônimo, sigiloso e seguro.",
+                  title: t('consent.allowedTitle'),
+                  description: t('consent.allowedDescription'),
                 });
               }}
             >
-              Permitir uso anônimo
+              {t('consent.allow')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
